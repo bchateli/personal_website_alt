@@ -8,7 +8,7 @@ author: ["José Miguel MATEOS-RAMOS","Baptiste CHATELIER","Christian HAGER","Mus
 summary: "This paper present a new neural archicture for single target Integrated Sensing and Communications with limited labeled data. Published in IEEE ICMLCN 2024." 
 cover:
     image: "scenario.png"
-    alt: "Scneario"
+    alt: "Scenario"
     relative: false
 editPost:
     URL: "https://arxiv.org/pdf/2310.09940"
