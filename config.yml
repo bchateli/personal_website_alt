@@ -1,5 +1,5 @@
 baseURL: "https://bchateli.github.io" 
-title: Moritz-Maria von Igelfeld
+title: Baptiste CHATELIER
 paginate: 20
 theme: PaperMod
 
@@ -11,31 +11,40 @@ taxonomies:
 
 menu:
     main:
-        - name: Books
-          url: books/
-          weight: 1 
+        # - name: Books
+        #   url: books/
+        #   weight: 1 
+        
         - name: Papers
           url: papers/
-          weight: 2
-        - name: Courses
-          url: courses/
-          weight: 3
-        - name: Data
-          url: data/
-          weight: 4 
-        - name: Blog
-          url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
-          weight: 5
+          weight: 1
+
+        - name: Archive
+          url: /archive/
+          weights: 2
+
+        - name: Search
+          url: /search/
+          weights: 6
+
+        # - name: Courses
+        #   url: courses/
+        #   weight: 3
+        # - name: Data
+        #   url: data/
+        #   weight: 4 
+        # - name: Blog
+        #   url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
+        #   weight: 5
 
 params:
-    description: "I am a Professor of Philology at the Institute of Romance Philology in Regensburg, Germany. My research focuses mostly on Portuguese irregular verbs.
-consequat."
-    author: Moritz-Maria von Igelfeld
+    description: "Baptiste CHATELIER's personal website."
+    author: Baptiste CHATELIER
     # googleAnalyticsID: "G-XXXXX"
     DateFormat: "January 2006"
-    defaultTheme: light
-    hideFooter: false
-    disableThemeToggle: true
+    defaultTheme: dark
+    hideFooter: true
+    disableThemeToggle: false
     ShowShareButtons: false
     ShowReadingTime: false
     disableSpecial1stPost: true
@@ -53,45 +62,37 @@ consequat."
     math: true
     profileMode:
           enabled: true
-          title: Professor Dr von Igelfeld
-          subtitle: "Wilkommen! I am a Professor in the Institute of Romance Philology at the University of Regensburg, Germany. My research focuses specifically on Portuguese irregular verbs. I was a doctoral student of Professor Dr Dr Dr Dieter Vogelsang, in Munich, Germany, and later a doctoral student (second assistant) of Professor Walter Schoeffler-Henschell at the University of Wiesbaden, Germany."
-          imageUrl: "picture.jpeg"
-          imageWidth: 160
-          imageHeight: 160
-          imageTitle: Moritz-Maria von Igelfeld
+          title: Baptiste CHATELIER
+          subtitle: "I am a PhD canditate with the National Institute of Applied Sciences in Rennes, France ([INSA Rennes](https://www.insa-rennes.fr/)) and Mitsubishi Electric R&D Centre Europe ([MERCE](https://www.mitsubishielectric-rce.eu/)). My supervisors are [Luc Le MAGOAROU](https://www.mitsubishielectric-rce.eu/), [Vincent CORLAY](https://www.linkedin.com/in/vincent-corlay-b48001108/) and Matthieu [CRUSSIERE](https://www.linkedin.com/in/matthieu-crussiere-06646933/). My research focuses on the development of machine learning algorithms for the communication/localization convergence in future communication networks."
+          imageUrl: "avatar.jpg"
+          imageWidth: 154 
+          imageHeight: 205
+          imageTitle: Baptiste CHATELIER
           buttons:
-            - name: Books
-              url: books/
             - name: Papers
               url: papers/
-            - name: Courses
-              url: courses/
-            - name: Data
-              url: data/
-            - name: Tags
-              url: tags/
+            # - name: Courses
+            #   url: courses/
+            # - name: Data
+            #   url: data/
+            # - name: Tags
+            #   url: tags/
             - name: Archive
               url: archive/
-            - name: Blog
-              url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
-
+            - name: Search  
+              url: /search/  
+              weight: 6
+            # - name: Blog
+            #   url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
     socialIcons:
         - name: Email
-          url: mailto:moritz.maria.von.igelfeld@gmail.com
+          url: mailto:baptiste.chatelier@insa-rennes.fr
         - name: CV
-          url: cv.pdf
+          url: CV.pdf
         - name: Google Scholar
-          url: https://scholar.google.com/citations?user=cL23w-4AAAAJ
-        - name: Location
-          url: location/
-        - name: Office Hours
-          url: officehours/
+          url: https://scholar.google.com/citations?hl=fr&user=HIUZ-UkAAAAJ
         - name: GitHub
-          url: https://github.com/pmichaillat
-        - name: YouTube
-          url: https://www.youtube.com/@alexandermccallsmithoffici9000
-        - name: Twitter
-          url: https://twitter.com/McCallSmith
+          url: https://github.com/bchateli
 
     assets:
         disableHLJS: true
@@ -100,7 +101,7 @@ consequat."
         hiddenInList: false
         hiddenInSingle: true
     label:
-      text: "Moritz-Maria von Igelfeld"
+      text: "Baptiste CHATELIER"
       icon: favicon.ico
       iconHeight: 18
 
@@ -115,3 +116,9 @@ markup:
         endLevel: 2
         ordered: false
         startLevel: 2
+
+outputs:
+     home:
+         - HTML
+         - RSS
+         - JSON
