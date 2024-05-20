@@ -1,5 +1,5 @@
-baseURL: "https://bchateli.github.io" 
-# baseURL: "https://baptistechatelier.com" 
+# baseURL: "https://bchateli.github.io" 
+baseURL: "https://baptistechatelier.com" 
 title: Baptiste CHATELIER
 paginate: 20
 theme: PaperMod
