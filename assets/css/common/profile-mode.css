@@ -44,3 +44,7 @@
 .button:hover {
     background: var(--midpurple);
 }
+
+.post-content p {
+    text-align: justify;
+}
