@@ -8,7 +8,7 @@ author: ["Baptiste CHATELIER","Vincent CORLAY", "Matthieu CRUSSIERE", "Luc LE MA
 summary: "This paper studies the location-to-channel mapping learning in a multi-antenna multi-frequency setting. Preprint." 
 cover:
     image: "real_reconstruct.png"
-    alt: "Learned reconstructions"
+    alt: "Reconstructions"
     relative: false
 editPost:
     URL: "https://arxiv.org/pdf/2407.07719"
