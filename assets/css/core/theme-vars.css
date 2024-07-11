@@ -50,7 +50,3 @@
 .dark.list {
     background: var(--theme);
 }
-
-.post-content p {
-    text-align: justify;
-}
