@@ -30,7 +30,7 @@ Years of study of the propagation channel showed a close relation between a loca
 
 ---
 
-##### Figure 5: Real part of reconstructed channel over a $2.5$m by $2.5$m zone of $\texttt{D}_1$, for the central antenna and frequency ($N_a =64$, $N_s=64$), $\textsf{a}$: Ground Truth, $\textsf{b}$: MB-$\tilde{\mathbf{\Psi}}_{\mathbf{a}}$, $\textsf{c}$: RFF, $\textsf{d}$: MLP.
+##### Figure 5: Real part of reconstructed channel over a $2.5$m by $2.5$m zone.
 
 ![](real_reconstruct.png)
 
