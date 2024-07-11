@@ -61,6 +61,7 @@ params:
     UseHugoToc: true
     comments: false
     math: true
+    customCSS: ["/style.css"]
     profileMode:
           enabled: true
           title: Baptiste CHATELIER
