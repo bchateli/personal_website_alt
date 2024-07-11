@@ -42,6 +42,7 @@ params:
     description: "Baptiste CHATELIER's personal website."
     author: Baptiste CHATELIER
     # googleAnalyticsID: "G-XXXXX"
+    googleAnalyticsID: "G-BRN5NB7FFB"
     DateFormat: "January 2006"
     defaultTheme: dark
     hideFooter: true
