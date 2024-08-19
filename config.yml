@@ -92,8 +92,8 @@ params:
     socialIcons:
         - name: Email
           url: mailto:baptiste.chatelier@insa-rennes.fr
-        - name: CV
-          url: CV.pdf
+        # - name: CV
+        #   url: CV.pdf
         - name: Linkedin
           url: https://www.linkedin.com/in/baptiste-chatelier/
         - name: Google Scholar
