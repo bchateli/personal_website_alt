@@ -11,7 +11,7 @@ cover:
     alt: "Scenario"
     relative: false
 editPost:
-    URL: "https://arxiv.org/pdf/2310.09940"
+    URL: "https://ieeexplore.ieee.org/document/10624785"
     Text: "IEEE ICMLCN"
 
 ---
