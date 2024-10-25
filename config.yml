@@ -42,6 +42,7 @@ params:
     description: "Baptiste CHATELIER's personal website."
     author: Baptiste CHATELIER
     # googleAnalyticsID: "G-XXXXX"
+    googleAnalyticsID: "G-BRN5NB7FFB"
     DateFormat: "January 2006"
     defaultTheme: dark
     hideFooter: true
@@ -91,8 +92,8 @@ params:
     socialIcons:
         - name: Email
           url: mailto:baptiste.chatelier@insa-rennes.fr
-        - name: CV
-          url: CV.pdf
+        # - name: CV
+        #   url: CV.pdf
         - name: Linkedin
           url: https://www.linkedin.com/in/baptiste-chatelier/
         - name: Google Scholar

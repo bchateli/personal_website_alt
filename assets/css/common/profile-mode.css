@@ -10,6 +10,7 @@
     min-height: calc(100vh - var(--footer-height) - (var(--gap) * 2));
     font-size: var(--homesize);
     line-height: var(--lineheight);
+    text-align: justify;
 }
 
 .profile .profile_inner h1 {
@@ -19,8 +20,8 @@
 
 .profile img {
     display: inline-table;
-    border-radius: 50%;
-    border: 1px solid rgb(207, 207, 207);
+    border-radius: 3%;
+    border: 0px solid rgb(207, 207, 207);
 }
 
 .buttons {
