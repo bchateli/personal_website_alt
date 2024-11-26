@@ -5,7 +5,7 @@ lastmod: 2024-05-08
 # tags: ["philology","oleic science","history of oil","Mediterranean world"]
 author: ["Baptiste CHATELIER","Luc LE MAGOAROU","Getachew REDIETEAB"]
 # description: "This paper reviews the impact of phase noise on the array factor. Published in IEEE WCNC 2023" 
-summary: "This paper present an improved unfolded MP algorithm for SISO-OFDM channel estimation. Published in IEEE ICC 2023." 
+summary: "This paper presents an improved unfolded MP algorithm for SISO-OFDM channel estimation. Published in IEEE ICC 2023." 
 cover:
     image: "hierarchical_dict_diapo_base.png"
     alt: "Hierarchical atom search"
