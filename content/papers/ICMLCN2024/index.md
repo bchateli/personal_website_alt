@@ -3,7 +3,7 @@ title: "Semi-Supervised End-to-End Learning for Integrated Sensing and Communica
 date: 2024-05-01
 lastmod: 2024-05-08
 # tags: ["philology","oleic science","history of oil","Mediterranean world"]
-author: ["José Miguel MATEOS-RAMOS","Baptiste CHATELIER","Christian HAGER","Musa FURKAN KESKIN","Luc LE MAGOAROU","Henk Wymeersch"]
+author: ["José Miguel MATEOS-RAMOS","Baptiste CHATELIER","Christian HAGER","Musa FURKAN KESKIN","Luc LE MAGOAROU","Henk WYMEERSCH"]
 # description: "This paper reviews the impact of phase noise on the array factor. Published in IEEE WCNC 2023" 
 summary: "This paper present a new neural archicture for single target Integrated Sensing and Communications with limited labeled data. Published in IEEE ICMLCN 2024." 
 cover:
