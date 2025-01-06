@@ -11,7 +11,7 @@ cover:
     alt: "Proposed CSI compression method"
     relative: false
 editPost:
-    URL: "https://hal.science/hal-04835586/document"
+    URL: "https://arxiv.org/pdf/2501.01431"
     Text: "IEEE ASILOMAR"
 
 ---
@@ -20,7 +20,7 @@ editPost:
 
 ##### Download
 
-+ [Paper](https://hal.science/hal-04835586/document)
++ [Paper](https://arxiv.org/pdf/2501.01431)
 + [Slides](slides.pdf)
 
 ---
@@ -40,17 +40,14 @@ Reaping the benefits of multi-antenna communication systems in frequency divisio
 ##### Citation
 
 ```BibTeX
-@unpublished{chatelier:hal-04835586,
-  TITLE = {{CSI Compression using Channel Charting}},
-  AUTHOR = {Chatelier, Baptiste and Corlay, Vincent and Crussi{\`e}re, Matthieu and Le Magoarou, Luc},
-  URL = {https://hal.science/hal-04835586},
-  NOTE = {working paper or preprint},
-  YEAR = {2024},
-  MONTH = Dec,
-  KEYWORDS = {Channel charting ; Dimensionality reduction ; Machine learning ; CSI compression},
-  PDF = {https://hal.science/hal-04835586v1/file/main.pdf},
-  HAL_ID = {hal-04835586},
-  HAL_VERSION = {v1},
+@misc{chatelier2024csicompressionusingchannel,
+      title={CSI Compression using Channel Charting}, 
+      author={Baptiste Chatelier and Vincent Corlay and Matthieu Crussière and Luc Le Magoarou},
+      year={2024},
+      eprint={2501.01431},
+      archivePrefix={arXiv},
+      primaryClass={cs.IT},
+      url={https://arxiv.org/abs/2501.01431}, 
 }
 
 ```
