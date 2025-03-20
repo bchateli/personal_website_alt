@@ -5,14 +5,14 @@ lastmod: 2024-06-17
 # tags: ["philology","oleic science","history of oil","Mediterranean world"]
 author: ["Baptiste CHATELIER","Vincent CORLAY", "Matthieu CRUSSIERE", "Luc LE MAGOAROU"]
 # description: "This paper reviews the impact of phase noise on the array factor. Published in IEEE WCNC 2023" 
-summary: "This paper studies the location-to-channel mapping learning in a multi-antenna multi-frequency setting. Preprint." 
+summary: "This paper studies the location-to-channel mapping learning in a multi-antenna multi-frequency setting. Published in IEEE Journal of Selected Topics in Signal Processing." 
 cover:
     image: "real_reconstruct_with_freq.png"
     alt: "Reconstructions"
     relative: false
 editPost:
     URL: "https://arxiv.org/pdf/2407.07719"
-    Text: "Published in IEEE Journal of Selected Topics in Signal Processing"
+    Text: "IEEE JSTSP"
 
 ---
 
