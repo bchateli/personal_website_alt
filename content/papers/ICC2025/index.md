@@ -12,7 +12,7 @@ cover:
     relative: false
 editPost:
     URL: "https://arxiv.org/pdf/2411.15144"
-    Text: "preprint"
+    Text: "Acceped to IEEE ICC."
 
 ---
 

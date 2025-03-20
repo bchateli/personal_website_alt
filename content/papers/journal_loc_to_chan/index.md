@@ -7,12 +7,12 @@ author: ["Baptiste CHATELIER","Vincent CORLAY", "Matthieu CRUSSIERE", "Luc LE MA
 # description: "This paper reviews the impact of phase noise on the array factor. Published in IEEE WCNC 2023" 
 summary: "This paper studies the location-to-channel mapping learning in a multi-antenna multi-frequency setting. Preprint." 
 cover:
-    image: "real_reconstruct.png"
+    image: "real_reconstruct_with_freq.png"
     alt: "Reconstructions"
     relative: false
 editPost:
     URL: "https://arxiv.org/pdf/2407.07719"
-    Text: "Preprint"
+    Text: "Published in IEEE Journal of Selected Topics in Signal Processing"
 
 ---
 
@@ -32,7 +32,7 @@ Years of study of the propagation channel showed a close relation between a loca
 
 ##### Figure 5: Real part of reconstructed channel over a $2.5$m by $2.5$m zone.
 
-![](real_reconstruct.png)
+![](real_reconstruct_with_freq.png)
 
 ---
 
