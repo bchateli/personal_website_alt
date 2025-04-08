@@ -11,7 +11,7 @@ cover:
     alt: "Proposed CSI compression method"
     relative: false
 editPost:
-    URL: "https://arxiv.org/pdf/2501.01431"
+    URL: "https://ieeexplore.ieee.org/document/10942729"
     Text: "IEEE ASILOMAR"
 
 ---
@@ -40,15 +40,17 @@ Reaping the benefits of multi-antenna communication systems in frequency divisio
 ##### Citation
 
 ```BibTeX
-@misc{chatelier2024csicompressionusingchannel,
-      title={CSI Compression using Channel Charting}, 
-      author={Baptiste Chatelier and Vincent Corlay and Matthieu Crussière and Luc Le Magoarou},
-      year={2024},
-      eprint={2501.01431},
-      archivePrefix={arXiv},
-      primaryClass={cs.IT},
-      url={https://arxiv.org/abs/2501.01431}, 
-}
+@INPROCEEDINGS{10942729,
+  author={Chatelier, Baptiste and Corlay, Vincent and Crussiére, Matthieu and Le Magoarou, Luc},
+  booktitle={2024 58th Asilomar Conference on Signals, Systems, and Computers}, 
+  title={CSI Compression Using Channel Charting}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1660-1664},
+  keywords={Dimensionality reduction;Computers;Base stations;Communication systems;Buildings;Frequency conversion;Channel state information;Antennas;Synthetic data;Channel charting;Dimensionality reduction;Machine learning;CSI compression},
+  doi={10.1109/IEEECONF60004.2024.10942729}}
+
 
 ```
 

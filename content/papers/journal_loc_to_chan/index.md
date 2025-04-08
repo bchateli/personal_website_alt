@@ -11,7 +11,7 @@ cover:
     alt: "Reconstructions"
     relative: false
 editPost:
-    URL: "https://arxiv.org/pdf/2407.07719"
+    URL: "https://ieeexplore.ieee.org/document/10924768"
     Text: "IEEE JSTSP"
 
 ---
@@ -39,15 +39,18 @@ Years of study of the propagation channel showed a close relation between a loca
 ##### Citation
 
 ```BibTeX
-@misc{chatelier2024modelbasedlearningmultiantennamultifrequency,
-      title={Model-based learning for multi-antenna multi-frequency location-to-channel mapping}, 
-      author={Baptiste Chatelier and Vincent Corlay and Matthieu Crussière and Luc Le Magoarou},
-      year={2024},
-      eprint={2407.07719},
-      archivePrefix={arXiv},
-      primaryClass={cs.IT},
-      url={https://arxiv.org/abs/2407.07719}, 
+@ARTICLE{10924768,
+  author={Chatelier, Baptiste and Corlay, Vincent and Crussière, Matthieu and Le Magoarou, Luc},
+  journal={IEEE Journal of Selected Topics in Signal Processing}, 
+  title={Model-Based Learning for Multi-Antenna Multi-Frequency Location-to-Channel Mapping}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-16},
+  keywords={Computer architecture;Neural networks;Machine learning;Signal processing;Channel estimation;Training;Channel models;Adaptation models;Complexity theory;Channel impulse response;Model-based machine learning;implicit neural representations;spectral bias;sparse representation;MIMO},
+  doi={10.1109/JSTSP.2025.3549952}
 }
+
 ```
 
 ---
