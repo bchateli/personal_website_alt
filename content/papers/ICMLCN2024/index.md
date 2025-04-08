@@ -49,7 +49,8 @@ Integrated sensing and communications (ISAC) is envisioned as one of the key ena
   number={},
   pages={132-138},
   keywords={Wireless communication;Transmitters;Supervised learning;Symbols;Receivers;Radar;Semisupervised learning;Hardware impairments;integrated sensing and communication;joint radar and communication;model-based learning;semi-supervised learning},
-  doi={10.1109/ICMLCN59089.2024.10624785}}
+  doi={10.1109/ICMLCN59089.2024.10624785}
+}
 ```
 
 ---
