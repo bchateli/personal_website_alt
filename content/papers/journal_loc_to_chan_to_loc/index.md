@@ -1,7 +1,7 @@
 ---
 title: "Model-based Neural Data Augmentation for sub-wavelength Radio Localization" 
-date: 2024-06-17
-lastmod: 2024-06-17
+date: 2025-06-05
+lastmod: 2025-06-05
 # tags: ["philology","oleic science","history of oil","Mediterranean world"]
 author: ["Baptiste CHATELIER","Vincent CORLAY","Musa FURKAN KESKIN","Matthieu CRUSSIERE","Henk WYMEERSCH","Luc LE MAGOAROU"]
 # description: "This paper reviews the impact of phase noise on the array factor. Published in IEEE WCNC 2023" 
