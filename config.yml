@@ -12,17 +12,9 @@ taxonomies:
 
 menu:
     main:
-        # - name: Books
-        #   url: books/
-        #   weight: 1 
-        
         - name: Papers
           url: papers/
           weight: 1
-
-        # - name: Archive
-          # url: /archive/
-          # weights: 2
 
         - name: Alumni
           url: /alumni/
@@ -30,22 +22,11 @@ menu:
 
         - name: Search
           url: /search/
-          weights: 6
-
-        # - name: Courses
-        #   url: courses/
-        #   weight: 3
-        # - name: Data
-        #   url: data/
-        #   weight: 4 
-        # - name: Blog
-        #   url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
-        #   weight: 5
+          weights: 3
 
 params:
     description: "Baptiste CHATELIER's personal website."
     author: Baptiste CHATELIER
-    # googleAnalyticsID: "G-XXXXX"
     googleAnalyticsID: "G-BRN5NB7FFB"
     DateFormat: "January 2006"
     defaultTheme: dark
@@ -80,19 +61,11 @@ params:
           buttons:
             - name: Papers
               url: papers/
-            # - name: Courses
-            #   url: courses/
-            # - name: Data
-            #   url: data/
-            # - name: Tags
-            #   url: tags/
-            - name: Archive
-              url: archive/
+            - name: Alumni
+              url: alumni/
             - name: Search  
               url: search/  
-              weight: 6
-            # - name: Blog
-            #   url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
+              weight: 3
     socialIcons:
         - name: Email
           url: mailto:baptiste.chatelier@insa-rennes.fr
