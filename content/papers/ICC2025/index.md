@@ -21,7 +21,7 @@ editPost:
 ##### Download
 
 + [Paper](https://arxiv.org/pdf/2411.15144)
-<!-- + [Slides](slides.pdf) -->
++ [Slides](slides.pdf)
 
 ---
 
