@@ -24,6 +24,10 @@ menu:
           url: /archive/
           weights: 2
 
+        - name: Alumni
+          url: /alumni/
+          weights: 3
+          
         - name: Search
           url: /search/
           weights: 6
