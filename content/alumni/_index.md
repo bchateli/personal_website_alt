@@ -2,6 +2,7 @@
 title: "Alumni"
 description: "Past students"
 ---
+<div style="text-align: left;">
 
 ## 2025 
 - Maëlia Moreno (B.Sc. 1st year internship): Developments of subspace methods visualizations tools.
@@ -10,3 +11,5 @@ description: "Past students"
 
 ## 2024
 - Imane Assoum (M.Sc. research internship): Model-based learning for 1D passband signal interpolation.
+
+</div>
