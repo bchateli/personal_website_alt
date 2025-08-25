@@ -2,7 +2,7 @@
 title: "Alumni"
 description: "Past students"
 ---
-<div style="text-align: left;">
+<div style="text-align: justify;">
 
 ## 2025 
 - Maëlia Moreno (B.Sc. 1st year internship): Developments of subspace methods visualizations tools.
