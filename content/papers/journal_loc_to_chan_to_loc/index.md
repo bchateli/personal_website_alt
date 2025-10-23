@@ -1,5 +1,5 @@
 ---
-title: "Model-based Neural Data Augmentation for sub-wavelength Radio Localization" 
+title: "Model-based Implicit Neural Representation for sub-wavelength Radio Localization" 
 date: 2025-06-05
 lastmod: 2025-06-05
 # tags: ["philology","oleic science","history of oil","Mediterranean world"]
