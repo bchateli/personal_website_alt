@@ -39,8 +39,8 @@ The increasing deployment of large antenna arrays at base stations has significa
 ##### Citation
 
 ```BibTeX
-@misc{chatelier2025modelbasedneuraldataaugmentation,
-      title={Model-based Neural Data Augmentation for sub-wavelength Radio Localization}, 
+@misc{chatelier2025modelbasedimplicitneuralrepresentation,
+      title={Model-based Implicit Neural Representation for sub-wavelength Radio Localization}, 
       author={Baptiste Chatelier and Vincent Corlay and Musa Furkan Keskin and Matthieu Crussière and Henk Wymeersch and Luc Le Magoarou},
       year={2025},
       eprint={2506.06387},
