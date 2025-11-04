@@ -65,6 +65,8 @@ params:
           buttons:
             - name: Papers
               url: papers/
+            - name: Talks
+              url: talks/
             - name: Alumni
               url: alumni/
             - name: Search  
