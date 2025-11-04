@@ -65,13 +65,16 @@ params:
           buttons:
             - name: Papers
               url: papers/
+              weight: 1
             - name: Talks
               url: talks/
+              weight: 2
             - name: Alumni
               url: alumni/
+              weight: 3
             - name: Search  
               url: search/  
-              weight: 3
+              weight: 4
     socialIcons:
         - name: Email
           url: mailto:baptiste.chatelier@insa-rennes.fr
