@@ -26,7 +26,7 @@ menu:
 
         - name: Search
           url: /search/
-          weights: 4
+          weights: 10
 
 params:
     description: "Baptiste CHATELIER's personal website."
@@ -56,7 +56,7 @@ params:
           title: Baptiste CHATELIER
           subtitle: "I am a PhD canditate with the National Institute of Applied Sciences in Rennes, France [(_INSA Rennes_)](https://www.insa-rennes.fr/graduate-school-of-engineering.html) and Mitsubishi Electric R&D Centre Europe [(_MERCE_)](https://www.mitsubishielectric-rce.eu/). My supervisors are [__Luc Le MAGOAROU__](https://luclemagoarou.netlify.app/), [__Vincent CORLAY__](https://www.linkedin.com/in/vincent-corlay-b48001108/) and [__Matthieu CRUSSIERE__](https://www.linkedin.com/in/matthieu-crussiere-06646933/). My research interests include signal processing, applied mathematics and machine learning for wireless communication systems."
           # imageUrl: "avatar.jpg"
-          imageUrl: "avatar_new.jpg"
+          imageUrl: "avatar_new_cropped.jpg"
           # imageWidth: 154 
           # imageHeight: 205
           imageWidth: 180
