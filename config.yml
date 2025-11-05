@@ -20,13 +20,13 @@ menu:
           url: /talks/
           weights: 2
 
-        - name: Alumni
-          url: /alumni/
-          weights: 3
+        # - name: Alumni
+        #   url: /alumni/
+        #   weights: 3
 
-        - name: Search
-          url: /search/
-          weights: 10
+        # - name: Search
+        #   url: /search/
+        #   weights: 10
 
 params:
     description: "Baptiste CHATELIER's personal website."
