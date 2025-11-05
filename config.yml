@@ -14,15 +14,15 @@ menu:
     main:
         - name: Papers
           url: papers/
-          weight: 1
+          # weight: 1
 
         - name: Talks
           url: /talks/
-          weights: 2
+          # weights: 2
 
         - name: Alumni
           url: /alumni/
-          weights: 3
+          # weights: 3
 
         # - name: Search
         #   url: /search/
