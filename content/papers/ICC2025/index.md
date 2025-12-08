@@ -5,14 +5,14 @@ lastmod: 2024-11-12
 # tags: ["philology","oleic science","history of oil","Mediterranean world"]
 author: ["Baptiste CHATELIER","José Miguel MATEOS-RAMOS","Vincent CORLAY","Christian HAGER","Matthieu CRUSSIERE","Henk WYMEERSCH","Luc LE MAGOAROU"]
 # description: "This paper reviews the impact of phase noise on the array factor. Published in IEEE WCNC 2023" 
-summary: "This paper presents a differentiable MUSIC model to perform joint DoA and harwdare impairments mitigation. Submitted to IEEE ICC 2025." 
+summary: "This paper presents a differentiable MUSIC model to perform joint DoA and harwdare impairments mitigation. Accepted to IEEE ICC 2025." 
 cover:
     image: "MUSIC_hardware_impairments.png"
     alt: "MUSIC_with_HWI"
     relative: false
 editPost:
     URL: "https://arxiv.org/pdf/2411.15144"
-    Text: "preprint"
+    Text: "IEEE ICC."
 
 ---
 
@@ -21,7 +21,7 @@ editPost:
 ##### Download
 
 + [Paper](https://arxiv.org/pdf/2411.15144)
-<!-- + [Slides](slides.pdf) -->
++ [Slides](slides.pdf)
 
 ---
 

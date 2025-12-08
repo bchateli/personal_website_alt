@@ -12,36 +12,25 @@ taxonomies:
 
 menu:
     main:
-        # - name: Books
-        #   url: books/
-        #   weight: 1 
-        
         - name: Papers
           url: papers/
           weight: 1
 
-        - name: Archive
-          url: /archive/
+        - name: Talks
+          url: /talks/
           weights: 2
 
-        - name: Search
-          url: /search/
-          weights: 6
+        - name: Alumni
+          url: /alumni/
+          weights: 10
 
-        # - name: Courses
-        #   url: courses/
-        #   weight: 3
-        # - name: Data
-        #   url: data/
-        #   weight: 4 
-        # - name: Blog
-        #   url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
-        #   weight: 5
+        # - name: Search
+        #   url: /search/
+        #   weights: 10
 
 params:
     description: "Baptiste CHATELIER's personal website."
     author: Baptiste CHATELIER
-    # googleAnalyticsID: "G-XXXXX"
     googleAnalyticsID: "G-BRN5NB7FFB"
     DateFormat: "January 2006"
     defaultTheme: dark
@@ -67,7 +56,7 @@ params:
           title: Baptiste CHATELIER
           subtitle: "I am a PhD canditate with the National Institute of Applied Sciences in Rennes, France [(_INSA Rennes_)](https://www.insa-rennes.fr/graduate-school-of-engineering.html) and Mitsubishi Electric R&D Centre Europe [(_MERCE_)](https://www.mitsubishielectric-rce.eu/). My supervisors are [__Luc Le MAGOAROU__](https://luclemagoarou.netlify.app/), [__Vincent CORLAY__](https://www.linkedin.com/in/vincent-corlay-b48001108/) and [__Matthieu CRUSSIERE__](https://www.linkedin.com/in/matthieu-crussiere-06646933/). My research interests include signal processing, applied mathematics and machine learning for wireless communication systems."
           # imageUrl: "avatar.jpg"
-          imageUrl: "avatar_cropped.jpg"
+          imageUrl: "avatar_new_cropped.png"
           # imageWidth: 154 
           # imageHeight: 205
           imageWidth: 180
@@ -76,19 +65,16 @@ params:
           buttons:
             - name: Papers
               url: papers/
-            # - name: Courses
-            #   url: courses/
-            # - name: Data
-            #   url: data/
-            # - name: Tags
-            #   url: tags/
-            - name: Archive
-              url: archive/
+              weight: 1
+            - name: Talks
+              url: talks/
+              weight: 2
+            - name: Alumni
+              url: alumni/
+              weight: 3
             - name: Search  
               url: search/  
-              weight: 6
-            # - name: Blog
-            #   url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
+              weight: 4
     socialIcons:
         - name: Email
           url: mailto:baptiste.chatelier@insa-rennes.fr
