@@ -6,7 +6,7 @@ description: "Past students"
 
 ## 2026
 
-- **Erwan Jamet** (M.Sc. reserach internship): Hardware impairments compensation for efficient jamming signal generation.
+- **Erwan Jamet** (M.Sc. research internship): Hardware impairments compensation for efficient jamming signal generation.
 
 ## 2025 
 - **Maëlia Moreno** (B.Sc. 1st year internship): Development of vizualization tools for subspace methods.
