@@ -54,7 +54,7 @@ params:
     profileMode:
           enabled: true
           title: Baptiste CHATELIER
-          subtitle: "I am a PhD canditate with the National Institute of Applied Sciences in Rennes, France [(_INSA Rennes_)](https://www.insa-rennes.fr/graduate-school-of-engineering.html) and Mitsubishi Electric R&D Centre Europe [(_MERCE_)](https://www.mitsubishielectric-rce.eu/). My supervisors are [__Luc Le MAGOAROU__](https://luclemagoarou.netlify.app/), [__Vincent CORLAY__](https://www.linkedin.com/in/vincent-corlay-b48001108/) and [__Matthieu CRUSSIERE__](https://www.linkedin.com/in/matthieu-crussiere-06646933/). My research interests include signal processing, applied mathematics and machine learning for wireless communication systems."
+          subtitle: "I am currently a Postdoctoral Fellow at the National Institute of Applied Sciences in Rennes, France [(_INSA Rennes_)](https://www.insa-rennes.fr/graduate-school-of-engineering.html). Prior to that , I obtained my PhD from INSA Rennes, with funding from Mitsubishi Electric R&D Centre Europe [(_MERCE_)](https://www.mitsubishielectric-rce.eu/), and supervision from [__Luc Le MAGOAROU__](https://luclemagoarou.netlify.app/), [__Vincent CORLAY__](https://www.linkedin.com/in/vincent-corlay-b48001108/) and [__Matthieu CRUSSIERE__](https://www.linkedin.com/in/matthieu-crussiere-06646933/). My research interests include signal processing, applied mathematics and machine learning for wireless communication systems."
           # imageUrl: "avatar.jpg"
           imageUrl: "avatar_new_cropped.png"
           # imageWidth: 154 
