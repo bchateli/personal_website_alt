@@ -4,6 +4,10 @@ description: "Past students"
 ---
 <div style="text-align: justify;">
 
+## 2026
+
+- **Erwan Jamet** (M.Sc. reserach internship): Hardware impairments compensation for efficient jamming signal generation.
+
 ## 2025 
 - **Maëlia Moreno** (B.Sc. 1st year internship): Development of vizualization tools for subspace methods.
 - **Elias Naciri** (M.Sc. research internship): Model-based learning for channel charting aided localization.
