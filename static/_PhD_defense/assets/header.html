@@ -1,0 +1,108 @@
+
+    <link rel="stylesheet" href="https://fonts.googleapis .com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap">
+    <style>
+      body, h1, h2, h3, h4, h5, h6, .reveal p, .reveal li, .reveal a {
+        font-family: 'Source Sans Pro', sans-serif !important;
+      }
+      .title-slide h1 {
+        font-size: 80px;
+        margin-bottom: 0.3em;
+      }
+      .title-slide h3 {
+        font-size: 48px;
+        margin-top: 0.2em;
+        margin-bottom: 0.2em;
+      }
+      .title-slide h4 {
+        font-size: 32px;
+        margin-top: 0.2em;
+      }
+      hr {
+        border: none;
+        border-top: 3px solid #333;
+        margin: 1em 0;
+      }
+
+    </style>
+
+    <script>
+      MathJax = {
+          tex: {
+          tags: "all",
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          processEnvironments: true,
+          packages: {'[+]': ['boldsymbol','base','ams']},
+          macros: {
+              mini: [
+            '\\begin{aligned} & \\mathop{\\mathrm{minimize}}_{#1} && #2 \\\\ & \\text{such that} && #3 \\end{aligned}',
+              3
+              ],
+              argmax: ["\\underset{#1}{\\textnormal{arg max }}", 1],
+              argmin: ["\\underset{#1}{\\textnormal{arg min }}", 1],
+              simil: ["\\textnormal{sim}\\left( #1 \\right)", 1],
+
+              esp: ["\\mathbb{E}\\left[ #1 \\right]", 1],
+              espo: ["\\mathbb{E}_{#2}\\left[ #1 \\right]", 2],
+              abs: ["\\left\\lvert #1 \\right\\rvert", 1],
+              norm: ["\\left\\lVert #1 \\right\\rVert_{#2}", 2],
+
+              mbbC : ["\\mathbb{C}"],
+              mbbR : ["\\mathbb{R}"],
+              mbbZ : ["\\mathbb{Z}"],
+              mbbN : ["\\mathbb{N}"],
+
+              bR : ["\\mathbf{R}"],
+              bY : ["\\mathbf{Y}"],
+              bP : ["\\mathbf{P}"],
+              bA : ["\\mathbf{A}"],
+              bH : ["\\mathbf{H}"],
+              bS : ["\\mathbf{S}"],
+              bN : ["\\mathbf{N}"],
+              bW : ["\\mathbf{W}"],
+
+              bGamma : ["\\boldsymbol{\\Gamma}"],
+              bPhi : ["\\boldsymbol{\\Phi}"],
+              bPi: ["\\boldsymbol{\\Pi}"],
+              bPsi: ["\\boldsymbol{\\Psi}"],
+
+              bzeta: ["\\boldsymbol{\\zeta}"],
+              btheta: ["\\boldsymbol{\\theta}"],
+              bpsi: ["\\boldsymbol{\\psi}"],
+              bphi: ["\\boldsymbol{\\phi}"],
+              btau : ["\\boldsymbol{\\tau}"],
+              balpha: ["\\boldsymbol{\\alpha}"],
+
+              ba: ["\\mathbf{a}"],
+              bu: ["\\mathbf{u}"],
+              bf: ["\\mathbf{f}"],
+              bw: ["\\mathbf{w}"],
+              bx: ["\\mathbf{x}"],
+              bz: ["\\mathbf{z}"],
+              by : ["\\mathbf{y}"],
+              bn : ["\\mathbf{n}"],
+              be: ["\\mathbf{e}"],
+              bh : ["\\mathbf{h}"],
+              bs : ["\\mathbf{s}"],
+
+              mcI : ["\\mathcal{I}"],
+              mcD : ["\\mathcal{D}"],
+              mcV : ["\\mathcal{V}"],
+
+              llbracket: ["\\mathopen{[\\![}", 0],
+              rrbracket: ["\\mathclose{]\\!]}", 0],
+              ftheta : ["f_{\\boldsymbol{\\theta}}"],
+              gtheta : ["g_{\\boldsymbol{\\theta}}"],
+              transp: ["{\\mkern-1.5mu\\mathsf{T}}"],
+              herm: ["{\\mathsf{H}}"]
+          }
+          },
+          loader: {
+          load: ['[tex]/boldsymbol']
+          }
+      };
+      </script>
+
+
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>

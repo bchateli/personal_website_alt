@@ -1,0 +1,733 @@
+
+### MEASUREMENTS STRUCTURE
+
+::: {.fragment data-fragment-index=1}
+- In many communication problems, the measured signals $\simeq$ **noisy linear measurements** of the channel $\bh$:
+
+  ::: {.fragment data-fragment-index=2}
+  - parameterized by *__<span class="mplsteelblue">channel parameters</span>__ (DoAs, delays...)*
+  :::
+
+  ::: {.fragment data-fragment-index=3}
+  - modeled as a linear combination of *__<span class="mplsteelblue">atomic channels</span>__ (steering vectors, frequency response vectors...)*
+  :::
+
+  ::: {.fragment data-fragment-index=4}
+  - impacted by *__<span class="mplsteelblue">system parameters</span>__ (antenna parameters, clock parameters...)*
+  :::
+:::
+
+::: {.columns}
+
+::: {.column width=40%}
+
+::: {.centered-svg}
+
+<img src="images/hwi/measurements_model_1.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=1
+      height="500"/>
+
+<img src="images/hwi/measurements_model_2.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=2
+      height="500"/>
+
+<img src="images/hwi/measurements_model_3.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=3
+      height="500"/>
+
+<img src="images/hwi/measurements_model_4.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=4
+      height="500"/>
+
+<img src="images/hwi/measurements_model_4.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=5
+      height="500"/>
+
+<img src="images/hwi/measurements_model_4.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=6
+      height="500"/>
+
+<img src="images/hwi/measurements_model_5.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=7
+      height="500"/>
+
+<img src="images/hwi/measurements_model_5.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=8
+      height="500"/>
+
+:::
+
+:::
+::: {.column width=60%}
+
+::: {.info-box .fragment data-fragment-index=5}
+
+- Recover **all** the <span class="mplsteelblue">channel parameters</span> (channel estimation/denoising)
+  <div style= "margin-left: 2em">$\rightarrow$ $\bPsi_{\bzeta}\left(\bphi\right) \bs$ </div> 
+
+::: {.fragment data-fragment-index=6}
+- Recover **part of** the <span class="mplsteelblue">channel parameters</span> (DoA/delay/gains estimation) 
+  <div style= "margin-left: 2em">$\rightarrow$ $\bphi$, $\bs$  </div> 
+:::
+
+:::
+
+::: {.info-box-red  .fragment data-fragment-index=7}
+
+- In actual systems, <span class="alr">HWIs impact the system response</span>
+
+:::{style="align-items: center; justify-content: center; text-align: center;"}
+
+$\bzeta^{\star}$ unknown $\Rightarrow\bPsi_{\bzeta^{\star}} \left(\bphi\right)$ unknown
+
+:::
+
+$\bzeta$: system parameters
+
+:::
+
+:::
+:::
+
+::: {.overlay-fragment .fragment data-fragment-index=8}
+
+::: {.overlay-box}
+
+How to **learn** the true system parameters $\bzeta^{\star}$?
+
+:::
+
+:::
+
+
+::: {.slide-footnote}
+
+::: {.fragment data-fragment-index=2}
+DoA : Direction of Arrival
+:::
+
+::: {.fragment data-fragment-index=7}
+HWIs : Hardware impairments
+:::
+
+:::
+
+---
+
+### CHANNEL ESTIMATION (SISO-OFDM)
+
+- Received signal: noisy linear combination of frequency response vectors
+<div style= "margin-top: -.5em"></div>
+  - channel parameters: **propagation delays** $\rightarrow \textcolor{#4682B4}{\bphi = \btau}$
+
+<div style= "margin-top: -1em"></div>
+
+$$
+\begin{align}
+  \by &= \bh + \bn\\
+  & = \sum_{l=1}^{L_p} \alpha_l \bpsi_{\bzeta} \left(\tau_l\right) + \bn
+\end{align}
+$$
+
+::: {.fragment .overlay-fragment .instant-replace-overlay}
+
+::: {.info-box-sienna}
+
+<span class="mplsienna">Problem 3.3.1: MB-ML for channel estimation</span>
+
+$$
+\mini{\ftheta}{\espo{\norm{\textcolor{#B22222}{\ftheta\left(\by\right)}-\bh}{2}^2}{\left(\by, \bh \right) \sim p_{\by,\bh}}}{\ftheta \in \mathcal{H}}
+$$
+
+where:
+
+$$
+\begin{aligned}
+    \textcolor{#B22222}{\ftheta} \colon  \mbbC^{N_s} &\longrightarrow \mbbC^{N_s}\\
+    \by  &\longrightarrow  \hat{\bh}
+\end{aligned}
+$$
+
+- **Goal**: find $\textcolor{#B22222}{\ftheta}$
+- **Error measure**: channel estimation error ($\ell_2$ norm)
+
+:::
+
+:::
+
+
+::: {.info-box .fragment}
+
+- Sparse recovery allows precise estimation if system parameters $\bzeta$ are [perfectly known]{.alg}:
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment}
+$$
+\text{Dictionary}: \bPsi_{\bzeta} = \left( \bpsi_{\bzeta}\left(\tau_1\right), \cdots, \bpsi_{\bzeta}\left(\tau_A\right) \right)
+$$
+:::
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment}
+- Solve:
+
+<div style= "margin-top: -1em"></div>
+
+$$
+\mini{\bu}{\norm{\bPsi_{\bzeta}\bu - \by }{2}}{\norm{\bu}{0}\leq A}
+$$
+
+:::
+
+<div style= "margin-top: -1em"></div>
+
+:::
+
+::: {.fragment .info-box-red}
+- <span class="alr">Uncertain system parameters $\Rightarrow$ Imperfect dictionary $\Rightarrow$ Sub-optimal performance</span>
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment}
+-  System parameters: **gains**, **clock parameters**
+:::
+
+:::
+
+
+::: {.overlay-fragment .fragment}
+
+::: {.questionbox}
+
+::: {.questionbox-title}
+
+**MB-ML paradigm application**
+
+:::
+
+
+Use the physical channel model to <span class="alg">__*structure*__</span> and <span class="alg">__*initialize*__</span> a neural network that learns HWIs.
+
+:::
+
+:::
+
+
+---
+
+### MB-ML APPROACH: mpNet
+
+-  <span class="alg">Unfolded version</span> of the Matching Pursuit sparse recovery algorithm
+   -  Dictionary of frequency response vectors (*variants for MIMO, MIMO-OFDM systems*)
+
+::: {.fragment .centered-svg data-fragment-index=1}
+
+<img
+     src="images/hwi/mpNet.svg"
+     width="1700"
+     height="auto"/>
+
+:::
+
+<div style= "margin-top: -.8em"></div>
+
+::: {.fragment .info-box data-fragment-index=2}
+
+- **Initialization:** same behavior as the classical MP algorithm
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment data-fragment-index=3}
+- **Training:** learn system parameters $\bzeta$ <span class="alg">$\rightarrow$ $\abs{\bzeta}$ small ($2N_s+1 = 513$ here) </span>
+:::
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment data-fragment-index=4}
+- **Optimization:** avoid the full correlation $\bPsi_{\bzeta}^\herm \by$ using a divide-and-conquer approach
+:::
+<div style= "margin-top: -.8em"></div>
+
+:::
+
+
+::: {.slide-footnote}
+
+T. Yassine and L. Le Magoarou, "*mpNet: Variable Depth Unfolded Neural Network for Massive MIMO Channel Estimation*", in *IEEE TWC*, 2O22
+
+B. Chatelier, L. Le Magoarou and G. Redieteab, "*Efficient Deep Unfolding for SISO-OFDM Channel Estimation*", in *IEEE ICC*, 2023
+
+N. Klaimi, A. Bedoui, C. Elvira, P. Mary and L. Le Magoarou, "*Model-based learning for joint channel estimation and hybrid MIMO precoding*", in *IEEE SPAWC*, 2025
+
+::: {.fragment data-fragment-index=3}
+$N_s$: number of frequencies
+:::
+
+:::
+---
+
+### RESULTS
+
+::: {.slide-footnote}
+
+B. Chatelier, L. Le Magoarou and G. Redieteab, "*Efficient Deep Unfolding for SISO-OFDM Channel Estimation*", in *IEEE ICC*, 2023
+
+:::
+
+::: {.centered-svg}
+
+<img
+     src="images/hwi/mpNet_results.svg"
+     width="auto"
+     height="900"/>
+
+
+:::
+
+<div style= "margin-top: -2em"></div>
+
+- Convergence to the perfect MB performance (known system parameters), in $400$ channels
+
+::: {.overlay-fragment .fragment data-fragment-index=9}
+
+::: {.overlay-box}
+
+<span class="alg">$1000$x reduction</span> of learnable params., <span class="alg">$100$x reduction</span> of inference time
+
+:::
+
+:::
+
+---
+
+### DOA ESTIMATION
+
+::: {.slide-footnote}
+D. H. Shmuel, J. P. Merkofer, G. Revach, R. J. G. van Sloun, N. Shlezinger "*SubspaceNet: Deep Learning-Aided Subspace Methods for DoA Estimation*" in *IEEE TVT*, 2025
+
+*DoA: Direction of Arrival*
+:::
+
+- Received signal: noisy linear combination of steering vectors
+<div style= "margin-top: -.5em"></div>
+  - channel parameters: **DoAs**
+
+$$
+\bY = \bA_{\bzeta}\left(\bphi\right) \bS + \bN
+$$
+
+::: {.fragment}
+- System parameters: **antenna locations/gains** 
+:::
+
+::: {.fragment .overlay-fragment .instant-replace-overlay}
+
+::: {.info-box-sienna}
+
+<span class="mplsienna">Problem 3.3.2: MB-ML for DoA estimation</span>
+
+$$
+\mini{\ftheta}{\espo{\mu\left(\textcolor{#B22222}{\ftheta\left(\bY\right)},\bphi\right)}{\left(\bY, \bphi \right) \sim p_{\bY,\bphi}}}{\ftheta \in \mathcal{H}}
+$$
+
+where:
+
+$$
+\begin{aligned}
+    \textcolor{#B22222}{\ftheta} \colon  \mbbC^{N_a \times T} &\longrightarrow \left[-\pi/2, \pi/2\right]^{M}\\
+    \bY  &\longrightarrow  \hat{\bphi}
+\end{aligned}
+$$
+
+- **Goal**: find $\textcolor{#B22222}{\ftheta}$
+- **Error measure**: angular estimation error ($\mu \rightarrow$ RMSPE)
+
+:::
+
+:::
+
+<div style= "margin-top: -.5em"></div>
+
+
+::: {.info-box .fragment}
+- MB approach: use of subspace methods $\rightarrow$ MUltiple SIgnal Classification (MUSIC)
+
+<img src="images/hwi/MUSIC_synoptic_1.svg"
+     class = "fragment instant-replace"
+     style="margin-top:-.5em;"
+     width="auto"
+     height="500"/>
+
+<img src="images/hwi/MUSIC_synoptic_2.svg"
+     class = "fragment instant-replace"
+     style="margin-top:-.5em;"
+     width="auto"
+     height="500"/>
+
+<img src="images/hwi/MUSIC_synoptic_3.svg"
+     class = "fragment instant-replace"
+     style="margin-top:-.5em;"
+     width="auto"
+     height="500"/>
+
+<img src="images/hwi/MUSIC_synoptic_4.svg"
+     class = "fragment instant-replace"
+     style="margin-top:-.5em;"     
+     width="auto"
+     height="500"/>
+
+<img src="images/hwi/MUSIC_synoptic_5.svg"
+     class = "fragment instant-replace"
+     style="margin-top:-.5em;"
+     width="auto"
+     height="500"/>
+
+:::
+
+---
+
+### MUSIC: ILLUSTRATION
+
+
+::: {.fragment .instant-replace data-fragment-index=1}
+::: {.centered-svg}
+
+<video
+  data-autoplay
+  loop
+  controls
+  width="auto"
+  height="900"
+  src="images/hwi/MUSIC_principles_physical.mp4"
+></video>
+
+:::
+
+- MUSIC spectrum peaks at DoAs
+:::
+
+::: {.slide-footnote .fragment .instant-replace data-fragment-index=2}
+*DoA: Direction of Arrival*
+:::
+
+::: {.fragment .instant-replace data-fragment-index=2}
+::: {.centered-svg}
+
+<video
+  data-autoplay
+  loop
+  controls
+  width="auto"
+  height="900"
+  src="images/hwi/MUSIC_principles_physical.mp4"
+></video>
+
+:::
+
+- MUSIC spectrum peaks at DoAs
+:::
+
+
+::: {.fragment .overlay-fragment .instant-replace-overlay data-fragment-index=2}
+
+<!-- ::: {.info-box-red} -->
+::: {.overlay-box}
+
+What happens when the system parameters $\bzeta$ are <span class="alr">not perfectly known</span>?
+
+:::
+
+:::
+
+::: {.fragment data-fragment-index=3}
+
+::: {.centered-svg}
+
+<video
+  data-autoplay
+  loop
+  controls
+  width="auto"
+  height="900"
+  src="images/hwi/MUSIC_principles_both.mp4"
+></video>
+
+:::
+
+- Attenuated and offsetted MUSIC spectrum peaks with inaccurate $\bzeta$
+
+:::
+
+::: {.overlay-fragment .fragment data-fragment-index=4}
+
+::: {.questionbox}
+
+::: {.questionbox-title}
+
+**MB-ML paradigm application**
+
+:::
+
+
+Use the physical channel model to <span class="alg">__*structure*__</span> and <span class="alg">__*initialize*__</span> a learning method for the HWIs.
+
+:::
+
+:::
+
+---
+
+### MB-ML APPROACH: diffMUSIC
+
+::: {.slide-footnote}
+B. Chatelier, J. M. Mateos-Ramos, V. Corlay, C. Häger, M. Crussière, H. Wymeersch, L. Le Magoarou, “*Physically Parameterized Differentiable MUSIC for DoA Estimation with Uncalibrated Arrays*”, in *IEEE ICC*, 2025
+
+::: {.fragment data-fragment-index=8}
+A. Gast, L. Le Magoarou, N. Shlezinger "*Near Field Localization via AI-Aided Subspace Methods*", 2025
+:::
+
+::: {.fragment data-fragment-index=7}
+*$N_a$: number of antennas*
+:::
+
+:::
+
+
+::: {.fragment .instant-replace data-fragment-index=1}
+
+::: {.info-box}
+**Idea:**
+
+Leverage gradient descent to solve:
+
+<div style= "margin-top: -1em"></div>
+
+$$
+\mini{\bzeta}{\espo{\mu\left(\hat{\bphi}\left(\bY \vert \bzeta\right),\bphi\right)}{\left(\bY, \bphi \right) \sim p_{\bY,\bphi}}}{\bzeta \in \mathcal{H}_{\bzeta}}
+$$
+
+<div style= "margin-top: -1em"></div>
+
+<!-- with $\hat{\bphi}\left(\bY \vert \bzeta\right)$ being the output of MUSIC. -->
+
+:::
+
+:::
+
+::: {.overlay-fragment .fragment .instant-replace-overlay data-fragment-index=2}
+
+::: {.info-box-red}
+**Problem:**
+
+The peak-finding method breaks gradient flow $\rightarrow$ <span class="alr">MUSIC is non-differentiable wrt. $\bzeta$</span>
+
+:::{style="align-items: center; justify-content: center; text-align: center;"}
+
+**How to overcome this issue?**
+
+:::
+
+:::
+:::
+
+<img src="images/hwi/diffMUSIC_synoptic_loss_1.svg"
+      class="fragment instant-replace"
+      data-fragment-index=3
+      height="600"/>
+
+<img src="images/hwi/diffMUSIC_synoptic_loss_2.svg"
+      class="fragment instant-replace"
+      data-fragment-index=4
+      height="600"/>
+
+<img src="images/hwi/diffMUSIC_synoptic_loss_3.svg"
+      class="fragment instant-replace"
+      data-fragment-index=5
+      height="600"/>
+
+<img src="images/hwi/diffMUSIC_synoptic_loss_3.svg"
+      class="fragment instant-replace"
+      data-fragment-index=6
+      height="600"/>
+
+<img src="images/hwi/diffMUSIC_synoptic_loss_3.svg"
+      class="fragment instant-replace"
+      data-fragment-index=7
+      height="600"/>
+
+<img src="images/hwi/diffMUSIC_synoptic_loss_3.svg"
+      class="fragment instant-replace"
+      data-fragment-index=8
+      height="600"/>
+
+<div style= "margin-top: 1em"></div>
+
+::: {.fragment data-fragment-index=6}
+
+::: {.info-box}
+
+- **Initialization:** Limited by the inaccurate $\bzeta$
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment data-fragment-index=7}
+- **Training:** Learn system parameters $\bzeta$ <span class="alg">$\rightarrow$ $\abs{\bzeta}$ small ($3 N_a = 48$ here) </span>
+:::
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment data-fragment-index=8}
+- **Optimization:** Task-specific supervised loss function, with theoretical performance guarantees
+:::
+<div style= "margin-top: -.5em"></div>
+
+:::
+
+:::
+
+
+---
+
+### RESULTS
+
+::: {.slide-footnote}
+B. Chatelier, J. M. Mateos-Ramos, V. Corlay, C. Häger, M. Crussière, H. Wymeersch, L. Le Magoarou, “*Physically Parameterized Differentiable MUSIC for DoA Estimation with Uncalibrated Arrays*”, in *IEEE ICC*, 2025
+:::
+
+<div style= "margin-top: -1em"></div>
+
+::: {.centered-svg}
+
+<img src="images/hwi/RMSPE_vs_SNR_prez.svg"
+      width="auto"
+      height="880"/>
+
+:::
+
+<div style= "margin-top: -2em"></div>
+
+- The MB-ML network reaches the perfect MB performance (known system parameters)
+
+
+::: {.overlay-fragment .fragment data-fragment-index=9}
+
+::: {.overlay-box}
+
+<span class="alg">$60\%$ reduction</span> in estimation error for $5$ sources
+
+:::
+
+:::
+
+
+---
+
+### RESULTS: MB-ML TRAINING DYNAMICS
+
+
+::: {.slide-footnote}
+B. Chatelier, J. M. Mateos-Ramos, V. Corlay, C. Häger, M. Crussière, H. Wymeersch, L. Le Magoarou, “*Physically Parameterized Differentiable MUSIC for DoA Estimation with Uncalibrated Arrays*”, in *IEEE ICC*, 2025
+:::
+
+<div style= "margin-top: -1em"></div>
+
+::: {.centered-svg}
+
+<img src="images/hwi/array_initial_final_1.svg"
+      style="margin-top: 5em; margin-left: 1em"
+      class="fragment instant-replace"
+      height="575"/>
+
+<img src="images/hwi/array_initial_final_2.svg"
+      style="margin-top: 5em; margin-left: 1em"
+      class="fragment instant-replace"
+      height="575"/>
+
+<img src="images/hwi/array_initial_final_3.svg"
+      style="margin-top: 5em; margin-left: 1em"
+      class="fragment instant-replace"
+      height="575"/>
+
+<img src="images/hwi/array_initial_final_4.svg"
+      style="margin-top: 5em; margin-left: 1em"
+      class="fragment instant-replace"
+      height="575"/>
+
+<img src="images/hwi/array_initial_final_5.svg"
+      style="margin-top: 5em; margin-left: 1em"
+      class="fragment instant-replace"
+      height="575"/>
+
+<img src="images/hwi/array_initial_final_6.svg"
+      style="margin-top: 5em; margin-left: 1em"
+      class="fragment instant-replace"
+      height="575"/>
+
+:::
+
+
+::: {.fragment .instant-replace}
+
+::: {.centered-svg}
+
+<video
+  data-autoplay
+  loop
+  controls
+  width="auto"
+  height="880"
+  src="images/hwi/array_evolution.mp4"
+></video>
+
+:::
+
+- Learned $\bzeta$ converges to true system parameters
+
+
+:::
+
+::: {.fragment}
+
+::: {.centered-svg}
+
+<video
+  data-autoplay
+  loop
+  controls
+  width="auto"
+  height="880"
+  src="images/hwi/MUSIC_learned_spectrum.mp4"
+></video>
+
+:::
+
+- Peaks of the learned spectrum at the correct locations
+
+
+:::
+
+---
+
+### KEY TAKEAWAYS
+
+::: {.incremental}
+- [HWIs impact the performance]{.alr} of many model-based methods
+- MB-ML can be leveraged to <span class="alg">**structure**</span> and <span class="alg">**initialize**</span> learning methods for the system parameters impacted by HWIs
+- This approach was used to:
+  - Learn **antenna gains and clock offsets** in channel denoising
+  - Learn **antenna gains and locations** in DoA estimation
+:::
+
+::: {.slide-footnote}
+*HWIs: Hardware impairments*
+
+*DoA: Direction of Arrival*
+:::

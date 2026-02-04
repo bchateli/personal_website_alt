@@ -1,0 +1,255 @@
+
+### MODEL-BASED MACHINE LEARNING: MOTIVATIONS
+
+Typical data processing setting:
+<p style="margin-top: -.5em;">
+
+::: {.fragment fragment-index=1}
+- We observe a large number of correlated variables, explained by a small number of independent factors.
+:::
+
+<!-- ::: aside
+
+::: {.fragment data-fragment-index=1}
+
+G. Peyré, “*Manifold models for signals and images*”, in *Computer Vision and Image Understanding*, 2009
+
+<div style= "margin-top: -.5em"></div>
+
+M. Elad, "*Sparse and Redundant Representations: From Theory to Applications in Signal and Image Processing*", *Springer*, 2010
+
+
+:::
+::: -->
+
+::: {.slide-footnote .fragment .fade-in fragment-index=1}
+G. Peyré, “*Manifold models for signals and images*”, in *Computer Vision and Image Understanding*, 2009
+
+M. Elad, "*Sparse and Redundant Representations: From Theory to Applications in Signal and Image Processing*", *Springer*, 2010
+
+::: {.fragment data-fragment-index=8}
+Nir Shlezinger, Yonina C. Eldar, "*Model-Based Deep Learning*", *Foundations and Trends in Signal Processing*, 2023
+:::
+:::
+
+::: {.overlay-fragment .fragment .instant-replace-overlay fragment-index=2}
+::: {.overlay-box}
+
+<img src="images/intro/manifold_intro_1.svg"
+       width="900"
+       height= "auto"/>
+
+:::
+:::
+
+::: {.overlay-fragment .fragment .instant-replace-overlay fragment-index=3}
+::: {.overlay-box}
+
+<img src="images/intro/manifold_intro_2.svg"
+       width="900"
+       height= "auto"/>
+
+:::
+:::
+
+::: {.overlay-fragment .fragment .instant-replace-overlay fragment-index=4}
+::: {.overlay-box}
+
+<img src="images/intro/manifold_intro_3.svg"
+       width="900"
+       height= "auto"/>
+
+:::
+:::
+
+::: {.fragment fragment-index=5}
+<p style="margin-top: -.5em;">There are two complementary approaches to handle this situation:</p>
+:::
+
+::: {.columns}
+
+::: {.column width="50%" .fragment fragment-index=6}
+- **Signal processing**
+  - Model-based
+  - <span class="alr">Large bias</span>
+  - <span class="alg">Low complexity</span>
+:::
+
+::: {.column width="50%" .fragment fragment-index=7}
+- **AI / ML**
+  - Data-based
+  - [Low bias]{.alg}
+  - [High complexity]{.alr}
+:::
+
+:::
+
+
+::: {.info-box .fragment data-fragment-index=8}
+**Hybrid approach <span class="alg"> $\rightarrow$ *model-based machine learning*</span>**
+
+Use models to <span class="mplsteelblue">__*structure*__</span>, <span class="mplsteelblue">__*initialize*__</span> or <span class="mplsteelblue">__*optimize*__</span> learning methods
+:::
+
+::: {.incremental}
+- Make models more flexible: reduce bias of signal processing methods
+- Guide machine learning methods: reduce their complexity
+:::
+
+<!-- ::: {.overlay-fragment .fragment}
+::: {.overlay-box}
+**Can the MB-ML paradigm be used to provide *interpretable* and *low-complexity* solutions to challenging wireless communication problems?**
+:::
+::: -->
+
+
+::: {.overlay-fragment .fragment}
+::: {.questionbox style="--qbox-width: 80%;" .justified}
+
+::: {.questionbox-title}
+**Thesis problematic**
+:::
+
+**Can MB-ML be used to get *<span class="alg">interpretable</span>* and *<span class="alg">low-complexity</span>* solutions in wireless communications?**
+:::
+:::
+
+---
+
+### OUR WORK
+
+- Investigate the MB-ML framework for wireless communication problems
+
+::: {.columns}
+
+::: {.column width=50%}
+
+::: {.questionbox-red .fragment fragment-index=1  style="--qbox-width: 75%;"}
+
+::: {.questionbox-red-title}
+**Research axes**
+:::
+
+::: {.fragment fragment-index=1}
+(<span class="mplfirebrick">A1</span>) **Location-to-channel mapping**
+:::
+
+
+::: {.fragment fragment-index=5}
+(<span class="mplfirebrick">A2</span>) **Hardware impairments**
+:::
+
+::: {.fragment fragment-index=9}
+(<span class="mplfirebrick">A3</span>) **Channel compression**
+:::
+
+:::
+
+:::
+
+::: {.column width=50%}
+
+<img
+     src="images/scientific_intro/loc2_chan_illustration_1.svg"
+     class="fragment instant-replace centered-svg"
+     data-fragment-index=1
+     width="1800"
+     height="auto"/>
+
+
+<img
+     src="images/scientific_intro/loc2_chan_illustration_2.svg"
+     class="fragment instant-replace centered-svg"
+     data-fragment-index=2
+     width="1800"
+     height="auto"/>
+
+<img
+     src="images/scientific_intro/loc2_chan_illustration_3.svg"
+     class="fragment instant-replace centered-svg"
+     data-fragment-index=3
+     width="1800"
+     height="auto"/>
+
+
+<img
+     src="images/scientific_intro/loc2_chan_illustration_4.svg"
+     class="fragment instant-replace centered-svg"
+     data-fragment-index=4
+     width="1800"/>
+
+
+
+
+
+
+<img
+     src="images/scientific_intro/HWI_illustration_1.svg"
+     class="fragment instant-replace centered-svg"
+     data-fragment-index=5
+     width="1800"
+     height="auto"/>
+
+
+<img
+     src="images/scientific_intro/HWI_illustration_2.svg"
+     class="fragment instant-replace centered-svg"
+     data-fragment-index=6
+     width="1800"
+     height="auto"/>
+
+<img
+     src="images/scientific_intro/HWI_illustration_3.svg"
+     class="fragment instant-replace centered-svg"
+     data-fragment-index=7
+     width="1800"
+     height="auto"/>
+
+<img
+     src="images/scientific_intro/HWI_illustration_4.svg"
+     class="fragment instant-replace centered-svg"
+     data-fragment-index=8
+     width="1800"
+     height="auto"/>
+
+
+
+<img
+     src="images/scientific_intro/CSI_illustration_1.svg"
+     class="fragment instant-replace centered-svg"
+     data-fragment-index=9
+     width="1200"
+     height="auto"/>
+
+<img
+     src="images/scientific_intro/CSI_illustration_2.svg"
+     class="fragment instant-replace centered-svg"
+     data-fragment-index=10
+     width="1200"
+     height="auto"/>
+
+<img
+     src="images/scientific_intro/CSI_illustration_3.svg"
+     class="fragment instant-replace centered-svg"
+     data-fragment-index=11
+     width="1200"
+     height="auto"/>
+
+<img
+     src="images/scientific_intro/CSI_illustration_4.svg"
+     class="fragment instant-replace centered-svg"
+     data-fragment-index=12
+     width="1200"
+     height="auto"/>
+
+<img
+     src="images/scientific_intro/CSI_illustration_5.svg"
+     class="fragment instant-replace centered-svg"
+     data-fragment-index=13
+     width="1200"
+     height="auto"/>
+
+
+:::
+
+:::

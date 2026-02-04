@@ -1,0 +1,485 @@
+### CSI COMPRESSION IN FDD SYSTEMS
+
+::: {.slide-footnote}
+
+T. Yassine, B. Chatelier, V. Corlay, M. Crussière, S. Paquelet, O. Tirkkonen, L. Le Magoarou, "*Model-Based Deep Learning for Beam Prediction Based on a Channel Chart*" in *IEEE ASILOMAR*, 2023
+
+B. Chatelier, V. Corlay, M. Crussière, L. Le Magoarou, "*CSI Compresion using Channel Charting*" in *IEEE ASILOMAR*, 2024
+
+*CSI: Channel State Information*
+
+*FDD: Frequency Division Duplex*
+
+:::
+
+<!-- ::: aside
+B. Chatelier, V. Corlay, M. Crussière, L. Le Magoarou, "*CSI Compresion using Channel Charting*" in *IEEE ASILOMAR*, 2024
+
+<div style= "margin-top: -.5em"></div>
+
+::: {.fragment data-fragment-index=7}
+T. Yassine, B. Chatelier, V. Corlay, M. Crussière, S. Paquelet, O. Tirkkonen, L. Le Magoarou, "*Model-Based Deep Learning for Beam Prediction Based on a Channel Chart*" in *IEEE ASILOMAR*, 2023
+
+:::
+
+::: -->
+
+- Classical beamforming methods rely on the full CSI knowledge <span class="alr">$\rightarrow$ challenging in FDD systems</span>
+
+::: {.fragment data-fragment-index=6}
+
+::: {.info-box}
+
+- Idea:  <span class="alg">encode</span> the CSI at the UE side and <span class="alg">decode</span> it at the BS side
+
+<div style= "margin-top: -.5em"></div>
+
+:::
+:::
+
+::: {.centered-svg}
+
+<img src="images/cc/CSI_compression_1.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=1
+      height="600"/>
+
+<img src="images/cc/CSI_compression_2.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=2
+      height="600"/>
+
+<img src="images/cc/CSI_compression_3.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=3
+      height="600"/>
+
+<img src="images/cc/CSI_compression_4.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=4
+      height="600"/>
+
+<img src="images/cc/CSI_compression_5.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=5
+      height="600"/>
+
+<img src="images/cc/CSI_compression_principle_1.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=7
+      height="600"/>
+
+<img src="images/cc/CSI_compression_principle_2.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=8
+      height="600"/>
+
+<img src="images/cc/CSI_compression_principle_3.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=9
+      height="600"/>
+
+<img src="images/cc/CSI_compression_principle_4.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=10
+      height="600"/>
+
+:::
+
+<div style= "margin-top: -.25em"></div>
+
+::: {.fragment data-fragment-index=5 .instant-replace}
+
+::: {.info-box-red}
+
+- High $N_a N_s$ in modern systems $\rightarrow$ <span class="alr">costly reporting procedure</span>
+
+<div style= "margin-top: -.25em"></div>
+
+:::
+:::
+
+::: {.overlay-fragment .fragment data-fragment-index=11}
+
+::: {.info-box-sienna}
+
+<span class="mplsienna">Problem 3.4: MB-ML for task-oriented CSI compression</span>
+
+$$
+\mini{f_{\btheta_{\textsf{e}}}, \text{ } g_{\btheta_{\textsf{d}}}}{\espo{ \mu\left(\left(\textcolor{#4682B4}{g_{\btheta_\textsf{d}}} \circ \textcolor{#B22222}{f_{\btheta_\textsf{e}}}\right) \left(\bh\right), \bH \right) }{\bH \sim p_{\bH}}}{\left(f_{\btheta_\textsf{e}},g_{\btheta_\textsf{d}}\right) \in \mathcal{H}}
+$$
+
+where:
+$$
+\begin{aligned}
+    \textcolor{#B22222}{f_{\btheta_\textsf{e}}} \colon  \mbbC^{D} &\longrightarrow  \mbbR^d\\
+    \bh  &\longrightarrow  \bz
+\end{aligned}
+$$
+
+and:
+
+$$
+\begin{aligned}
+    \textcolor{#4682B4}{g_{\btheta_\textsf{d}}} \colon \mbbR^d \times \cdots \times \mbbR^d &\longrightarrow  \mbbC^{D\times K}\\
+    \left\{ \bz_1, \cdots, \bz_K \right\} &\longrightarrow \bW
+\end{aligned}
+$$
+
+- **Goal**: find $\textcolor{#B22222}{f_{\btheta_\textsf{e}}}$, $\textcolor{#4682B4}{g_{\btheta_\textsf{d}}}$
+- **Error measure**: beamforming-based $\rightarrow \mu$
+
+
+:::
+
+:::
+
+---
+
+### ENCODING: CHANNEL CHARTING
+
+::: {.slide-footnote .fragment data-fragment-index=1}
+P. Ferrand, M. Guillaud, C. Studer and O. Tirkkonen, "*Wireless Channel Charting: Theory, Practice, and Applications*", in *IEEE Commun. Mag.*, 2023
+:::
+
+- How to encode channels?
+
+::: {.info-box .fragment data-fragment-index=1}
+
+**Channel charting:** dimensionality reduction method that preserves local neighborhoods
+
+:::
+
+::: {.columns}
+
+::: {.column width=40%}
+<div style= "margin-top: .5em"></div>
+
+::: {.fragment}
+- Channel $\bh_i \in \mbbC^D$
+:::
+
+::: {.fragment}
+- Pseudo-loc. $\bz_i = \textsf{E}\left(\bh_i\right) \in \mbbR^d$
+<div style= "margin-left: 2em">$\rightarrow$  <span class="alg">$d = 2\ll D = 1024$</span> </div> 
+
+:::
+
+::: {.fragment}
+- Channel charting objective:
+$$
+\norm{\bx_i - \bx_j}{2} \simeq \gamma \norm{\bz_i - \bz_j}{2}
+$$
+
+:::
+
+:::
+
+::: {.column width=60%}
+
+::: {.centered-svg .fragment}
+
+<img src="images/cc/chart.svg"
+      height="700"/>
+
+
+:::
+
+:::
+:::
+
+::: {.overlay-fragment .fragment}
+
+::: {.questionbox style="--qbox-width: 80%;"}
+
+::: {.questionbox-title}
+**MB-ML paradigm application**
+:::
+
+Use the physical channel model to <span class="alg">__*structure*__</span> and <span class="alg">__*initialize*__</span> a neural encoder/decoder.
+
+:::
+
+:::
+
+---
+
+### MB-ML APPROACH
+
+- A branch of channel charting is distance-based (ISOMAP)
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment data-fragment-index=1}
+- Idea: use a physical channel model <span class="alg">to design a distance adapted to channel charting</span> *[Le Magoarou]*
+:::
+
+
+<!-- ::: {.centered-svg}
+
+<img src="images/cc/PI_motivations_1.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=2
+      height="700"/>
+
+<img src="images/cc/PI_motivations_2.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=3
+      height="700"/>
+
+:::
+
+::: {.fragment .instant-replace data-fragment-index=4}
+
+::: {.info-box}
+
+Solution *[Le Magoarou]*: Phase-insensitive distance
+
+$$
+d\left(\bh_i, \bh_j\right) = \sqrt{2-2 \frac{\abs{\bh_i^\herm \bh_j}}{\norm{\bh_i}{2} \norm{\bh_j}{2}}}
+$$
+
+:::
+
+:::
+
+::: {.overlay-fragment .fragment .instant-replace-overlay data-fragment-index=5}
+
+::: {.overlay-box}
+
+How to use this distance to **structure** the encoder?
+
+:::
+
+::: -->
+
+<!-- ::: {.centered-svg}
+
+<img src="images/cc/isomap_inference_1.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=6
+      height="700"/>
+
+<img src="images/cc/isomap_inference_2.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=7
+      height="700"/>
+
+<img src="images/cc/isomap_inference_3.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=8
+      height="700"/>
+
+<img src="images/cc/isomap_inference_4.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=9
+      height="700"/>
+
+:::
+
+
+::: {.slide-footnote}
+
+::: {.fragment data-fragment-index=4}
+L. Le Magoarou, "*Efficient channel charting via phase-insensitive distance computation*", in *IEEE Wir. Commun. Lett.*, 2021
+:::
+
+::: {.fragment data-fragment-index=6}
+L. Le Magoarou, T. Yassine, S. Paquelet, and M. Crussière, "*Channel charting based beamforming*", in *IEEE ASILOMAR*, 2022
+
+T. Yassine, L. Le Magoarou, S. Paquelet, and M. Crussière, “*Leveraging triplet loss and nonlinear dimensionality reduction for on-the-fly channel charting*", in *IEEE SPAWC*, 2022
+:::
+
+::: -->
+
+::: {.centered-svg}
+
+<img src="images/cc/isomap_inference_1.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=2
+      height="700"/>
+
+<img src="images/cc/isomap_inference_2.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=3
+      height="700"/>
+
+<img src="images/cc/isomap_inference_3.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=4
+      height="700"/>
+
+<img src="images/cc/isomap_inference_4.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=5
+      height="700"/>
+
+:::
+
+
+::: {.slide-footnote}
+
+::: {.fragment data-fragment-index=1}
+L. Le Magoarou, "*Efficient channel charting via phase-insensitive distance computation*", in *IEEE Wir. Commun. Lett.*, 2021
+:::
+
+::: {.fragment data-fragment-index=2}
+L. Le Magoarou, T. Yassine, S. Paquelet, and M. Crussière, "*Channel charting based beamforming*", in *IEEE ASILOMAR*, 2022
+
+T. Yassine, L. Le Magoarou, S. Paquelet, and M. Crussière, “*Leveraging triplet loss and nonlinear dimensionality reduction for on-the-fly channel charting*", in *IEEE SPAWC*, 2022
+:::
+
+:::
+
+---
+
+### OVERALL STRUCTURE
+
+
+<div style= "margin-top: -.5em"></div>
+
+::: {.centered-svg}
+
+<img src="images/cc/encoder_decoder_framework_1.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=1
+      height="725"/>
+
+<img src="images/cc/encoder_decoder_framework_2.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=2
+      height="725"/>
+
+<img src="images/cc/encoder_decoder_framework_3.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=3
+      height="725"/>
+
+<img src="images/cc/encoder_decoder_framework_4.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=4
+      height="725"/>
+
+<img src="images/cc/encoder_decoder_framework_5.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=5
+      height="725"/>
+
+<img src="images/cc/encoder_decoder_framework_6.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=6
+      height="725"/>
+
+<img src="images/cc/encoder_decoder_framework_6.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=7
+      height="725"/>
+
+:::
+
+<div style= "margin-top: -1.5em"></div>
+
+::: {.fragment .info-box data-fragment-index=3}
+
+<div style= "margin-top: -.3em"></div>
+
+- **Initialization:** Using the ISOMAP algorithm
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment data-fragment-index=6}
+- **Training:**  Task-specific loss function (known performance upon convergence)
+:::
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment data-fragment-index=7}
+- **Optimization:** Similarity-based subsampling *[Taner et al.]* <span class="alg"> $\rightarrow$ reduce the number of learnable parameters</span>
+:::
+
+<div style= "margin-top: -.8em"></div>
+
+:::
+
+::: {.slide-footnote}
+B. Chatelier, V. Corlay, M. Crussière, L. Le Magoarou, "*CSI Compresion using Channel Charting*" in *IEEE ASILOMAR*, 2024
+
+::: {.fragment data-fragment-index=7}
+S. Taner, M. Guillaud, O. Tirkkonen, C. Studer, "*Channel charting for streaming CSI data*"" in *IEEE ASILOMAR*, 2023
+:::
+:::
+
+---
+
+### RESULTS
+
+::: {.slide-footnote}
+B. Chatelier, V. Corlay, M. Crussière, L. Le Magoarou, "*CSI Compresion using Channel Charting*" in *IEEE ASILOMAR*, 2024
+:::
+
+
+::: {.centered-svg}
+
+<img src="images/cc/scenes_CC.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=1
+      height="750"/>
+
+<img src="images/cc/cc_results_1.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=2
+      height="800"/>
+
+<img src="images/cc/cc_results_2.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=3
+      height="800"/>
+
+<img src="images/cc/cc_results_2.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=4
+      height="800"/>
+:::
+
+<div style= "margin-top: -1em"></div>
+
+
+::: {.fragment data-fragment-index=2}
+- Improved beam alignment over the scene
+:::
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment data-fragment-index=3}
+- Good performance with high compression ratios, **inter-UE interference cancellation**
+:::
+
+::: {.overlay-fragment .fragment data-fragment-index=4}
+
+::: {.overlay-box}
+
+<span class="alg">$80$x reduction</span> of learnable params., <span class="alg">$16$x increase</span> in compression ratio
+
+:::
+
+:::
+
+---
+
+### KEY TAKEAWAYS
+
+::: {.incremental}
+- In FDD system, CSI feedback entails [significant complexity]{.alr}
+- MB-ML was leveraged to <span class="alg">**structure**</span> and <span class="alg">**initialize**</span> a neural encoder and decoder
+- This allowed to:
+  - Perform **efficient** CSI compression
+  - Obtain good beamforming performance at **high compression ratios**
+  - Obtain inter-UE interference cancellation **without considering it during training**
+:::
+
+
+::: {.slide-footnote}
+*FDD: Frequency Division Duplex*
+
+*CSI: Channel State Information*
+:::

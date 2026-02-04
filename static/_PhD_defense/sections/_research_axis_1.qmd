@@ -1,0 +1,839 @@
+### LOCATION-TO-CHANNEL MAPPING
+
+
+- Propagation channel coefficients are needed in many communication problems
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment}
+- Radio digital twin $+$ ray-tracing tools $\rightarrow$ $\mcD = \left\{ \bx_i, \bH\left(\bx_i\right) \right\}_{i=1}^N$
+
+::: {.slide-footnote}
+J. Hoydis et al., *"Sionna: An Open-Source Library for Next-Generation Physical Layer Research"*, 2022
+:::
+
+:::
+
+<div style= "margin-top: -1em"></div>
+
+::: {.columns .fragment}
+
+::: {.column width=50%}
+
+::: {.centered-svg}
+
+<img src="images/loc2chan/GT.svg"
+     style="margin-top:1em"
+     width="auto"
+     height="500"/>
+
+:::
+
+:::
+
+::: {.column width=50%}
+
+::: {.centered-svg}
+
+<img src="images/loc2chan/ray_tracing.svg"
+     style="margin-top: -1em"
+     width="auto"
+     height="700"/>
+
+:::
+
+:::
+
+:::
+
+<div style= "margin-top: -3.5em"></div>
+
+
+::: {.info-box-red .fragment}
+**Drawbacks:**
+
+::: {.fragment}
+- *Long* generation time ($\sim$ hours for large scenes)
+:::
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment}
+- Database size proportional to the number of locations ($\sim$ Gb for large scenes)
+:::
+
+<div style= "margin-top:-.5em"></div>
+
+:::
+
+::: {.overlay-fragment .fragment}
+::: {.info-box-sienna}
+
+<span class="mplsienna">Problem 3.1: MB-ML for radio-environment compression</span>
+
+$$
+\mini{\ftheta}{\espo{\norm{\textcolor{#B22222}{\ftheta\left(\bx\right)}-\bH\left(\bx\right)}{\mathsf{F}}^2}{\left(\bx, \bH \left(\bx\right)\right) \sim p_{\bx,\bH}}}{\ftheta \in \mathcal{H}}
+$$
+
+::: {.fragment}
+where:
+
+$$
+\begin{aligned}
+    \textcolor{#B22222}{\ftheta} \colon \mbbR^3 &\longrightarrow \mbbC^{N_a \times N_s} \\
+    \bx &\longrightarrow \hat{\bH}\left(\bx\right)
+\end{aligned}
+$$
+:::
+
+::: {.fragment}
+- **Goal**: find $\textcolor{#B22222}{\ftheta}$
+:::
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment}
+- **Error measure**: reconstruction error ($\ell_{\mathsf{F}}$ norm)
+:::
+
+
+:::
+:::
+
+
+
+---
+
+
+### ML APPROACH: INR
+
+- Use of the Implicit Neural Representation concept:
+
+  ::: {.fragment .instant-reveal data-fragment-index=2}
+  - Neural networks are universal function approximators
+  :::
+
+  ::: {.fragment .instant-reveal data-fragment-index=3}
+  - Using $\bx$ one can design and train $\ftheta$ in a supervised manner to learn a representation of $\bH\left(\bx\right)$
+  :::
+
+
+
+::: {.slide-footnote}
+
+::: {.fragment data-fragment-index=2}
+K. Hornik, M. Stinchcombe, and H. White, “*Multilayer feedforward networks are universal approximators*”, in *Neural Networks*, 1989
+
+G. Cybenko, “*Approximation by superpositions of a sigmoidal function*”, in *Mathematics of Controls, Signals and Systems*, 1989
+:::
+
+::: {.fragment data-fragment-index=7}
+N. Rahaman et al., “*On the spectral bias of neural networks*”, in *ICML*, 2019
+
+Y. Cao et al., “Towards Understanding the Spectral Bias of Deep Learning”, in *IJCAI*, 2021
+:::
+
+:::
+
+::: {.info-box .fragment data-fragment-index=4}
+**Benefits:**
+
+::: {.fragment data-fragment-index=5}
+- Fast inference time
+:::
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment data-fragment-index=6}
+- Storage footprint proportional to the number of learnable parameters
+:::
+
+:::
+
+
+
+<div style= "margin-top: 1em"></div>
+
+::: {.fragment data-fragment-index=7}
+- Classical architecture (MLPs) are <span class="alr">biased towards learning low-frequency content</span>
+:::
+
+::: {.overlay-fragment .fragment .instant-replace-overlay data-fragment-index=8}
+<!-- ::: {.overlay-box} -->
+
+<img src="images/loc2chan/GT.svg"
+       width="900"
+       height= "auto"/>
+
+<!-- ::: -->
+:::
+
+::: {.info-box-red .fragment data-fragment-index=9}
+**How to train $\ftheta$ without suffering from the spectral bias?**
+:::
+
+::: {.overlay-fragment .fragment .instant-replace-overlay data-fragment-index=10}
+::: {.questionbox style="--qbox-width: 80%;"}
+
+::: {.questionbox-title}
+**MB-ML paradigm application**
+:::
+
+Use the physical channel model to __*<span class="alg">structure</span>*__ a neural network that overcomes the spectral bias.
+
+:::
+:::
+
+
+---
+
+### OVERCOMING THE SPECTRAL BIAS
+
+- Main idea: **local** approximation of the propagation distance using Taylor expansions
+
+  ::: {.fragment .instant-replace data-fragment-index=1}
+  - *Illustrated for the location component*
+  :::
+
+  ::: {.fragment .instant-replace data-fragment-index=2}
+  - *Illustrated for the location component*
+  :::
+
+  ::: {.fragment .instant-replace data-fragment-index=3}
+  - *Illustrated for the location component*
+  :::
+
+  ::: {.fragment .instant-replace data-fragment-index=4}
+  - *Illustrated for the location component*
+  :::
+
+::: {.slide-footnote}
+B. Chatelier, L. Le Magoarou, V. Corlay, M. Crussière, “*Model-Based Learning for Location-to-Channel Mapping*”, in *IEEE ICASSP*, 2024
+
+B. Chatelier, L. Le Magoarou, V. Corlay, M. Crussière, “*Model-Based Learning for Multi-Antenna Multi-Frequency Location-to-Channel Mapping*”, in *IEEE JSTSP*, 2024
+:::
+
+<div style= "margin-top: -.5em"></div>
+
+
+:::: {.r-stack}
+
+<img class="fragment instant-replace"  
+     src="images/loc2chan/GT_wavefront_1.svg"
+     style="margin-top: -.5em;"
+     data-fragment-index=1
+     width="auto"
+     height="800"/>
+
+<img class="fragment instant-replace"
+     src="images/loc2chan/GT_wavefront_2.svg"
+     style="margin-top: -.5em;"
+     data-fragment-index=2
+     width="auto"
+     height="800"/>
+
+<img class="fragment instant-replace"
+     src="images/loc2chan/GT_wavefront_3.svg"
+     style="margin-top: -.5em;"
+     data-fragment-index=3
+     width="auto"
+     height="800"/>
+
+<img class="fragment instant-replace"
+     src="images/loc2chan/GT_wavefront_4.svg"
+     style="margin-top: -.5em;"
+     data-fragment-index=4
+     width="auto"
+     height="800"/>
+
+::::
+<div style= "margin-top: -.5em"></div>
+
+::: {.info-box-green .fragment data-fragment-index=5}
+<span class="mplforestgreen">Proposition 4.1: Approximated channel interpretation</span>
+
+$\forall \left(\bx, \ba_{l,j}\right) \in \mcV_{\bx} \times \mcV_{\ba}$:
+$$
+h_{j,k}\left(\bx\right) \simeq \sum_{l=1}^{L_p} \underbrace{\gamma_l h_{l,r}\left(\bx_r\right)}_{\text{Reference channel}} \underbrace{\vphantom{\gamma_l h_{l,r}\left(\bx_r\right)} \mathrm{e}^{-\mathrm{j}\frac{2\pi}{\lambda_{r}}\bu_{l,r}\left(\bx_r\right)^\transp\left(\bx-\bx_r\right)}}_{\text{Location correction}} \underbrace{\vphantom{\gamma_l h_{l,r}\left(\bx_r\right)}\mathrm{e}^{-\mathrm{j}2\pi \left(f_k-f_r\right)\tau_{l,r}}}_{\text{Frequency correction}} \underbrace{\vphantom{\gamma_l h_{l,r}\left(\bx_r\right)}\mathrm{e}^{\mathrm{j}\frac{2\pi}{\lambda_{r}}\bu_{l,r}\left(\bx_r\right)^\transp\left(\ba_{l,j}-\ba_{l,r}\right)}}_{\text{Antenna correction}}
+$$
+<div style= "margin-top: -1em"></div>
+
+:::
+
+::: {.fragment data-fragment-index=6}
+
+- This results in a **global** sparse approximation:
+
+:::
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment .theorem-box .instant-replace data-fragment-index=6}
+
+<span class="algold">Theorem 4.2: Global sparse channel approximation (vectorized)</span>
+
+$\forall \bx \in \mbbR^3$:
+<div style= "margin-top: -1em"></div>
+
+$$
+\begin{align}
+  &\text{vec}\left(\bH\left(\bx\right)\right) \simeq  \left(\tilde{\bPsi}_{\bf}\left(\bx\right) \otimes \tilde{\bPsi}_{\ba}\left(\bx\right)\right) \text{vec}\left(\text{diag}\left(\bw\left(\bx\right) \odot \tilde{\psi}_{\bx}\left(\bx\right) \right)\right)\\
+  &\text{with } \norm{\bw\left(\bx\right)}{0} = L_p \nonumber
+\end{align}
+$$
+<div style= "margin-top: -1em"></div>
+
+:::
+
+::: {.fragment .theorem-box .instant-replace data-fragment-index=7}
+
+<span class="algold">Theorem 4.2: Global sparse channel approximation (vectorized)</span>
+
+$\forall \bx \in \mbbR^3$:
+<div style= "margin-top: -1em"></div>
+
+$$
+\begin{align}
+  &\text{vec}\left(\bH\left(\bx\right)\right) \simeq  \left(\textcolor{#228B22}{\tilde{\bPsi}_{\bf}\left(\bx\right)} \otimes \textcolor{#228B22}{\tilde{\bPsi}_{\ba}\left(\bx\right)}\right) \text{vec}\left(\text{diag}\left(\textcolor{#228B22}{\bw\left(\bx\right)} \odot \tilde{\psi}_{\bx}\left(\bx\right) \right)\right)\tag{4} \\
+  &\text{with } \norm{\bw\left(\bx\right)}{0} = L_p \nonumber
+\end{align}
+$$
+<div style= "margin-top: -1em"></div>
+
+:::
+
+::: {.fragment .theorem-box .instant-replace data-fragment-index=8}
+
+<span class="algold">Theorem 4.2: Global sparse channel approximation (vectorized)</span>
+
+$\forall \bx \in \mbbR^3$:
+<div style= "margin-top: -1em"></div>
+
+$$
+\begin{align}
+  &\text{vec}\left(\bH\left(\bx\right)\right) \simeq  \left(\textcolor{#228B22}{\tilde{\bPsi}_{\bf}\left(\bx\right)} \otimes \textcolor{#228B22}{\tilde{\bPsi}_{\ba}\left(\bx\right)}\right) \text{vec}\left(\text{diag}\left(\textcolor{#228B22}{\bw\left(\bx\right)} \odot \textcolor{#B22222}{\tilde{\psi}_{\bx}\left(\bx\right)} \right)\right)\tag{4} \\
+  &\text{with } \norm{\bw\left(\bx\right)}{0} = L_p \nonumber
+\end{align}
+$$
+<div style= "margin-top: -1em"></div>
+
+:::
+
+::: {.fragment .theorem-box .instant-replace data-fragment-index=9}
+
+<span class="algold">Theorem 4.2: Global sparse channel approximation (vectorized)</span>
+
+$\forall \bx \in \mbbR^3$:
+<div style= "margin-top: -1em"></div>
+
+$$
+\begin{align}
+  &\text{vec}\left(\bH\left(\bx\right)\right) \simeq  \left(\textcolor{#228B22}{\tilde{\bPsi}_{\bf}\left(\bx\right)} \otimes \textcolor{#228B22}{\tilde{\bPsi}_{\ba}\left(\bx\right)}\right) \text{vec}\left(\text{diag}\left(\textcolor{#228B22}{\bw\left(\bx\right)} \odot \textcolor{#B22222}{\tilde{\psi}_{\bx}\left(\bx\right)} \right)\right)\tag{4} \\
+  &\text{with } \norm{\bw\left(\bx\right)}{0} = L_p \nonumber
+\end{align}
+$$
+<div style= "margin-top: -1em"></div>
+
+:::
+
+
+::: {.fragment data-fragment-index=7}
+- with <span class="alg">slowly varying</span> $\tilde{\bPsi}_{\bf}\left(\bx\right), \tilde{\bPsi}_{\ba}\left(\bx\right), \bw\left(\bx\right),$ [<span class="alr">fastly varying</span> planar wavefronts $\tilde{\psi}_{\bx}\left(\bx\right)$]{.fragment data-fragment-index=8}  [$\rightarrow$ *__known expression__*]{.fragment data-fragment-index=9}
+:::
+
+---
+
+### MODEL-BASED NEURAL ARCHITECTURE
+
+
+::: {.slide-footnote}
+B. Chatelier, L. Le Magoarou, V. Corlay, M. Crussière, “*Model-Based Learning for Multi-Antenna Multi-Frequency Location-to-Channel Mapping*”, in *IEEE JSTSP*, 2024
+:::
+
+::: {.r-stack}
+
+<img class="fragment instant-replace"  
+     src="images/loc2chan/neural_archi_alt_1.svg"
+     width="auto"
+     height="900"/>
+
+<img class="fragment instant-replace"  
+     src="images/loc2chan/neural_archi_alt_2.svg"
+     width="auto"
+     height="900"/>
+
+<img class="fragment instant-replace"  
+     src="images/loc2chan/neural_archi_alt_3.svg"
+     width="auto"
+     height="900"/>
+
+<img class="fragment instant-replace"  
+     src="images/loc2chan/neural_archi_alt_4.svg"
+     width="auto"
+     height="900"/>
+
+<img class="fragment instant-replace"  
+     src="images/loc2chan/neural_archi_alt_5.svg"
+     width="auto"
+     height="900"/>
+
+<img class="fragment fade-in"  
+     src="images/loc2chan/neural_archi_alt_6.svg"
+     width="auto"
+     height="900"/>
+
+:::
+
+::: {.overlay-fragment .fragment}
+
+<!-- ::: {.questionbox style="--qbox-width: 80%;"}
+
+::: {.questionbox-title}
+**MB-ML paradigm application**
+:::
+
+We used the MB-ML paradigm to **<span class="alg">structure</span>** a neural network.
+
+::: -->
+
+::: {.overlay-box}
+
+
+
+We used the MB-ML paradigm to **<span class="alg">structure</span>** a neural network
+
+:::
+:::
+
+---
+
+### RESULTS
+
+::: {.slide-footnote}
+B. Chatelier, L. Le Magoarou, V. Corlay, M. Crussière, “*Model-Based Learning for Multi-Antenna Multi-Frequency Location-to-Channel Mapping*”, in *IEEE JSTSP*, 2024
+:::
+
+::: {.fragment .instant-replace data-fragment-index=1}
+
+::: {.centered-svg}
+
+<img
+     src="images/loc2chan/kazak_scene.png"
+     height="700"/>
+
+:::
+
+- Reconstruction performance evaluated on 210k independent locations within the red plane
+
+:::
+
+::: {.centered-svg}
+
+<img src="images/loc2chan/loc2chan_results_1.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=2
+     width="auto"
+     height="950"/>
+
+<img src="images/loc2chan/loc2chan_results_2.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=3
+     width="auto"
+     height="950"/>
+
+<img src="images/loc2chan/loc2chan_results_3.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=4
+     width="auto"
+     height="950"/>
+
+<img src="images/loc2chan/loc2chan_results_4.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=5
+     width="auto"
+     height="950"/>
+
+<img src="images/loc2chan/loc2chan_results_5.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=6
+     width="auto"
+     height="950"/>
+
+<img src="images/loc2chan/loc2chan_results_6.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=7
+     width="auto"
+     height="950"/>
+
+
+<img src="images/loc2chan/loc2chan_results_7.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=8
+     width="auto"
+     height="950"/>
+
+<img src="images/loc2chan/loc2chan_results_7.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=9
+     width="auto"
+     height="950"/>
+
+
+:::
+
+::: {.overlay-fragment .fragment data-fragment-index=9}
+
+::: {.overlay-box}
+
+<span class="alg">$100+$x</span> reduction in memory <span class="alg">without</span> major reconstruction error
+
+:::
+
+:::
+
+---
+
+### RESULTS: MB-ML TRAINING DYNAMICS
+
+
+<div style= "margin-top: -.5em"></div>
+
+::: {.centered-svg}
+
+<img src="images/loc2chan/first_frame.png"
+     class = "fragment instant-replace"
+     style = "margin-left: 1em;"
+     data-fragment-index=1
+     width="auto"
+     height="920"/>
+
+:::
+
+
+::: {.fragment .instant-replace data-fragment-index=2}
+
+::: {.centered-svg}
+
+<video
+  data-autoplay
+  loop
+  controls
+  data-fragment-index=2
+  width="auto"
+  height="900"
+  src="images/loc2chan/video_reconstruction_evolution_5_epochs_5_batchs.mp4"
+></video>
+
+:::
+
+:::
+
+<div style= "margin-top: -.5em"></div>
+
+::: {.fragment data-fragment-index=2}
+- The MB-ML network quickly learns the correct scene (*5 epochs represented here*)
+:::
+
+::: {.slide-footnote}
+B. Chatelier, L. Le Magoarou, V. Corlay, M. Crussière, “*Model-Based Learning for Multi-Antenna Multi-Frequency Location-to-Channel Mapping*”, in *IEEE JSTSP*, 2024
+:::
+
+---
+
+### APPLICATION TO RADIO-LOCALIZATION
+
+- Given $\bH\left(\bx\right)$, how to estimate $\bx$?
+
+::: {.fragment .overlay-fragment .instant-replace-overlay}
+
+::: {.info-box-sienna}
+
+<span class="mplsienna">Problem 3.2: MB-ML for wireless localization</span>
+
+$$
+\mini{\ftheta}{\espo{\norm{\textcolor{#B22222}{\ftheta\left(\bH\left(\bx\right)\right)}-\bx}{2}^2}{\left(\bx, \bH \left(\bx\right)\right) \sim p_{\bH,\bx}}}{\ftheta \in \mathcal{H}}
+$$
+
+where:
+
+$$
+\begin{aligned}
+    \textcolor{#B22222}{\ftheta} \colon  \mbbC^{N_a \times N_s} &\longrightarrow \mbbR^3\\
+    \bH\left(\bx\right) &\longrightarrow  \hat{\bx}
+\end{aligned}
+$$
+
+- **Goal**: find $\textcolor{#B22222}{\ftheta}$
+- **Error measure**: localization error ($\ell_2$ norm) 
+
+:::
+
+:::
+
+::: {.fragment}
+- Fingerprinting-based localization:
+
+$$
+\hat{\bx}\left(\bH\left(\bx\right)\right) = \argmax{\tilde{\bx} \in \mathcal{G}} \simil{\bH\left(\bx\right),\bH\left(\tilde{\bx}\right)}
+$$
+:::
+
+
+::: {.overlay-fragment .fragment .instant-replace-overlay}
+
+::: {.overlay-box}
+
+<img src="images/loc2chan/fingreprinting_1.svg"
+       width="auto"
+       height= "600"/>
+
+:::
+
+:::
+
+::: {.overlay-fragment .fragment .instant-replace-overlay}
+
+::: {.overlay-box}
+
+<img src="images/loc2chan/fingreprinting_2.svg"
+       width="auto"
+       height= "600"/>
+
+:::
+
+:::
+
+
+::: {.overlay-fragment .fragment .instant-replace-overlay}
+
+::: {.overlay-box}
+
+<img src="images/loc2chan/fingreprinting_3.svg"
+       width="auto"
+       height= "600"/>
+
+:::
+
+:::
+
+
+::: {.overlay-fragment .fragment .instant-replace-overlay}
+
+::: {.overlay-box}
+
+<img src="images/loc2chan/fingreprinting_4.svg"
+       width="auto"
+       height= "600"/>
+
+:::
+
+:::
+
+
+::: {.overlay-fragment .fragment .instant-replace-overlay}
+
+::: {.overlay-box}
+
+<img src="images/loc2chan/fingreprinting_5.svg"
+       width="auto"
+       height= "600"/>
+
+:::
+
+:::
+
+
+::: {.overlay-fragment .fragment .instant-replace-overlay}
+
+::: {.overlay-box}
+
+<img src="images/loc2chan/fingreprinting_6.svg"
+       width="auto"
+       height= "600"/>
+
+:::
+
+:::
+
+
+::: {.overlay-fragment .fragment .instant-replace-overlay}
+
+::: {.overlay-box}
+
+<img src="images/loc2chan/fingreprinting_7.svg"
+       width="auto"
+       height= "600"/>
+
+:::
+
+:::
+
+
+::: {.fragment .info-box-red}
+**Drawback:**
+
+- Localization accuracy is <span class="alr">limited by the dictionary resolution</span>
+:::
+
+<div style= "margin-top: .5em"></div>
+
+::: {.fragment}
+
+::: {.slide-footnote}
+B. Chatelier, V. Corlay, M. Furkan Keskin, M. Crussière, H. Wymeersch, L. Le Magoarou "*Model-based Implicit Neural Representation for sub-wavelength Radio Localization*", submitted to *IEEE TWC*
+:::
+
+::: {.info-box}
+**Idea:** 
+
+::: {.fragment}
+- Use the trained neural model **to generate channel coefficients at wanted locations**
+  <div style= "margin-left: 2em">$\rightarrow$ <span class="alg">enhancing localization accuracy</span>  </div> 
+:::
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment}
+- Use a physical channel model **to guide an optimization process** 
+  <div style= "margin-left: 2em">$\rightarrow$ <span class="alg">reducing complexity + improving performance</span>  </div> 
+:::
+:::
+
+
+:::
+
+::: {.overlay-fragment .fragment .instant-replace-overlay}
+::: {.questionbox style="--qbox-width: 80%;"}
+
+::: {.questionbox-title}
+**MB-ML paradigm application**
+:::
+
+Use the physical channel model to <span class="alg">__*structure*__</span> a neural architecture and <span class="alg">__*optimize*__</span> a gradient-descent process.
+
+:::
+:::
+
+---
+
+### RESULTS
+
+::: {.slide-footnote}
+B. Chatelier, V. Corlay, M. Furkan Keskin, M. Crussière, H. Wymeersch, L. Le Magoarou "*Model-based Implicit Neural Representation for sub-wavelength Radio Localization*", submitted to *IEEE TWC*
+:::
+
+
+::: {.fragment .instant-replace data-fragment-index=1}
+
+::: {.centered-svg}
+
+<img
+     src="images/loc2chan/update_scenes.svg"
+     width="auto"
+     height="800"/>
+
+:::
+
+- Localization performance evaluated on 10k independent locations within the red plane
+
+:::
+
+<div style= "margin-top: -1em"></div>
+
+::: {.centered-svg}
+
+
+<img src="images/loc2chan/update_localization_perf_1.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=2
+     width="auto"
+     height="900"/>
+
+<img src="images/loc2chan/update_localization_perf_2.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=3
+     width="auto"
+     height="900"/>
+
+<img src="images/loc2chan/update_localization_perf_3.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=4
+     width="auto"
+     height="900"/>
+
+<img src="images/loc2chan/update_localization_perf_4.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=5
+     width="auto"
+     height="900"/>
+
+<img src="images/loc2chan/update_localization_perf_5.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=6
+     width="auto"
+     height="900"/>
+
+<img src="images/loc2chan/update_localization_perf_6.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=7
+     width="auto"
+     height="900"/>
+
+<img src="images/loc2chan/update_localization_perf_7.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=8
+     width="auto"
+     height="900"/>
+
+<img src="images/loc2chan/update_localization_perf_8.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=9
+     width="auto"
+     height="900"/>
+
+<img src="images/loc2chan/update_localization_perf_8.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=10
+     width="auto"
+     height="900"/>
+:::
+
+
+::: {.fragment data-fragment-index=6}
+
+<div style= "margin-top: -2em"></div>
+
+- <span class="alg">**Sub-wavelength**</span> localization accuracy
+
+:::
+
+::: {.fragment data-fragment-index=7}
+
+<div style= "margin-top: -1em"></div>
+
+- $10^{-1}$ cm $\simeq 10^{-2} \lambda_0$
+
+:::
+
+
+::: {.overlay-fragment .fragment data-fragment-index=10}
+
+::: {.overlay-box}
+
+<span class="alg">$100$-$1000$x</span> performance for <span class="alg">$10$x</span> less memory
+
+:::
+
+:::
+---
+
+### KEY TAKEAWAYS
+
+::: {.incremental}
+- Traditional MLPs [suffer from the spectral bias]{.alr} and [can not learn the location-to-channel mapping]{.alr}
+- Using a physical channel model allows to <span class="alg">**structure**</span> a model-based neural network that <span class="alg">**overcomes this issue**</span>
+- This network can be used to:
+  - Perform **channel reconstruction**
+  - Perform **radio environment compression**
+  - Obtain **sub-wavelength radio-localization** performance
+:::

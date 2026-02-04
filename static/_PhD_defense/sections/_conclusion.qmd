@@ -1,0 +1,139 @@
+
+### CONCLUDING REMARKS
+
+::: {.info-box}
+We have applied the MB-ML paradigm to *several problems* in wireless communications
+:::
+
+<div style= "margin-top: .2em"></div>
+
+
+::: {.fragment}
+- For <span class="mplsteelblue">**learning the location-to-channel mapping**</span>
+  - MB-ML allowed to [**structure**]{.alg} a neural architecture
+  - **Excellent** reconstruction performance and allows radio-environment **compression**
+:::
+
+<div style= "margin-top: .2em"></div>
+
+::: {.fragment}
+- For <span class="mplsteelblue">**radio-localization**</span>
+  - MB-ML allowed to [**structure**]{.alg} a neural architecture and [**optimize**]{.alg} a gradient-descent procedure
+  - **Sub-wavelength** localization performance
+:::
+
+<div style= "margin-top: .2em"></div>
+
+::: {.fragment}
+- For <span class="mplsteelblue">**HWIs compensation**</span>
+  - MB-ML allowed to [**structure**]{.alg} and [**initialize**]{.alg} a neural architecture
+  - **Efficient** joint HWIs compensation and parametric estimation
+
+::: {.slide-footnote}
+<div style= "margin-top: -2.5em"></div>
+*HWIs: Hardware Impairments*
+:::
+
+:::
+
+<div style= "margin-top: .2em"></div>
+
+::: {.fragment}
+- For <span class="mplsteelblue">**CSI compression**</span>
+  - MB-ML allowed to [**structure**]{.alg} and [**initialize**]{.alg} a neural encoder/decoder
+  - **Improved** compression ratios and good beamforming performance
+
+::: {.slide-footnote}
+*CSI: Channel State Information*
+:::
+
+:::
+
+::: {.overlay-fragment .fragment}
+::: {.questionbox style="--qbox-width: 75%;"}
+
+::: {.questionbox-title}
+**General advantages of MB-ML**
+:::
+
+::: {.fragment}
+- Increased interpretability
+:::
+
+<div style= "margin-top: -.5em"></div>
+
+::: {.fragment}
+- Reduced complexity
+:::
+
+<div style= "margin-top: -.5em"></div>
+
+::: {.fragment}
+- <span class="mplsteelblue">**Well-suited for wireless communications**</span>
+:::
+
+:::
+:::
+
+---
+
+### PERSPECTIVES
+
+::: {.fragment}
+- **Short term**
+
+  ::: {.fragment}
+  - Evaluate the proposed methods on **real data**
+  :::
+
+  ::: {.fragment}
+  - Investigate the location-to-channel mapping learning in an **online learning** setting with **noisy channels**
+  :::
+
+  ::: {.fragment}
+  - Leverage **spatial augmentation techniques** to get rid of the non-coherence assumption in diffMUSIC 
+  :::
+:::
+
+
+::: {.fragment}
+- **Long term**
+
+  ::: {.fragment}
+  - Leverage the location-to-channel model to perform **imaging** in the radio-environment
+  :::
+
+  ::: {.fragment}
+  - Evaluate the impact of the MB-ML structuration approach on the model's **neural tangent kernel**
+  :::
+
+:::
+
+---
+
+### PUBLICATIONS
+
+::: {.fragment}
+**Journal articles**
+
+- Accepted: 1 (JSTSP)
+- Under review: 1 (TWC)
+- Planned: 1
+
+:::
+
+::: {.fragment}
+
+**International conference articles**
+
+- Accepted: 8 (ICC, ICASSP, ASILOMAR, ICMLCN, EuCNC, WCNC)
+
+:::
+
+::: {.fragment}
+
+**National conference articles**
+
+- Accepted: 1 (GRETSI)
+
+:::
