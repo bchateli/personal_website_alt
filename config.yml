@@ -24,6 +24,10 @@ menu:
           url: /alumni/
           weights: 10
 
+        - name: PhD
+          url: /phd/
+          weights: 10
+
         # - name: Search
         #   url: /search/
         #   weights: 10
@@ -72,9 +76,12 @@ params:
             - name: Alumni
               url: alumni/
               weight: 3
+            - name: PhD
+              url: phd/
+              weight: 4
             - name: Search  
               url: search/  
-              weight: 4
+              weight: 5
     socialIcons:
         - name: Email
           url: mailto:baptiste.chatelier@insa-rennes.fr
