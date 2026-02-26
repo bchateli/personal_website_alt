@@ -523,6 +523,27 @@ $$
 
 :::
 
+::: {.fragment .instant-replace data-fragment-index=2}
+
+::: {.info-box}
+**Idea:**
+
+Leverage gradient descent to solve:
+
+<div style= "margin-top: -1em"></div>
+
+$$
+\mini{\bzeta}{\espo{\mu\left(\hat{\bphi}\left(\bY \vert \bzeta\right),\bphi\right)}{\left(\bY, \bphi \right) \sim p_{\bY,\bphi}}}{\bzeta \in \mathcal{H}_{\bzeta}} \tag{17}
+$$
+
+<div style= "margin-top: -1em"></div>
+
+<!-- with $\hat{\bphi}\left(\bY \vert \bzeta\right)$ being the output of MUSIC. -->
+
+:::
+
+:::
+
 ::: {.overlay-fragment .fragment .instant-replace-overlay data-fragment-index=2}
 
 ::: {.info-box-red}
