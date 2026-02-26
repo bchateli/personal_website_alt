@@ -3,8 +3,8 @@
 
 <svg
    width="322.41501mm"
-   height="120.03067mm"
-   viewBox="0 0 322.41501 120.03067"
+   height="120.03071mm"
+   viewBox="0 0 322.41501 120.03071"
    version="1.1"
    id="svg1"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -189,7 +189,7 @@
   </defs>
   <g
      id="layer1"
-     transform="translate(46.926888,-57.289377)">
+     transform="translate(46.926888,-57.289351)">
     <image
        width="165.51775"
        height="107.992"
@@ -199,21 +199,16 @@
        x="-46.926888"
        y="68.589928"
        style="stroke-linecap:butt;stroke-linejoin:round" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.49853px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.232901;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       x="10.981433"
-       y="66.117836"
-       id="text9-3-7-2-5-83-5-5"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.1104px;font-family:FreeSans;-inkscape-font-specification:'FreeSans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.232901;stroke-opacity:1"
-         x="10.981433"
-         y="66.117836"
-         id="tspan1-6">Mono UE</tspan></text>
+    <path
+       style="font-size:12.1104px;font-family:FreeSans;-inkscape-font-specification:'FreeSans, Normal';stroke-width:0.232901;stroke-linejoin:round"
+       d="M 16.709652,66.117836 H 15.522833 L 13.01598,58.718381 v 7.399455 h -1.065715 v -8.828482 h 1.562242 l 2.615846,7.690104 2.567405,-7.690104 h 1.562241 v 8.828482 h -1.065715 v -7.399455 z m 7.738554,-6.527506 q 1.368476,0 2.119321,0.90828 0.762955,0.89617 0.762955,2.543184 0,1.562242 -0.775066,2.458412 -0.762955,0.896169 -2.095099,0.896169 -1.356365,0 -2.11932,-0.896169 -0.750845,-0.90828 -0.750845,-2.506853 0,-1.598573 0.762955,-2.494743 0.762955,-0.90828 2.095099,-0.90828 z m 0.01211,0.932501 q -0.847728,0 -1.332144,0.666072 -0.484416,0.653962 -0.484416,1.80445 0,1.150488 0.484416,1.81656 0.484416,0.653961 1.332144,0.653961 0.835617,0 1.320033,-0.653961 0.496527,-0.666072 0.496527,-1.780229 0,-1.174709 -0.484416,-1.840781 -0.472306,-0.666072 -1.332144,-0.666072 z m 3.960106,-0.750845 h 0.932501 v 1.065716 q 0.423864,-0.666072 0.90828,-0.956722 0.496526,-0.29065 1.198929,-0.29065 0.920391,0 1.465359,0.472306 0.544968,0.472306 0.544968,1.259482 v 4.795718 h -1.005163 v -4.396075 q 0,-0.569189 -0.351202,-0.90828 -0.351202,-0.339091 -0.956722,-0.339091 -0.775065,0 -1.247371,0.593409 -0.472305,0.581299 -0.472305,1.550131 v 3.499906 h -1.017274 z m 8.998035,-0.181656 q 1.368475,0 2.11932,0.90828 0.762955,0.89617 0.762955,2.543184 0,1.562242 -0.775066,2.458412 -0.762955,0.896169 -2.095099,0.896169 -1.356365,0 -2.11932,-0.896169 -0.750845,-0.90828 -0.750845,-2.506853 0,-1.598573 0.762955,-2.494743 0.762956,-0.90828 2.0951,-0.90828 z m 0.01211,0.932501 q -0.847728,0 -1.332144,0.666072 -0.484416,0.653962 -0.484416,1.80445 0,1.150488 0.484416,1.81656 0.484416,0.653961 1.332144,0.653961 0.835618,0 1.320034,-0.653961 0.496526,-0.666072 0.496526,-1.780229 0,-1.174709 -0.484416,-1.840781 -0.472306,-0.666072 -1.332144,-0.666072 z m 12.88547,-3.233477 h 1.126268 v 6.200525 q 0,1.332144 -0.932501,2.11932 -0.920391,0.787176 -2.470522,0.787176 -1.574352,0 -2.482632,-0.775065 -0.89617,-0.787176 -0.89617,-2.131431 v -6.200525 h 1.126268 v 6.200525 q 0,0.956722 0.60552,1.441138 0.61763,0.472305 1.647014,0.472305 1.065715,0 1.671235,-0.508636 0.60552,-0.508637 0.60552,-1.404807 z m 4.190189,4.807829 v 3.0276 h 5.207472 v 0.993053 H 53.37996 v -8.828482 h 6.115752 v 0.993053 h -4.989485 v 2.821723 h 4.807829 v 0.993053 z"
+       id="text9-3-7-2-5-83-5-5"
+       aria-label="Mono UE" />
   </g>
   <g
      id="layer2"
      style="display:none"
-     transform="translate(46.926888,-57.289377)">
+     transform="translate(46.926888,-57.289351)">
     <g
        id="figure_1"
        style="stroke-linecap:butt;stroke-linejoin:round"
@@ -2483,15 +2478,10 @@
         </g>
       </g>
     </g>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.12099px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.223644;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       x="183.42805"
-       y="66.124641"
-       id="text9-3-7-2-5-83-5"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.629px;font-family:FreeSans;-inkscape-font-specification:'FreeSans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.223644;stroke-opacity:1"
-         x="183.42805"
-         y="66.124641"
-         id="tspan1">Multi UE</tspan></text>
+    <path
+       style="font-size:11.629px;font-family:FreeSans;-inkscape-font-specification:'FreeSans, Normal';stroke-width:0.223644;stroke-linejoin:round"
+       d="m 188.92857,66.124641 h -1.13964 l -2.4072,-7.105318 v 7.105318 h -1.02336 v -8.47754 h 1.50015 l 2.51186,7.384414 2.46535,-7.384414 h 1.50014 v 8.47754 h -1.02335 v -7.105318 z m 9.88466,0 h -0.87218 v -0.848917 q -0.43027,0.604708 -0.89543,0.860546 -0.46516,0.255838 -1.13964,0.255838 -0.8838,0 -1.41874,-0.453531 -0.5233,-0.453531 -0.5233,-1.209416 v -4.698115 h 0.9652 v 4.314358 q 0,0.546563 0.33724,0.872175 0.33725,0.325612 0.9187,0.325612 0.75588,0 1.20941,-0.558192 0.45353,-0.569821 0.45353,-1.500141 v -3.453812 h 0.96521 z m 2.37232,-8.47754 v 8.47754 h -0.97683 v -8.47754 z m 3.83758,2.383945 v 0.790772 h -1.00009 v 4.17481 q 0,0.325612 0.10466,0.441902 0.11629,0.104661 0.43027,0.104661 0.29073,0 0.46516,-0.04652 v 0.81403 q -0.45353,0.0814 -0.79077,0.0814 -0.56982,0 -0.87218,-0.255838 -0.30235,-0.244209 -0.30235,-0.709369 v -4.605083 h -0.82566 v -0.790772 h 0.82566 V 58.35647 h 0.96521 v 1.674576 z m 1.97694,0 v 6.093595 h -0.96521 v -6.093595 z m 0,-2.383945 v 1.221045 h -0.97684 v -1.221045 z m 10.1056,0 h 1.0815 v 5.954047 q 0,1.27919 -0.89544,2.035075 -0.8838,0.755885 -2.37231,0.755885 -1.51177,0 -2.38395,-0.744256 -0.86054,-0.755885 -0.86054,-2.046704 v -5.954047 h 1.08149 v 5.954047 q 0,0.918691 0.58145,1.383851 0.59308,0.453531 1.58155,0.453531 1.02335,0 1.6048,-0.488418 0.58145,-0.488418 0.58145,-1.348964 z m 4.02362,4.616713 v 2.907249 h 5.00047 v 0.953578 h -6.08196 v -8.47754 h 5.87264 v 0.953578 h -4.79115 v 2.709557 h 4.61672 v 0.953578 z"
+       id="text9-3-7-2-5-83-5"
+       aria-label="Multi UE" />
   </g>
 </svg>
