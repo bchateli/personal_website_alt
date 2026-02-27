@@ -1,0 +1,144 @@
+---
+revealjs-plugins:
+  - animate
+filters:
+  - pseudocode
+  - animate
+pseudocode:
+  caption-prefix: "Algorithm"
+  reference-prefix: "Algorithm"
+  caption-number: true
+format: 
+  revealjs:
+    pdf-separate-fragments: true
+    chalkboard: true
+    jump-to-slide: true
+    slide-number: c/t
+    controls: false
+    footer: '*Baptiste CHATELIER*'
+    width: 1920
+    height: 1080
+    theme: [simple, assets/custom.scss] # optional custom theme
+    css: [assets/syntax-highlight.css, assets/custom.css]
+    math: mathjax
+    navigation-mode: linear
+include-in-header: assets/header.html
+---
+
+## {data-state="no-footer" visibility="uncounted"}
+
+<h2>Model-based learning for high-dimensional wireless systems</h2>
+
+<hr>
+
+<div style="font-size: 48px;">
+  **Baptiste CHATELIER**
+</div>
+
+Supervisors: Luc LE MAGOAROU, Matthieu CRUSSIERE, Vincent CORLAY
+
+<br>
+
+*PhD defense* - INSA Rennes - January 30, 2026
+
+<br>
+
+<div style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3vh;
+">
+  <img src="assets/figs_templates/mitsu.png" style="height: 3em; max-height: 10em; margin-right: 0vw" />
+  <img src="assets/figs_templates/ietr.png" style="height: 3em; max-height: 10em; margin-right: 1vw" />
+  <img src="assets/figs_templates/insa.png" style="height: 3em; max-height: 10em; margin-right: 1vw" />
+  <img src="assets/figs_templates/bcom.png" style="height: 3em; max-height: 10em; margin-right: 1vw" />
+</div>
+
+<style>
+  .no-footer .reveal .slide-number,
+  .no-footer .reveal .footer {
+    display: none !important;
+  }
+</style>
+
+# [General context]{style="display: flex;justify-content: center;align-items: center;"} {background-color=var(--mplsteelblue)}
+
+---
+
+{{< include /sections/_intro.qmd >}}
+
+# [Scientific context]{style="display: flex;justify-content: center;align-items: center;"} {background-color=var(--mplsteelblue)}
+
+---
+
+{{< include /sections/_scientific_intro.qmd >}}
+
+# [RESEARCH AXIS 1]{.story} [Location-to-channel mapping]{style="float:right;text-align:right; display:block; margin-top:1.5em;"} {background-color=var(--mplsteelblue)}
+
+<span style="float:right; text-align:right; font-size:1.2em;">
+Chapters 4 and 5 of the manuscript
+</span>
+
+<img src="images/story1.svg"
+       width="auto"
+       height= "400" 
+       style="margin-top: 5vw; margin-bottom: 0px;"
+  />
+
+---
+
+{{< include /sections/_research_axis_1.qmd >}}
+
+# [RESEARCH AXIS 2]{.story} [Hardware impairments learning]{style="float:right;text-align:right; display:block; margin-top:1.5em;"} {background-color=var(--mplsteelblue)}
+
+<span style="float:right; text-align:right; font-size:1.2em;">
+Chapters 6 and 7 of the manuscript
+</span>
+
+<img src="images/story2.svg"
+       width="auto"
+       height= "400"
+       style="margin-top: 5vw; margin-bottom: 0px;"/>
+
+---
+
+{{< include /sections/_research_axis_2.qmd >}}
+
+# [RESEARCH AXIS 3]{.story} [Efficient channel compression]{style="float:right;text-align:right; display:block; margin-top:1.5em;"} {background-color=var(--mplsteelblue)}
+
+<span style="float:right; text-align:right; font-size:1.2em;">
+Chapters 8 and 9 of the manuscript
+</span>
+  
+<img src="images/story3.svg"
+       width="auto"
+       height= "400"
+       style="margin-top: 10vw; margin-bottom: 0px;"/>
+
+---
+
+{{< include /sections/_research_axis_3.qmd >}}
+
+# [Conclusions and perspectives]{style="display: flex;justify-content: center;align-items: center;"} {background-color=var(--mplsteelblue)}
+
+---
+
+{{< include /sections/_conclusion.qmd >}}
+
+# []{style="display: flex;justify-content: center;align-items: center;"} {background-color=var(--mplsteelblue)}
+
+::: {.thanks-slide} 
+Thanks!
+:::
+
+# [Appendix]{visibility="uncounted" style="display: flex;justify-content: center;align-items: center;"}  {background-color=var(--mplsteelblue) visibility="uncounted"}
+
+---
+
+{{< include /sections/_appendix.qmd >}}

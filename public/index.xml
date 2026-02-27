@@ -1,82 +1,109 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Moritz-Maria von Igelfeld</title>
-    <link>https://pascalmichaillat.org/hugo-website/</link>
-    <description>Recent content on Moritz-Maria von Igelfeld</description>
+    <title>Baptiste CHATELIER</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Baptiste CHATELIER</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 08 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://pascalmichaillat.org/hugo-website/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Location</title>
-      <link>https://pascalmichaillat.org/hugo-website/location/</link>
-      <pubDate>Wed, 08 May 2024 00:00:00 +0000</pubDate>
+      <title>Model-based Implicit Neural Representation for sub-wavelength Radio Localization</title>
+      <link>http://localhost:1313/papers/journal_loc_to_chan_to_loc/</link>
+      <pubDate>Thu, 05 Jun 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://pascalmichaillat.org/hugo-website/location/</guid>
-      <description>Professor Dr von Igelfeld&amp;#39;s mailing and office addresses at the Institute of Romance Philology.</description>
+      <guid>http://localhost:1313/papers/journal_loc_to_chan_to_loc/</guid>
+      <description>This paper combines a model-based neural architecture that learns the location-to-channel mapping with model-based optimization techniques to perform UE localization through MIMO systems, with sub-wavelegth precision. Preprint.</description>
     </item>
     
     <item>
-      <title>Office Hours</title>
-      <link>https://pascalmichaillat.org/hugo-website/officehours/</link>
-      <pubDate>Wed, 08 May 2024 00:00:00 +0000</pubDate>
+      <title>Physically Parameterized Differentiable MUSIC for DoA Estimation with Uncalibrated Arrays</title>
+      <link>http://localhost:1313/papers/icc2025/</link>
+      <pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://pascalmichaillat.org/hugo-website/officehours/</guid>
-      <description>Schedule and location for Professor Dr von Igelfeld&amp;#39;s office hours.</description>
+      <guid>http://localhost:1313/papers/icc2025/</guid>
+      <description>This paper presents a differentiable MUSIC model to perform joint DoA and harwdare impairments mitigation. Accepted to IEEE ICC 2025.</description>
     </item>
     
     <item>
-      <title>List of Irregular Verbs Across Romance Languages</title>
-      <link>https://pascalmichaillat.org/hugo-website/data/data1/</link>
-      <pubDate>Thu, 07 Mar 2013 00:00:00 +0000</pubDate>
+      <title>CSI Compresion using Channel Charting</title>
+      <link>http://localhost:1313/papers/asilomar2024/</link>
+      <pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://pascalmichaillat.org/hugo-website/data/data1/</guid>
-      <description>This dataset contains all irregular verbs in known Romance languages.</description>
+      <guid>http://localhost:1313/papers/asilomar2024/</guid>
+      <description>This paper presents how channel charting can be used to perform CSI compression in FDD MIMO systems. Published in IEEE ASILOMAR 2024.</description>
     </item>
     
     <item>
-      <title>Unusual Uses For Olive Oil</title>
-      <link>https://pascalmichaillat.org/hugo-website/papers/paper1/</link>
-      <pubDate>Wed, 15 Oct 2003 00:00:00 +0000</pubDate>
+      <title>Model-based learning for multi-antenna multi-frequency location-to-channel mapping</title>
+      <link>http://localhost:1313/papers/journal_loc_to_chan/</link>
+      <pubDate>Mon, 17 Jun 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://pascalmichaillat.org/hugo-website/papers/paper1/</guid>
-      <description>This paper reviews unusual uses for olive oil throughout the Mediterranean world. Published in the Journal of Oleic Science, 2001.</description>
+      <guid>http://localhost:1313/papers/journal_loc_to_chan/</guid>
+      <description>This paper studies the location-to-channel mapping learning in a multi-antenna multi-frequency setting. Published in IEEE Journal of Selected Topics in Signal Processing.</description>
     </item>
     
     <item>
-      <title>Lectures at the Villa of Reduced Circumstances</title>
-      <link>https://pascalmichaillat.org/hugo-website/courses/course1/</link>
-      <pubDate>Mon, 10 Mar 2003 00:00:00 +0000</pubDate>
+      <title>Semi-Supervised End-to-End Learning for Integrated Sensing and Communications</title>
+      <link>http://localhost:1313/papers/icmlcn2024/</link>
+      <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://pascalmichaillat.org/hugo-website/courses/course1/</guid>
-      <description>This graduate course presents classical results in Romance philology.</description>
+      <guid>http://localhost:1313/papers/icmlcn2024/</guid>
+      <description>This paper present a new neural archicture for single target Integrated Sensing and Communications with limited labeled data. Published in IEEE ICMLCN 2024.</description>
     </item>
     
     <item>
-      <title>The Finer Points of Sausage Dogs</title>
-      <link>https://pascalmichaillat.org/hugo-website/papers/paper2/</link>
-      <pubDate>Thu, 01 Jan 1998 00:00:00 +0000</pubDate>
+      <title>Model-based learning for location-to-channel mapping</title>
+      <link>http://localhost:1313/papers/icassp2024/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://pascalmichaillat.org/hugo-website/papers/paper2/</guid>
-      <description>This paper studies the pulmonary efficiency of sausage dogs. Published in the Journal of Canine Science, 1998.</description>
+      <guid>http://localhost:1313/papers/icassp2024/</guid>
+      <description>This paper present a new neural archicture for the location-to-channel mapping learnign problem. Published in IEEE ICASSP 2024.</description>
     </item>
     
     <item>
-      <title>Portugese Irregular Verbs</title>
-      <link>https://pascalmichaillat.org/hugo-website/books/book1/</link>
-      <pubDate>Wed, 01 Jan 1997 00:00:00 +0000</pubDate>
+      <title>Model-based Deep Learning for Beam Prediction based on a Channel Chart</title>
+      <link>http://localhost:1313/papers/asilomar2023/</link>
+      <pubDate>Mon, 04 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://pascalmichaillat.org/hugo-website/books/book1/</guid>
-      <description>This book discusses Portugese irregular verbs in great details.</description>
+      <guid>http://localhost:1313/papers/asilomar2023/</guid>
+      <description>This paper presents how the use of channel charting and deep learning allows to decrease the complexity of beam allocation in Cell Free Massive MIMO systems. Published in IEEE ASILOMAR 2023.</description>
     </item>
     
     <item>
-      <title>Profanity in Early Irish</title>
-      <link>https://pascalmichaillat.org/hugo-website/courses/course2/</link>
-      <pubDate>Sat, 16 Jun 1990 00:00:00 +0000</pubDate>
+      <title>Cartographie du canal par réduction de dimension et réseaux triplets</title>
+      <link>http://localhost:1313/papers/gretsi2023/</link>
+      <pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://pascalmichaillat.org/hugo-website/courses/course2/</guid>
-      <description>This undergraduate course discusses profanity in Early Irish.</description>
+      <guid>http://localhost:1313/papers/gretsi2023/</guid>
+      <description>This paper reviews the use of triplet networks for channel charting. Published in GRETSI 2023.</description>
+    </item>
+    
+    <item>
+      <title>Influence of Dataset Parameters on the Performance of Direct UE Positioning via Deep Learning</title>
+      <link>http://localhost:1313/papers/eucnc2023/</link>
+      <pubDate>Mon, 03 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/papers/eucnc2023/</guid>
+      <description>This paper reviews the influence of dataset parameter on UE positioning performance with deep learning methods. Published in IEEE EUCNC&amp;amp;6G Summit 2023.</description>
+    </item>
+    
+    <item>
+      <title>Efficient Deep Unfolding for SISO-OFDM Channel Estimation</title>
+      <link>http://localhost:1313/papers/icc2023/</link>
+      <pubDate>Tue, 11 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/papers/icc2023/</guid>
+      <description>This paper presents an improved unfolded MP algorithm for SISO-OFDM channel estimation. Published in IEEE ICC 2023.</description>
+    </item>
+    
+    <item>
+      <title>On the Impact of Phase Noise on Beamforming Performance for mmWave Massive MIMO Systems</title>
+      <link>http://localhost:1313/papers/wcnc2023/</link>
+      <pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/papers/wcnc2023/</guid>
+      <description>This paper reviews the impact of phase noise on the array factor. Published in IEEE WCNC 2023.</description>
     </item>
     
     

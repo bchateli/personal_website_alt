@@ -1,0 +1,840 @@
+## REFERENCES {visibility="uncounted"}
+
+::: {.justified}
+- G. Peyré, “*Manifold models for signals and images*”, in *Computer Vision and Image Understanding*, 2009
+- M. Elad, "*Sparse and Redundant Representations: From Theory to Applications in Signal and Image Processing*", *Springer*, 2010
+- Nir Shlezinger, Yonina C. Eldar, "*Model-Based Deep Learning*", *Foundations and Trends in Signal Processing*, 2023
+- J. Hoydis et al., *"Sionna: An Open-Source Library for Next-Generation Physical Layer Research"*, 2022
+- K. Hornik, M. Stinchcombe, and H. White, “*Multilayer feedforward networks are universal approximators*”, in *Neural Networks*, 1989
+- G. Cybenko, “*Approximation by superpositions of a sigmoidal function*”, in *Mathematics of Controls, Signals and Systems*, 1989
+- N. Rahaman et al., “*On the spectral bias of neural networks*”, in *ICML*, 2019
+- Y. Cao et al., “Towards Understanding the Spectral Bias of Deep Learning”, in *IJCAI*, 2021
+- B. Chatelier, L. Le Magoarou, V. Corlay, M. Crussière, “*Model-Based Learning for Location-to-Channel Mapping*”, in *IEEE ICASSP*, 2024
+- B. Chatelier, L. Le Magoarou, V. Corlay, M. Crussière, “*Model-Based Learning for Multi-Antenna Multi-Frequency Location-to-Channel Mapping*”, in *IEEE JSTSP*, 2024
+:::
+
+---
+
+
+## REFERENCES {visibility="uncounted"}
+
+- B. Chatelier, V. Corlay, M. Furkan Keskin, M. Crussière, H. Wymeersch, L. Le Magoarou "*Model-based Implicit Neural Representation for sub-wavelength Radio Localization*", submitted to *IEEE TWC*
+- T. Yassine and L. Le Magoarou, "*mpNet: Variable Depth Unfolded Neural Network for Massive MIMO Channel Estimation*", in *IEEE TWC*, 2O22
+- B. Chatelier, L. Le Magoarou and G. Redieteab, "*Efficient Deep Unfolding for SISO-OFDM Channel Estimation*", in *IEEE ICC*, 2023
+- N. Klaimi, A. Bedoui, C. Elvira, P. Mary and L. Le Magoarou, "*Model-based learning for joint channel estimation and hybrid MIMO precoding*", in *IEEE SPAWC*, 2025
+- D. H. Shmuel, J. P. Merkofer, G. Revach, R. J. G. van Sloun, N. Shlezinger "*SubspaceNet: Deep Learning-Aided Subspace Methods for DoA Estimation*" in *IEEE TVT*, 2025
+- B. Chatelier, J. M. Mateos-Ramos, V. Corlay, C. Häger, M. Crussière, H. Wymeersch, L. Le Magoarou, “*Physically Parameterized Differentiable MUSIC for DoA Estimation with Uncalibrated Arrays*”, in *IEEE ICC*, 2025
+- B. Chatelier, V. Corlay, M. Crussière, L. Le Magoarou, "*CSI Compresion using Channel Charting*" in *IEEE ASILOMAR*, 2024
+- T. Yassine, B. Chatelier, V. Corlay, M. Crussière, S. Paquelet, O. Tirkkonen, L. Le Magoarou, "*Model-Based Deep Learning for Beam Prediction Based on a Channel Chart*" in *IEEE ASILOMAR*, 2023
+
+---
+
+## REFERENCES {visibility="uncounted"}
+
+- P. Ferrand, M. Guillaud, C. Studer and O. Tirkkonen, "*Wireless Channel Charting: Theory, Practice, and Applications*", in *IEEE Commun. Mag.*, 2023
+- L. Le Magoarou, "*Efficient channel charting via phase-insensitive distance computation*", in *IEEE Wir. Commun. Lett.*, 2021
+- L. Le Magoarou, T. Yassine, S. Paquelet, and M. Crussière, "*Channel charting based beamforming*", in *IEEE ASILOMAR*, 2022
+- T. Yassine, L. Le Magoarou, S. Paquelet, and M. Crussière, “*Leveraging triplet loss and nonlinear dimensionality reduction for on-the-fly channel charting*", in *IEEE SPAWC*, 2022
+- S. Taner, M. Guillaud, O. Tirkkonen, C. Studer, "*Channel charting for streaming CSI data*"" in *IEEE ASILOMAR*, 2023
+
+---
+
+## REAL CHANNEL DATASETS {visibility="uncounted"}
+
+::: {.columns}
+::: {.column width=50%}
+- For channel charting: DICHASUS
+
+::: {.centered-svg}
+
+<img src="images/appendix/DICHASUS.jpg"
+     width="auto"
+     height="700"/>
+
+:::
+
+:::
+::: {.column width=50%}
+- For the location-to-channel mapping: CAEZ-5G/WiFi
+
+::: {.centered-svg}
+
+
+<img src="images/appendix/ceaz_5g_indoor_overview.png"
+     width="auto"
+     height="700"/>
+
+:::
+
+:::
+
+:::
+
+
+::: {.slide-footnote}
+
+F. Euchner, M. Gauger, S. Doerner, S. ten Brink, "*A Distributed Massive MIMO Channel Sounder for “Big CSI Data”-driven Machine Learning*", in *IEEE WSA*, 2021
+
+R. Wiesmayr, F. Zumegen, S. Taner, C. Dick, C. Studer, "*CSI-Based User Positioning, Channel Charting, and Device Classification with an NVIDIA 5G Testbed*", in *IEEE ASILOMAR*, 2025
+
+:::
+
+---
+
+## MODEL-BASED MACHINE LEARNING: USE CASES {visibility="uncounted"}
+
+- MB-ML is relevant when **both** MB methods and ML methods exhibits shortcomings
+
+<div style= "margin-top: 1em"></div>
+
+::: {.info-box-red .fragment data-fragment-index=1}
+
+::: {.fragment data-fragment-index=1}
+
+- MB <span class="alr">inaccurate</span> and ML <span class="alr">too slow</span>/<span class="alr">too complex</span> to train
+<div style= "margin-left: 2em">$\rightarrow$ *too many parameters/requires too much data*</div> 
+
+:::
+
+<div style= "margin-top: .5em"></div>
+
+::: {.fragment data-fragment-index=2}
+
+- MB <span class="alr">too complex</span>/ML <span class="alr">not approriate</span> 
+<div style= "margin-left: 2em">$\rightarrow$ *no obvious approach*</div> 
+
+:::
+
+:::
+
+<br>  
+
+::: {.info-box .fragment data-fragment-index=3}
+**Use case examples:**
+
+Resilient parametric estimation, dynamic system tracking, channel decoding, ISAC system design...
+
+:::
+
+---
+
+## CHANNEL MODEL {visibility="uncounted"}
+
+::: {.info-box}
+
+**Assumption:** attenuation/phase proportional to the propagation distance 
+
+:::
+
+::: {.columns}
+::: {.column width=50%}
+
+::: {.fragment .instant-replace data-fragment-index=1}
+$$
+\begin{align}
+     h_{j,k}\left(\mathbf{x}\right) &= \sum_{l=1}^{L_p} \dfrac{\alpha_l \mathrm{e}^{\mathrm{j}\beta_l}}{d_l\left(\mathbf{x}\right)} \mathrm{e}^{-\mathrm{j}\frac{2\pi}{\lambda_k}d_l\left(\mathbf{x}\right)}\\
+     &\hphantom{\sum_{l=1}^{L_p} \dfrac{\alpha_l \mathrm{e}^{\mathrm{j}\beta_l}}{\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}} \mathrm{e}^{-\mathrm{j}\frac{2\pi}{\lambda_k}\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}}} \notag
+     % &= \sum_{l=1}^{L_p} \dfrac{\alpha_l \mathrm{e}^{\mathrm{j}\beta_l}}{\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}} \mathrm{e}^{-\mathrm{j}\frac{2\pi}{\lambda_k}\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}}
+\end{align}
+$$
+
+:::
+
+::: {.fragment .instant-replace data-fragment-index=2}
+$$
+\begin{align}
+     h_{j,k}\left(\mathbf{x}\right) &= \sum_{l=1}^{L_p} \dfrac{\alpha_l \mathrm{e}^{\mathrm{j}\beta_l}}{d_l\left(\mathbf{x}\right)} \mathrm{e}^{-\mathrm{j}\frac{2\pi}{\lambda_k}d_l\left(\mathbf{x}\right)} \tag{22}\\
+     &= \sum_{l=1}^{L_p} \dfrac{\alpha_l \mathrm{e}^{\mathrm{j}\beta_l}}{\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}} \mathrm{e}^{-\mathrm{j}\frac{2\pi}{\lambda_k}\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}}
+\end{align}
+$$
+
+:::
+
+::: {.fragment .instant-replace data-fragment-index=3}
+$$
+\begin{align}
+     h_{j,k}\left(\mathbf{x}\right) &= \sum_{l=1}^{L_p} \dfrac{\alpha_l \mathrm{e}^{\mathrm{j}\beta_l}}{d_l\left(\mathbf{x}\right)} \mathrm{e}^{-\mathrm{j}\frac{2\pi}{\lambda_k}d_l\left(\mathbf{x}\right)} \tag{22}\\
+     &= \sum_{l=1}^{L_p} \dfrac{\alpha_l \mathrm{e}^{\mathrm{j}\beta_l}}{\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}} \mathrm{e}^{-\mathrm{j}\frac{2\pi}{\lambda_k}\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}} \tag{23}\\
+     &= \sum_{l=1}^{L_p} \dfrac{\alpha_l \mathrm{e}^{\mathrm{j}\beta_l}}{d_l\left(\mathbf{x}\right)} \mathrm{e}^{-\mathrm{j} 2\pi f_k \tau_{l,j} }
+\end{align}
+$$
+
+:::
+
+:::
+::: {.column width=50%}
+
+::: {.centered-svg}
+
+<img src="images/appendix/virtual_source_alt_1.svg"
+     class="fragment instant-replace"
+     data-fragment-index=1
+     width="auto"
+     height="800"/>
+
+<img src="images/appendix/virtual_source_alt_2.svg"
+     class="fragment instant-replace"
+     data-fragment-index=2
+     width="auto"
+     height="800"/>
+
+<img src="images/appendix/virtual_source_alt_2.svg"
+     class="fragment instant-replace"
+     data-fragment-index=3
+     width="auto"
+     height="800"/>
+
+:::
+
+
+:::
+:::
+
+---
+
+## TAYLOR EXPANSIONS {visibility="uncounted"}
+
+
+::: {.fragment .instant-replace data-fragment-index=1}
+$$
+\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2} \simeq \textcolor{black}{\norm{\mathbf{x}_r - \mathbf{a}_{l,r}}{2}} \textcolor{black}{+ \mathbf{u}_{l,j}\left(\mathbf{x}_r\right)^\transp\left(\mathbf{x}-\mathbf{x}_r\right)} \textcolor{black}{- \mathbf{u}_{l,r}\left(\mathbf{x}_r\right)^\transp \left(\mathbf{a}_{l,j}-\mathbf{a}_{l,r}\right)}
+$$
+
+:::
+
+
+::: {.fragment .instant-replace data-fragment-index=2}
+$$
+\textcolor{#FF1B17}{\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}} \simeq \textcolor{black}{\norm{\mathbf{x}_r - \mathbf{a}_{l,r}}{2}} \textcolor{black}{+ \mathbf{u}_{l,j}\left(\mathbf{x}_r\right)^\transp\left(\mathbf{x}-\mathbf{x}_r\right)} \textcolor{black}{- \mathbf{u}_{l,r}\left(\mathbf{x}_r\right)^\transp \left(\mathbf{a}_{l,j}-\mathbf{a}_{l,r}\right)} \tag{25}
+$$
+
+:::
+
+::: {.fragment .instant-replace data-fragment-index=3}
+$$
+\textcolor{#FF1B17}{\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}} \simeq \textcolor{#0D00BA}{\norm{\mathbf{x}_r - \mathbf{a}_{l,r}}{2}} \textcolor{black}{+ \mathbf{u}_{l,j}\left(\mathbf{x}_r\right)^\transp\left(\mathbf{x}-\mathbf{x}_r\right)} \textcolor{black}{- \mathbf{u}_{l,r}\left(\mathbf{x}_r\right)^\transp \left(\mathbf{a}_{l,j}-\mathbf{a}_{l,r}\right)} \tag{25}
+$$
+
+:::
+
+::: {.fragment .instant-replace data-fragment-index=4}
+$$
+\textcolor{#FF1B17}{\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}} \simeq \textcolor{#0D00BA}{\norm{\mathbf{x}_r - \mathbf{a}_{l,r}}{2}} \textcolor{#62BE00}{+ \mathbf{u}_{l,j}\left(\mathbf{x}_r\right)^\transp\left(\mathbf{x}-\mathbf{x}_r\right)} \textcolor{black}{- \mathbf{u}_{l,r}\left(\mathbf{x}_r\right)^\transp \left(\mathbf{a}_{l,j}-\mathbf{a}_{l,r}\right)} \tag{25}
+$$
+
+:::
+
+::: {.fragment .instant-replace data-fragment-index=5}
+$$
+\textcolor{#FF1B17}{\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}} \simeq \textcolor{#0D00BA}{\norm{\mathbf{x}_r - \mathbf{a}_{l,r}}{2}} \textcolor{#62BE00}{+ \mathbf{u}_{l,j}\left(\mathbf{x}_r\right)^\transp\left(\mathbf{x}-\mathbf{x}_r\right)} \textcolor{#FF8A00}{-\mathbf{u}_{l,r}\left(\mathbf{x}_r\right)^\transp \left(\mathbf{a}_{l,j}-\mathbf{a}_{l,r}\right)} \tag{25}
+$$
+
+:::
+
+::: {.fragment .instant-replace data-fragment-index=6}
+$$
+\textcolor{#FF1B17}{\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}} \simeq \textcolor{#0D00BA}{\norm{\mathbf{x}_r - \mathbf{a}_{l,r}}{2}} \textcolor{#62BE00}{+ \mathbf{u}_{l,j}\left(\mathbf{x}_r\right)^\transp\left(\mathbf{x}-\mathbf{x}_r\right)} \textcolor{#FF8A00}{-\mathbf{u}_{l,r}\left(\mathbf{x}_r\right)^\transp \left(\mathbf{a}_{l,j}-\mathbf{a}_{l,r}\right)} \tag{25}
+$$
+
+:::
+
+
+::: {.fragment .instant-replace data-fragment-index=7}
+$$
+\textcolor{#FF1B17}{\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}} \simeq \textcolor{#0D00BA}{\norm{\mathbf{x}_r - \mathbf{a}_{l,r}}{2}} \textcolor{#62BE00}{+ \mathbf{u}_{l,j}\left(\mathbf{x}_r\right)^\transp\left(\mathbf{x}-\mathbf{x}_r\right)} \textcolor{#FF8A00}{-\mathbf{u}_{l,r}\left(\mathbf{x}_r\right)^\transp \left(\mathbf{a}_{l,j}-\mathbf{a}_{l,r}\right)} \tag{25}
+$$
+
+:::
+
+::: {.fragment .instant-replace data-fragment-index=8}
+$$
+\textcolor{#FF1B17}{\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}} \simeq \textcolor{#0D00BA}{\norm{\mathbf{x}_r - \mathbf{a}_{l,r}}{2}} \textcolor{#62BE00}{+ \mathbf{u}_{l,j}\left(\mathbf{x}_r\right)^\transp\left(\mathbf{x}-\mathbf{x}_r\right)} \textcolor{#FF8A00}{-\mathbf{u}_{l,r}\left(\mathbf{x}_r\right)^\transp \left(\mathbf{a}_{l,j}-\mathbf{a}_{l,r}\right)} \tag{25}
+$$
+
+:::
+
+::: {.fragment .instant-replace data-fragment-index=9}
+$$
+\textcolor{#FF1B17}{\norm{\mathbf{x}-\mathbf{a}_{l,j}}{2}} \simeq \textcolor{#0D00BA}{\norm{\mathbf{x}_r - \mathbf{a}_{l,r}}{2}} \textcolor{#62BE00}{+ \mathbf{u}_{l,j}\left(\mathbf{x}_r\right)^\transp\left(\mathbf{x}-\mathbf{x}_r\right)} \textcolor{#FF8A00}{-\mathbf{u}_{l,r}\left(\mathbf{x}_r\right)^\transp \left(\mathbf{a}_{l,j}-\mathbf{a}_{l,r}\right)} \tag{25}
+$$
+
+:::
+
+<div style= "margin-top: 2em"></div>
+
+::: {.centered-svg}
+
+<img src="images/appendix/taylor_approx_alternative_composite_1.svg"
+     class="fragment instant-replace"
+     data-fragment-index=1
+     width="auto"
+     height="400"/>
+
+<img src="images/appendix/taylor_approx_alternative_composite_2.svg"
+     class="fragment instant-replace"
+     data-fragment-index=2
+     width="auto"
+     height="400"/>
+
+<img src="images/appendix/taylor_approx_alternative_composite_3.svg"
+     class="fragment instant-replace"
+     data-fragment-index=3
+     width="auto"
+     height="400"/>
+
+<img src="images/appendix/taylor_approx_alternative_composite_4.svg"
+     class="fragment instant-replace"
+     data-fragment-index=4
+     width="auto"
+     height="400"/>
+
+<img src="images/appendix/taylor_approx_alternative_composite_5.svg"
+     class="fragment instant-replace"
+     data-fragment-index=5
+     width="auto"
+     height="400"/>
+
+<img src="images/appendix/taylor_approx_alternative_composite_6.svg"
+     class="fragment instant-replace"   
+     data-fragment-index=6
+     width="auto"
+     height="400"/>
+
+<img src="images/appendix/taylor_approx_alternative_composite_prez_close_1.svg"
+     class="fragment instant-replace"   
+     data-fragment-index=7
+     width="auto"
+     height="400"/>
+
+<img src="images/appendix/taylor_approx_alternative_composite_prez_close_2.svg"
+     class="fragment instant-replace"   
+     data-fragment-index=8
+     width="auto"
+     height="400"/>
+
+<img src="images/appendix/taylor_approx_alternative_composite_prez_close_3.svg"
+     class="fragment instant-replace"   
+     data-fragment-index=9
+     width="auto"
+     height="400"/>
+
+:::
+
+---
+
+## RECONSTRUCTION RESULTS {visibility="uncounted"}
+
+::: {.centered-svg}
+
+<img src="images/appendix/real_reconstruct_with_freq.png"
+       width="auto"
+       height= "900"/>
+
+:::
+
+
+---
+
+## PROPOSED LOCALIZATION METHOD {visibility="uncounted"}
+
+
+::: {.fragment .current-visible fragment-index=0 style="position: absolute; top: 2em; left: 0; width: 100%;"}
+- Based on grid-search and gradient descent, using a Frobenius norm similarity measure:
+
+$$
+\mu_{\textsf{PS}}\left(\bH\left(\bx\right), \tilde{\bx} \vert \btheta \right)
+= \norm{\bH\left(\bx\right) - \ftheta\left(\tilde{\bx}\right)}{\mathsf{F}}
+$$
+
+:::
+
+::: {.fragment .current-visible fragment-index=0 style="position:absolute; bottom:0em; left:0; width:100%; text-align:left;"}
+
+::: {.slide-footnote}
+Chatelier et al., *"Model-based Implicit Neural Representation for sub-wavelength Radio Localization"*.
+:::
+
+:::
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.fragment .current-visible fragment-index=1 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- How to estimate $\bx$?
+- Background: $\norm{\bH\left(\bx\right) - \ftheta\left(\tilde{\bx}\right)}{\mathsf{F}}$
+:::
+
+::: {.fragment .current-visible fragment-index=2 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Generate the global grid $\mathcal{G}_{\textsf{G}}$ based on topological knowledge of the scene
+:::
+
+
+::: {.fragment .current-visible fragment-index=3 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Generate the global grid $\mathcal{G}_{\textsf{G}}$ based on topological knowledge of the scene
+- Using $\ftheta$, solve:
+
+$$
+\tilde{\bx}_{\textrm{i}} = \argmin{\tilde{\bx} \in \mathcal{G}_{\textsf{G}}} \norm{\bH\left(\bx\right) - \ftheta\left(\tilde{\bx}\right)}{\mathsf{F}}  
+$$
+:::
+
+::: {.fragment .current-visible fragment-index=4 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Generate the local grid $\mathcal{G}_{\textsf{L}}$ around the obtained location
+:::
+
+::: {.fragment .current-visible fragment-index=5 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Generate the local grid $\mathcal{G}_{\textsf{L}}$ around the obtained location
+- Using $\ftheta$, solve:
+
+$$
+\tilde{\bx}_{\textrm{g}} = \argmin{\tilde{\bx} \in \mathcal{G}_{\textsf{L}}} \norm{\bH\left(\bx\right) - \ftheta\left(\tilde{\bx}\right)}{\mathsf{F}}  
+$$
+:::
+
+::: {.fragment .current-visible fragment-index=6 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+:::
+
+::: {.fragment .current-visible fragment-index=7 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+:::
+
+::: {.fragment .current-visible fragment-index=8 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+:::
+
+::: {.fragment .current-visible fragment-index=9 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+:::
+
+::: {.fragment .current-visible fragment-index=10 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+- Local minima issue
+:::
+
+::: {.fragment .current-visible fragment-index=11 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+- Local minima issue
+- Spacing between minima derived from $\mu_{\textsf{PS}}$
+
+<!-- ::: {.theorem-box}
+<span class="algold">Theorem 5.3: Global minimum location</span>
+
+$$
+\boldsymbol{\delta} \in \bigcap_{\left(i,j,l,k\right) \in \mathcal{L}} \mathcal{C}\left(\ba_{l,i}-\bx,\norm{\bx-\ba_{l,i}}{2}+ k \lambda_j\right),
+$$
+with $\mathcal{L} = \llbracket 1, N_a \rrbracket \times \llbracket 1, N_s \rrbracket \times \llbracket 1, L_p \rrbracket \times \mbbZ.$
+
+::: -->
+
+:::
+
+::: {.fragment .current-visible fragment-index=12 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+- Local minima issue
+- Spacing between minima derived from $\mu_{\textsf{PS}}$
+- Generate circles of radius $k\lambda_0, k \in \mbbN^*$
+:::
+
+::: {.fragment .current-visible fragment-index=13 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+- Local minima issue
+- Spacing between minima derived from $\mu_{\textsf{PS}}$
+- Generate circles of radius $k\lambda_0, k \in \mbbN^*$
+- Generate $\mathcal{G}_{\textsf{C}}$ by sampling for the circles
+:::
+
+::: {.fragment .current-visible fragment-index=14 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+- Local minima issue
+- Spacing between minima derived from $\mu_{\textsf{PS}}$
+- Generate circles of radius $k\lambda_0, k \in \mbbN^*$
+- Using $\ftheta$, solve:
+
+$$
+\tilde{\bx}_{\textrm{c}^{\star}} = \argmin{\tilde{\bx} \in \mathcal{G}_{\textsf{C}}} \norm{\bH\left(\bx\right) - \ftheta\left(\tilde{\bx}\right)}{\mathsf{F}}  
+$$
+
+
+:::
+
+::: {.fragment .current-visible fragment-index=15 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+:::
+
+::: {.fragment .current-visible fragment-index=16 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+:::
+
+::: {.fragment fragment-index=17 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+:::
+
+:::
+
+::: {.column width="50%"}
+
+<img src="images/appendix/circle_1_1.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="1"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_1_2.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="2"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_1_3.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="3"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_2_1.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="4"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_2_2.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="5"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_3_1.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="6"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_3_2.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="7"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_3_3.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="8"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_3_4.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="9"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_4_1.svg"
+     class="fragment instant-replace"
+     data-fragment-index="10"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_4_2.svg"
+     class="fragment instant-replace" 
+     data-fragment-index="11"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_4_3.svg"
+     class="fragment instant-replace" 
+     data-fragment-index="12"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_4_4.svg"
+     class="fragment instant-replace" 
+     data-fragment-index="13"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_4_5.svg"
+     class="fragment instant-replace" 
+     data-fragment-index="14"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_5_1.svg"
+     class="fragment instant-replace" 
+     data-fragment-index="15"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_5_2.svg"
+     class="fragment instant-replace" 
+     data-fragment-index="16"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/appendix/circle_5_3.svg"
+     class="fragment instant-replace-fade-in" 
+     data-fragment-index="17"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+:::
+
+::: {.fragment .overlay-fragment data-fragment-index=18}
+
+::: {.overlay-box}
+
+We used the MB-ML paradigm to <span class="alg">structure</span> a neural architecture and <span class="alg">optimize</span> a gradient-descent process
+
+:::
+
+:::
+::::
+
+---
+
+## LOCALIZATION RESULTS {visibility="uncounted"}
+
+::: {.fragment .instant-replace data-fragment-index=1}
+
+::: {.centered-svg}
+
+<img
+     src="images/loc2chan/scenes.svg"
+     width="1800"
+     height="auto"/>
+
+:::
+
+- Localization performance evaluated on 10k independent locations within the red planes
+
+:::
+
+<div style= "margin-top: -1em"></div>
+
+::: {.centered-svg}
+
+<img src="images/loc2chan/localization_perf_1.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=2
+     width="auto"
+     height="980"/>
+
+:::
+
+
+
+::: {.fragment data-fragment-index=3}
+SNR=5dB
+:::
+
+<div style= "margin-top: -1em"></div>
+
+::: {.centered-svg}
+
+<img src="images/appendix/loc_perf_noisy.svg"
+     class = "fragment instant-replace"
+     data-fragment-index=3
+     width="auto"
+     height="950"/>
+
+:::
+
+---
+
+## DIVIDE-AND-CONQUER {visibility="uncounted"}
+
+::: {.centered-svg}
+
+<img src="images/appendix/hierarchical_dict_diapo_base.svg"
+     width="auto"
+     height="900"/>
+
+:::
+
+---
+
+## diffMUSIC PRINCIPLES {visibility="uncounted"}
+
+
+::: {.centered-svg}
+
+<img src="images/appendix/diffMUSIC_animation_0.svg"
+     class="fragment instant-replace"
+     width="auto"
+     height="800"/>
+
+<img src="images/appendix/diffMUSIC_animation_1.svg"
+     class="fragment instant-replace"
+     width="auto"
+     height="800"/>
+
+<img src="images/appendix/diffMUSIC_animation_2.svg"
+     class="fragment instant-replace"
+     width="auto"
+     height="800"/>
+
+<img src="images/appendix/diffMUSIC_animation_3.svg"
+     class="fragment instant-replace"
+     width="auto"
+     height="800"/>
+
+:::
+
+---
+
+## PI DISTANCE {visibility="uncounted"}
+
+::: {.centered-svg}
+
+<img src="images/cc/PI_motivations_1.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=1
+      height="700"/>
+
+<img src="images/cc/PI_motivations_2.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=2
+      height="700"/>
+
+:::
+
+::: {.fragment .instant-replace data-fragment-index=3}
+
+::: {.info-box}
+
+Solution *[Le Magoarou]*: Phase-insensitive distance
+
+$$
+d\left(\bh_i, \bh_j\right) = \sqrt{2-2 \frac{\abs{\bh_i^\herm \bh_j}}{\norm{\bh_i}{2} \norm{\bh_j}{2}}}
+$$
+
+:::
+
+:::
+
+---
+
+## CELL-FREE SYSTEM {visibility="uncounted"}
+
+::: {.centered-svg}
+
+<img src="images/cc/CSI_cell_free_1.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=1
+      height="700"/>
+
+<img src="images/cc/CSI_cell_free_2.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=2
+      height="700"/>
+
+<img src="images/cc/CSI_cell_free_3.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=3
+      height="700"/>
+
+<img src="images/cc/CSI_cell_free_4.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=4
+      height="700"/>
+
+<img src="images/cc/CSI_cell_free_5.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=5
+      height="700"/>
+
+:::
+
+---
+
+## MONO-UE PERFORMANCE (SUBSAMPLING) {visibility="uncounted"}
+
+::: {.centered-svg}
+
+
+<img src="images/cc/table_cc_1.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=1
+      height="750"/>
+
+<img src="images/cc/table_cc_2.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=2
+      height="750"/>
+
+<img src="images/cc/table_cc_3.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=3
+      height="750"/>
+
+<img src="images/cc/table_cc_4.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=4
+      height="750"/>
+
+<img src="images/cc/map_subs.svg"
+      class = "fragment instant-replace"
+      data-fragment-index=5
+      height="800"/>
+
+
+:::
+
+::: {.fragment .instant-replace data-fragment-index=5}
+- Subsampling does not impact mono-UE beamforming performance
+:::
+
+---
+
+## LINKING CHANNEL CHARTING AND SOURCE CODING {visibility="uncounted"}
+
+::: {.slide-footnote}
+B. Park, H. Do, N. Lee, "*Transformer-Based Nonlinear Transform Coding for Multi-Rate CSI Compression in MIMO-OFDM Systems*", in *IEEE ICC*, 2025
+:::
+
+::: {.centered-svg}
+
+<img src="images/appendix/entropy_model.svg"
+      height="800"/>
+
+:::
+
+
+---
+
+## SERMENT DOCTORAL {visibility="uncounted"}
+
+::: {.justified}
+*__French version__*
+
+En présence de mes pairs. 
+
+Parvenu à l'issue de mon doctorat en traitement du signal, et ayant ainsi pratiqué, dans ma quête du savoir, l'exercice d'une recherche scientifique exigeante, en cultivant la rigueur intellectuelle, la réflexivité éthique et dans le respect des principes de l'intégrité scientifique, je m'engage, pour ce qui dépendra de moi, dans la suite de ma carrière professionnelle, quel qu'en soit le secteur ou le domaine d'activité, à maintenir une conduite intègre dans mon rapport au savoir, mes méthodes et mes résultats.
+
+<div style= "margin-top: 2em"></div>
+
+*__English version__*
+
+In the presence of my peers.
+
+With the completion of my doctorate in signal processing, in my quest for knowledge, I have carried out demanding research, demonstrated intellectual rigour, ethical reflection, and respect for the principles of research integrity. As I pursue my professional career, whatever my chosen field, I pledge, to the greatest of my ability, to continue to maintain integrity in my relationship to knowledge, in my methods and in my results. ​
+
+:::
+

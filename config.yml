@@ -1,7 +1,8 @@
 # baseURL: "https://bchateli.github.io" 
 baseURL: "https://baptistechatelier.com" 
 title: Baptiste CHATELIER
-paginate: 20
+# paginate: 20
+paginatation.pagerSize: 20
 theme: PaperMod
 
 enableInlineShortcodes: true
@@ -12,21 +13,25 @@ taxonomies:
 
 menu:
     main:
+        - name: News
+          url: news/
+          weight: 2
+
         - name: Papers
           url: papers/
           weight: 1
 
         - name: Talks
           url: /talks/
-          weights: 2
+          weights: 3
 
         - name: Alumni
           url: /alumni/
-          weights: 10
+          weights: 4
 
         - name: PhD
           url: /phd/
-          weights: 10
+          weights: 5
 
         # - name: Search
         #   url: /search/
@@ -58,30 +63,47 @@ params:
     profileMode:
           enabled: true
           title: Baptiste CHATELIER
-          subtitle: "I am currently a Postdoctoral Fellow at the National Institute of Applied Sciences in Rennes, France [(_INSA Rennes_)](https://www.insa-rennes.fr/graduate-school-of-engineering.html). Prior to that , I obtained my PhD from INSA Rennes, with funding from Mitsubishi Electric R&D Centre Europe [(_MERCE_)](https://www.mitsubishielectric-rce.eu/), and supervision from [__Luc Le MAGOAROU__](https://luclemagoarou.netlify.app/), [__Vincent CORLAY__](https://www.linkedin.com/in/vincent-corlay-b48001108/) and [__Matthieu CRUSSIERE__](https://www.linkedin.com/in/matthieu-crussiere-06646933/). My research interests include signal processing, applied mathematics and machine learning for wireless communication systems."
-          # imageUrl: "avatar.jpg"
+          subtitle: |
+            I am currently a Postdoctoral Fellow at the National Institute of Applied Sciences in Rennes, France [(_INSA Rennes_)](https://www.insa-rennes.fr/graduate-school-of-engineering.html). 
+            
+            <br>
+
+            Prior to that , I obtained my PhD from INSA Rennes, with funding from Mitsubishi Electric R&D Centre Europe [(_MERCE_)](https://www.mitsubishielectric-rce.eu/), and supervision from [__Luc Le MAGOAROU__](https://luclemagoarou.netlify.app/), [__Vincent CORLAY__](https://www.linkedin.com/in/vincent-corlay-b48001108/) and [__Matthieu CRUSSIERE__](https://www.linkedin.com/in/matthieu-crussiere-06646933/). 
+            
+            <br>
+            
+            My research interests include signal processing, applied mathematics and machine learning for wireless communication systems.
+
+            <br>
+
+            Feel free to [reach out](mailto:baptiste.chatelier@insa-rennes.fr) if you want to discuss research or potential collaborations!
+
           imageUrl: "avatar_new_cropped.png"
-          # imageWidth: 154 
-          # imageHeight: 205
           imageWidth: 180
           imageHeight: 180
           imageTitle: Baptiste CHATELIER
           buttons:
+
             - name: Papers
               url: papers/
               weight: 1
+            
+            - name: News
+              url: news/
+              weight: 2
+            
             - name: Talks
               url: talks/
-              weight: 2
+              weight: 3
             - name: Alumni
               url: alumni/
-              weight: 3
+              weight: 4
             - name: PhD
               url: phd/
-              weight: 4
+              weight: 5
             - name: Search  
               url: search/  
-              weight: 5
+              weight: 6
     socialIcons:
         - name: Email
           url: mailto:baptiste.chatelier@insa-rennes.fr

@@ -1,0 +1,798 @@
+
+### PROPAGATION CHANNEL
+
+- The wireless propagation channel characterizes how the propagation environment affects transmitted electromagnetic waves.
+
+:::: {.r-stack}
+<img class="fragment instant-replace"  
+     data-fragment-index="1"
+     src="images/loc2chan/multipath_propag_1.svg"
+     width="auto"
+     height="800"/>
+
+<img class="fragment instant-replace"  
+     data-fragment-index="2"
+     src="images/loc2chan/multipath_propag_2.svg"
+     width="auto"
+     height="800"/>
+
+<img class="fragment instant-replace"  
+     data-fragment-index="3"
+     src="images/loc2chan/multipath_propag_3.svg"
+     width="auto"
+     height="800"/>
+
+<img class="fragment instant-replace"  
+     data-fragment-index="4"
+     src="images/loc2chan/multipath_propag_4.svg"
+     width="auto"
+     height="800"/>
+
+<img class="fragment instant-replace"
+     data-fragment-index="5"
+     src="images/loc2chan/multipath_propag_5.svg"
+     width="auto"
+     height="800"/>
+
+::::
+
+
+<!-- ::: {.centered-svg .svg-1200 .fragment}
+
+```yaml {.animate src="images/loc2chan/multipath_propag.svg"}
+setup:
+  - element: "#init"
+    modifier: attr
+    parameters:
+      - class: fragment
+        data-fragment-index: 0"
+  - element: "#los"
+    modifier: attr
+    parameters:
+      - class: fragment
+        data-fragment-index: "1"
+  - element: "#reflection"
+    modifier: attr
+    parameters:
+      - class: fragment
+        data-fragment-index: "2"
+  - element: "#diffraction"
+    modifier: attr
+    parameters:
+      - class: fragment
+        data-fragment-index: "3"
+  - element: "#scattering"
+    modifier: attr
+    parameters:
+      - class: fragment
+        data-fragment-index: "4"
+```
+
+::: -->
+
+---
+
+### LOCATION-TO-CHANNEL-MAPPING
+
+- Channel impulse response ($\bx \in \mbbR^3$: receiver location):
+
+
+::: {.incremental}
+
+
+::: {.fragment}
+$$
+h \left(\bx\right) = \sum_{l=1}^{L_p} \gamma_l \left(\bx\right) \delta \left(t-\tau_l \left(\bx\right)\right)
+$$
+:::
+
+<div style= "margin-top: -.5em"></div>
+
+- Channel frequency response ($f_k$: considered frequency):
+
+::: {.fragment}
+$$
+\begin{align}
+  h\left(f_k,\bx\right) &= \sum_{l=1}^{L_p} \gamma_l \left(\bx\right) \mathrm{e}^{-\mathrm{j} 2 \pi f_k \tau_l\left(\bx\right)}\\
+  &= \sum_{l=1}^{L_p} \frac{\alpha_l \mathrm{e}^{\mathrm{j} \beta_l}}{d_l\left(\bx\right)} \mathrm{e}^{-\mathrm{j} 2 \pi f_k \tau_l\left(\bx\right)}
+\end{align}
+$$
+
+:::
+
+::: {.info-box .fragment}
+How to learn this mapping in a system with $N_a$ antennas operating on $N_s$ frequencies?
+:::
+
+:::
+
+---
+
+### TOWARDS INR
+
+- Use of the Implicit Neural Representation concept:
+
+  ::: {.fragment data-fragment-index=1}
+  - Neural networks are universal function approximators <sup class="fn-ref">[3],</sup><sup class="fn-ref">[4]</sup>
+  :::
+
+  ::: {.fragment data-fragment-index=2}
+  - Using $\bx$ one can design and train a neural network in a supervised manner to learn a representation of $\bH\left(\bx\right)$
+  :::
+
+::: {.slide-footnote .fragment data-fragment-index=1}
+[3] K. Hornik, M. Stinchcombe, and H. White, “*Multilayer feedforward networks are universal approximators*”.
+
+[4] G. Cybenko, “*Approximation by superpositions of a sigmoidal function*”.
+:::
+
+<div style= "margin-top: .5em"></div>
+
+::: {.fragment data-fragment-index=3}
+- Goal: learn
+:::
+
+<div style= "margin-top: -1em"></div>
+
+::: {.fragment data-fragment-index=3}
+$$
+\begin{aligned}
+    f_{\btheta} \colon \mbbR^3 &\longrightarrow \mbbC^{N_a \times N_s} \\
+    \bx &\longrightarrow \bH\left(\bx\right)
+\end{aligned}
+$$
+:::
+
+::: {.overlay-fragment .fragment .fade-in-then-out data-fragment-index=4}
+::: {.info-box-sienna}
+
+<span class="mplsienna">Problem 3.1: MB-ML for radio-environment compression</span>
+
+$$
+\mini{\ftheta}{\espo{\norm{\ftheta\left(\bx\right)-\bH\left(\bx\right)}{\mathsf{F}}^2}{\left(\bx, \bH \left(\bx\right)\right) \sim p_{\bx,\bH}}}{\ftheta \in \mathcal{H}}
+$$
+
+:::
+:::
+
+::: {.info-box .fragment data-fragment-index=5}
+How to **structure** and **train** $\ftheta\left(\bx\right)$?
+:::
+
+---
+
+### SPECTRAL BIAS
+
+- Classical architecture (MLPs) are biased towards learning low-frequency content<sup class="fn-ref">[5],</sup><sup class="fn-ref">[6]</sup>
+
+::: {.slide-footnote}
+[5] N. Rahaman et al., “*On the spectral bias of neural networks*”.
+
+[6] Y. Cao et al., “Towards Understanding the Spectral Bias of Deep Learning”.
+:::
+
+::: {.fragment}
+$$
+h\left(f_k,\bx\right) = \sum_{l=1}^{L_p} \frac{\alpha_l \mathrm{e}^{\mathrm{j} \beta_l}}{d_l\left(\bx\right)} \mathrm{e}^{-\mathrm{j} 2 \pi f_k \tau_l\left(\bx\right)}
+$$
+
+- High frequency spatial dependence due to the exponential argument: small change in $\bx$ leads to a huge change in $\bH\left(\bx\right) \rightarrow$ on the order of the wavelength
+:::
+
+::: {.overlay-fragment .fragment .fade-in-then-out}
+<!-- ::: {.overlay-box} -->
+
+<img src="images/loc2chan/GT.svg"
+       width="900"
+       height= "auto"/>
+
+<!-- ::: -->
+:::
+
+::: {.info-box .fragment}
+**How to train $\ftheta \left(\bx\right)$ without suffering from the spectral bias?**
+:::
+
+::: {.overlay-fragment .fragment .fade-in-then-out}
+::: {.questionbox style="--qbox-width: 80%;"}
+
+::: {.questionbox-title}
+**MB-ML paradigm application**
+:::
+
+Use the physical channel model to __*<span class="alg">structure</span>*__ a neural network that overcomes the spectral bias.
+
+:::
+:::
+
+---
+
+### OVERCOMING THE SPECTRAL BIAS
+
+- Main idea<sup class="fn-ref">[7],</sup><sup class="fn-ref">[8]</sup>: planar approximation of spherical wavefronts using Taylor expansions
+
+::: {.slide-footnote}
+[7] B. Chatelier et al., “*Model-Based Learning for Location-to-Channel Mapping*”.
+
+[8] B. Chatelier et al., “*Model-Based Learning for Multi-Antenna Multi-Frequency Location-to-Channel Mapping*”.
+:::
+
+<div style= "margin-top: -.5em"></div>
+
+:::: {.r-stack}
+<img class="fragment instant-replace"  
+     src="images/loc2chan/GT_wavefront_1.svg"
+     width="auto"
+     height="800"/>
+
+<img class="fragment instant-replace"
+     src="images/loc2chan/GT_wavefront_2.svg"
+     width="auto"
+     height="800"/>
+
+<img class="fragment instant-replace"
+     src="images/loc2chan/GT_wavefront_3.svg"
+     width="auto"
+     height="800"/>
+
+<img class="fragment instant-replace"
+     src="images/loc2chan/GT_wavefront_4.svg"
+     width="auto"
+     height="800"/>
+
+<img class="fragment instant-replace"
+     src="images/loc2chan/GT_wavefront_5.svg"
+     width="auto"
+     height="800"/>
+::::
+
+---
+
+### GENERALIZATION
+
+- This results in a sparse recovery problem with a <span class="alg">slowly varying coefficients vector $\bw\left(\bx\right)$</span>
+
+::: {.fragment .theorem-box}
+
+<span class="algold">Theorem 4.2: Global sparse channel approximation</span>
+
+$$
+\begin{align}
+  \forall \bx \in \mbbR^3, \text{ } &\bH\left(\bx\right) \simeq \sum_{i=1}^D \left(\bw\left(\bx\right) \odot \tilde{\psi}_{\bx}\left(\bx\right)\right) \tilde{\bpsi}_{\ba,i} \tilde{\bpsi}_{\bf,i}^\transp \\
+  &\text{with } \norm{\bw\left(\bx\right)}{0} = L_p \nonumber
+\end{align}
+$$
+:::
+
+::: {.fragment}
+- where:
+
+  ::: {.fragment}
+  - $\left(\bw\left(\bx\right) \odot \tilde{\psi}_{\bx}\left(\bx\right)\right)$ allows wavefront selection
+  :::
+  
+  ::: {.fragment}
+  - $\tilde{\bpsi}_{\ba,i}$ and $\tilde{\bpsi}_{\bf,i}$ allow antenna and frequency extrapolation
+  :::
+:::
+
+<span class="alr">[Baptiste: ]Add alternative formulation</span>
+
+---
+
+### MODEL-BASED NEURAL ARCHITECTURE
+
+::: {.r-stack}
+
+<img class="fragment instant-replace"  
+     src="images/loc2chan/neural_archi_1.svg"
+     width="auto"
+     height="900"/>
+
+<img class="fragment instant-replace"  
+     src="images/loc2chan/neural_archi_2.svg"
+     width="auto"
+     height="900"/>
+
+<img class="fragment instant-replace"  
+     src="images/loc2chan/neural_archi_3.svg"
+     width="auto"
+     height="900"/>
+
+<img class="fragment instant-replace"  
+     src="images/loc2chan/neural_archi_4.svg"
+     width="auto"
+     height="900"/>
+
+<img class="fragment instant-replace"  
+     src="images/loc2chan/neural_archi_5.svg"
+     width="auto"
+     height="900"/>
+
+<img class="fragment instant-replace"  
+     src="images/loc2chan/neural_archi_6.svg"
+     width="auto"
+     height="900"/>
+
+<img class="fragment fade-in"
+     src="images/loc2chan/neural_archi_7.svg"
+     width="auto"
+     height="900"/>
+
+:::
+
+::: {.overlay-fragment .fragment}
+
+<!-- ::: {.questionbox style="--qbox-width: 80%;"}
+
+::: {.questionbox-title}
+**MB-ML paradigm application**
+:::
+
+We used the MB-ML paradigm to **<span class="alg">structure</span>** a neural network.
+
+::: -->
+
+::: {.overlay-box}
+
+
+
+We used the MB-ML paradigm to **<span class="alg">structure</span>** a neural network
+
+:::
+:::
+
+---
+
+### EVALUATION ENVIRONMENT
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Scene:
+  - 10m by 10m square plane
+  - Uniformly dropped train/test locations
+  - Performance evaluation on $\lambda/4$ uniform grid (210k locs.)
+:::
+
+::: {.column width="50%"}
+<img 
+     src="images/loc2chan/kazak_scene.png"
+     width="auto"
+     height="700"/>
+
+:::
+
+::::
+
+---
+
+### RESULTS
+
+
+::: {.centered-svg}
+
+<img
+     src="images/loc2chan/real_reconstruct_with_freq.png"
+     width="auto"
+     height="700"/>
+
+:::
+
+- Top row: real part of the reconstructed channels with NMSE in dB (red)
+- Bottom row: 2D Fourier transform of the reconstruction
+
+---
+
+### TRAINING DYNAMICS
+
+<span class="alr">Add markings</span>
+
+::: {.centered-svg}
+
+<video
+  data-autoplay
+  controls
+  width="auto"
+  height="900"
+  src="images/loc2chan/video_reconstruction_evolution.mp4"
+></video>
+
+:::
+
+---
+
+### POTENTIAL APPLICATION
+
+- The objective was to learn:
+
+<div style= "margin-top: -1em"></div>
+
+$$
+\begin{aligned}
+    f_{\btheta} \colon \mbbR^3 &\longrightarrow \mbbC^{N_a \times N_s} \\
+    \bx &\longrightarrow \bH\left(\bx\right)
+\end{aligned}
+$$
+
+::: {.fragment}
+- Once trained, the proposed model achieves **near-perfect** channel reconstruction, **<span class="alg">at the sub-wavelength level</span>**
+:::
+
+::: {.fragment .info-box}
+$\ftheta$ can be seen as a **generative neural channel model** in the considered scene
+:::
+
+<div style= "margin-top: 1em"></div>
+
+::: {.fragment}
+- Potential applications include:
+
+  ::: {.fragment}
+  - Channel prediction
+  :::
+  
+  ::: {.fragment}
+  - **Precise localization**
+  :::
+:::
+
+---
+
+### RADIO LOCALIZATION
+
+- Given $\bH\left(\bx\right)$, how to estimate $\bx$?
+
+::: {.fragment .overlay-fragment .fade-in-then-out}
+
+::: {.info-box-sienna}
+
+<span class="mplsienna">Problem 3.2: MB-ML for wireless localization</span>
+
+$$
+\mini{\ftheta}{\espo{\norm{\ftheta\left(\bH\left(\bx\right)\right)-\bx}{2}^2}{\left(\bx, \bH \left(\bx\right)\right) \sim p_{\bH,\bx}}}{\ftheta \in \mathcal{H}}
+$$
+
+:::
+
+:::
+
+::: {.fragment}
+- Fingerprinting-based localization:
+
+  ::: {.fragment}
+  - Estimate $\bx$ as the position in a dictionary $\mathcal{G}$ whose associated channel coefficients are the most similar with $\bH\left(\bx\right)$.
+$$
+\hat{\bx}\left(\bH\left(\bx\right)\right) = \argmax{\tilde{\bx} \in \mathcal{G}} \simil{\bH\left(\bx\right),\bH\left(\tilde{\bx}\right)}
+$$
+  :::
+:::
+
+::: {.fragment .info-box-red}
+Localization accuracy is limited by the dictionary resolution
+:::
+
+<div style= "margin-top: 1em"></div>
+
+::: {.fragment .info-box}
+Idea: use the trained $\ftheta$ **to generate channel coefficients at wanted locations** $\rightarrow$ to enhance localization accuracy
+:::
+
+---
+
+### PROPOSED LOCALIZATION METHOD
+
+::: {.fragment .current-visible fragment-index=0 style="position: absolute; top: 2em; left: 0; width: 100%;"}
+- Based on grid-search and gradient descent<sup class="fn-ref">[9]</sup>, using a Frobenius norm similarity measure:
+
+$$
+\mu_{\textsf{PS}}\left(\bH\left(\bx\right), \tilde{\bx} \vert \btheta \right)
+= \norm{\bH\left(\bx\right) - \ftheta\left(\tilde{\bx}\right)}{\mathsf{F}}
+$$
+
+:::
+
+::: {.fragment .current-visible fragment-index=0 style="position:absolute; bottom:0em; left:0; width:100%; text-align:left;"}
+
+::: {.slide-footnote}
+[9] B. Chatelier et al., *"Model-based Implicit Neural Representation for sub-wavelength Radio Localization"*.
+:::
+
+:::
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.fragment .current-visible fragment-index=1 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- How to estimate $\bx$?
+- Background: $\norm{\bH\left(\bx\right) - \ftheta\left(\tilde{\bx}\right)}{\mathsf{F}}$
+:::
+
+::: {.fragment .current-visible fragment-index=2 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Generate the global grid $\mathcal{G}_{\textsf{G}}$ based on topological knowledge of the scene
+:::
+
+
+::: {.fragment .current-visible fragment-index=3 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Generate the global grid $\mathcal{G}_{\textsf{G}}$ based on topological knowledge of the scene
+- Using $\ftheta$, solve:
+
+$$
+\tilde{\bx}_{\textrm{i}} = \argmin{\tilde{\bx} \in \mathcal{G}_{\textsf{G}}} \norm{\bH\left(\bx\right) - \ftheta\left(\tilde{\bx}\right)}{\mathsf{F}}  
+$$
+:::
+
+::: {.fragment .current-visible fragment-index=4 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Generate the local grid $\mathcal{G}_{\textsf{L}}$ around the obtained location
+:::
+
+::: {.fragment .current-visible fragment-index=5 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Generate the local grid $\mathcal{G}_{\textsf{L}}$ around the obtained location
+- Using $\ftheta$, solve:
+
+$$
+\tilde{\bx}_{\textrm{g}} = \argmin{\tilde{\bx} \in \mathcal{G}_{\textsf{L}}} \norm{\bH\left(\bx\right) - \ftheta\left(\tilde{\bx}\right)}{\mathsf{F}}  
+$$
+:::
+
+::: {.fragment .current-visible fragment-index=6 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+:::
+
+::: {.fragment .current-visible fragment-index=7 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+:::
+
+::: {.fragment .current-visible fragment-index=8 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+:::
+
+::: {.fragment .current-visible fragment-index=9 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+:::
+
+::: {.fragment .current-visible fragment-index=10 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+- Local minima issue
+:::
+
+::: {.fragment .current-visible fragment-index=11 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+- Local minima issue
+- Spacing between minima derived from $\mu_{\textsf{PS}}$
+
+<!-- ::: {.theorem-box}
+<span class="algold">Theorem 5.3: Global minimum location</span>
+
+$$
+\boldsymbol{\delta} \in \bigcap_{\left(i,j,l,k\right) \in \mathcal{L}} \mathcal{C}\left(\ba_{l,i}-\bx,\norm{\bx-\ba_{l,i}}{2}+ k \lambda_j\right),
+$$
+with $\mathcal{L} = \llbracket 1, N_a \rrbracket \times \llbracket 1, N_s \rrbracket \times \llbracket 1, L_p \rrbracket \times \mbbZ.$
+
+::: -->
+
+:::
+
+::: {.fragment .current-visible fragment-index=12 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+- Local minima issue
+- Spacing between minima derived from $\mu_{\textsf{PS}}$
+- Generate circles of radius $k\lambda_0, k \in \mbbN^*$
+:::
+
+::: {.fragment .current-visible fragment-index=13 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+- Local minima issue
+- Spacing between minima derived from $\mu_{\textsf{PS}}$
+- Generate circles of radius $k\lambda_0, k \in \mbbN^*$
+- Generate $\mathcal{G}_{\textsf{C}}$ by sampling for the circles
+:::
+
+::: {.fragment .current-visible fragment-index=14 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+- Local minima issue
+- Spacing between minima derived from $\mu_{\textsf{PS}}$
+- Generate circles of radius $k\lambda_0, k \in \mbbN^*$
+- Using $\ftheta$, solve:
+
+$$
+\tilde{\bx}_{\textrm{c}^{\star}} = \argmin{\tilde{\bx} \in \mathcal{G}_{\textsf{C}}} \norm{\bH\left(\bx\right) - \ftheta\left(\tilde{\bx}\right)}{\mathsf{F}}  
+$$
+
+
+:::
+
+::: {.fragment .current-visible fragment-index=15 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+:::
+
+::: {.fragment .current-visible fragment-index=16 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+:::
+
+::: {.fragment fragment-index=17 style="position: absolute; top: 2em; left: 0; width: 50%; max-width: 50%;"} 
+- Perform $N_{\nabla}$ gradient descent steps
+:::
+
+:::
+
+::: {.column width="50%"}
+
+<img src="images/loc2chan/circle_1_1.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="1"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_1_2.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="2"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_1_3.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="3"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_2_1.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="4"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_2_2.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="5"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_3_1.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="6"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_3_2.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="7"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_3_3.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="8"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_3_4.svg"
+     class="fragment instant-replace"   
+     data-fragment-index="9"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_4_1.svg"
+     class="fragment instant-replace"
+     data-fragment-index="10"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_4_2.svg"
+     class="fragment instant-replace" 
+     data-fragment-index="11"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_4_3.svg"
+     class="fragment instant-replace" 
+     data-fragment-index="12"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_4_4.svg"
+     class="fragment instant-replace" 
+     data-fragment-index="13"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_4_5.svg"
+     class="fragment instant-replace" 
+     data-fragment-index="14"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_5_1.svg"
+     class="fragment instant-replace" 
+     data-fragment-index="15"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_5_2.svg"
+     class="fragment instant-replace" 
+     data-fragment-index="16"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+<img src="images/loc2chan/circle_5_3.svg"
+     class="fragment instant-replace-fade-in" 
+     data-fragment-index="17"
+     style="position:absolute; top:2em; right:0em;"
+     width="800"
+     height="auto"/>
+
+:::
+
+::: {.fragment .overlay-fragment data-fragment-index=18}
+
+::: {.overlay-box}
+
+We used the MB-ML paradigm to <span class="alg">structure</span> a neural architecture and <span class="alg">optimize</span> a gradient-descent process
+
+:::
+
+:::
+::::
+
+---
+
+### SIMULATION SETUP
+
+::: {.centered-svg}
+
+<img
+     src="images/loc2chan/scenes.svg"
+     width="1800"
+     height="auto"/>
+
+:::
+
+- Localization performance evaluated on 10k independent locations within the red plane
+
+---
+
+### LOCALIZATION PERFORMANCE
+
+::: {.centered-svg}
+
+<img
+     src="images/loc2chan/boxplots_prez.svg"
+     width="1800"
+     height="auto"/>
+
+:::
+
+- PI: phase insensitive similariy measure, used during the grid search on the global grid to mitigate the local minima issue
+- <span class="alg">Sub-wavelength localization accuracy for the proposed method (in blue)</span>
+
+
+
+---
+
+### KEY TAKEAWAYS
+
+::: {.incremental}
+
+- Combining INR and MB-ML allowed us to:
+
+   - Learn the location-to-channel mapping and overcome the spectral bias issue
+   - Optimize a localization method based on the proposed network
+
+:::

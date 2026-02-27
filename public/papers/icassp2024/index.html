@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Model-based learning for location-to-channel mapping | Baptiste CHATELIER</title>
+<meta name="keywords" content="">
+<meta name="description" content="This paper present a new neural archicture for the location-to-channel mapping learnign problem. Published in IEEE ICASSP 2024.">
+<meta name="author" content="Baptiste CHATELIER,&thinsp;Luc LE MAGOAROU,&thinsp;Vincent CORLAY,&thinsp;Matthieu CRUSSIERE">
+<link rel="canonical" href="http://localhost:1313/papers/icassp2024/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.c7409305c18b573559a4af1e1efabc8fb5c04a4bda940fa651520a1c4e7d6106.css" integrity="sha256-x0CTBcGLVzVZpK8eHvq8j7XASkvalA&#43;mUVIKHE59YQY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/papers/icassp2024/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Model-based learning for location-to-channel mapping" />
+<meta property="og:description" content="This paper present a new neural archicture for the location-to-channel mapping learnign problem. Published in IEEE ICASSP 2024." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/papers/icassp2024/" />
+<meta property="og:image" content="http://localhost:1313/net_results.png" /><meta property="article:section" content="papers" />
+<meta property="article:published_time" content="2024-01-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-05-08T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:1313/net_results.png" />
+<meta name="twitter:title" content="Model-based learning for location-to-channel mapping"/>
+<meta name="twitter:description" content="This paper present a new neural archicture for the location-to-channel mapping learnign problem. Published in IEEE ICASSP 2024."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Papers",
+      "item": "http://localhost:1313/papers/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Model-based learning for location-to-channel mapping",
+      "item": "http://localhost:1313/papers/icassp2024/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Model-based learning for location-to-channel mapping",
+  "name": "Model-based learning for location-to-channel mapping",
+  "description": "This paper present a new neural archicture for the location-to-channel mapping learnign problem. Published in IEEE ICASSP 2024.",
+  "keywords": [
+    
+  ],
+  "articleBody": " Download Paper Slides Abstract Modern communication systems rely on accurate channel estimation to achieve efficient and reliable transmission of information. As the communication channel response is highly related to the user’s location, one can use a neural network to map the user’s spatial coordinates to the channel coefficients. However, these latter are rapidly varying as a function of the location, on the order of the wavelength. Classical neural architectures being biased towards learning low frequency functions (spectral bias), such mapping is therefore notably difficult to learn. In order to overcome this limitation, this paper presents a frugal, model-based network that separates the low frequency from the high frequency components of the target mapping function. This yields an hypernetwork architecture where the neural network only learns low frequency sparse coefficients in a dictionary of high frequency components. Simulation results show that the proposed neural network outperforms standard approaches on realistic synthetic data.\nFigure 3: Reconstruction performances Citation @INPROCEEDINGS{10446774, author={Chatelier, Baptiste and Magoarou, Luc Le and Corlay, Vincent and Criissière, Matthieu}, booktitle={ICASSP 2024 - 2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, title={Model-Based Learning for Location-to-Channel Mapping}, year={2024}, volume={}, number={}, pages={12836-12840}, keywords={Three-dimensional displays;Simulation;Neural networks;Signal processing;Performance gain;High frequency;Reliability;Model-based machine learning;Implicit Neural Representations;Spectral bias;Channel estimation}, doi={10.1109/ICASSP48485.2024.10446774}} ",
+  "wordCount" : "205",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/net_results.png","datePublished": "2024-01-01T00:00:00Z",
+  "dateModified": "2024-05-08T00:00:00Z",
+  "author":[{
+    "@type": "Person",
+    "name": "Baptiste CHATELIER"
+  }, {
+    "@type": "Person",
+    "name": "Luc LE MAGOAROU"
+  }, {
+    "@type": "Person",
+    "name": "Vincent CORLAY"
+  }, {
+    "@type": "Person",
+    "name": "Matthieu CRUSSIERE"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/papers/icassp2024/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Baptiste CHATELIER",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class=" dark" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Baptiste CHATELIER">
+             
+                <img src="http://localhost:1313/favicon.ico" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Baptiste CHATELIER</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/papers/" title="Papers">
+                    <span>Papers</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/news/" title="News">
+                    <span>News</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/alumni/" title="Alumni">
+                    <span>Alumni</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/phd/" title="PhD">
+                    <span>PhD</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/talks/" title="Talks">
+                    <span>Talks</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Model-based learning for location-to-channel mapping
+    </h1>
+    <div class="post-meta"><span title='2024-01-01 00:00:00 +0000 UTC'>January 2024</span>&nbsp;&middot;&nbsp;Baptiste CHATELIER,&thinsp;Luc LE MAGOAROU,&thinsp;Vincent CORLAY,&thinsp;Matthieu CRUSSIERE&nbsp;&middot;&nbsp;<a href="https://ieeexplore.ieee.org/document/10446774" rel="noopener noreferrer" target="_blank">IEEE ICASSP</a>
+
+</div>
+  </header> 
+  <div class="post-content"><hr>
+<h5 id="download">Download</h5>
+<ul>
+<li><a href="https://arxiv.org/pdf/2308.14370" target="_blank">Paper</a>
+</li>
+<li><a href="slides.pdf">Slides</a>
+</li>
+</ul>
+<hr>
+<h5 id="abstract">Abstract</h5>
+<p>Modern communication systems rely on accurate channel estimation to achieve efficient and reliable transmission of information. As the communication channel response is highly related to the user’s location, one can use a neural network to map the user’s spatial coordinates to the channel coefficients. However, these latter are rapidly varying as a function of the location, on the order of the wavelength. Classical neural architectures being biased towards learning low frequency functions (spectral bias), such mapping is therefore notably difficult to learn. In order to overcome this limitation, this paper presents a frugal, model-based network that separates the low frequency from the high frequency components of the target mapping function. This yields an hypernetwork architecture where the neural network only learns low frequency sparse coefficients in a dictionary of high frequency components. Simulation results show that the proposed neural network outperforms standard approaches on realistic synthetic data.</p>
+<hr>
+<h5 id="figure-3-reconstruction-performances">Figure 3: Reconstruction performances</h5>
+<p><img loading="lazy" src="net_results.png" alt=""  />
+</p>
+<hr>
+<h5 id="citation">Citation</h5>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-BibTeX" data-lang="BibTeX"><span style="display:flex;"><span><span style="color:#0a0;text-decoration:underline">@INPROCEEDINGS</span>{10446774,
+</span></span><span style="display:flex;"><span>  <span style="color:#1e90ff">author</span>=<span style="color:#a50">{Chatelier, Baptiste and Magoarou, Luc Le and Corlay, Vincent and Criissière, Matthieu}</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#1e90ff">booktitle</span>=<span style="color:#a50">{ICASSP 2024 - 2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}</span>, 
+</span></span><span style="display:flex;"><span>  <span style="color:#1e90ff">title</span>=<span style="color:#a50">{Model-Based Learning for Location-to-Channel Mapping}</span>, 
+</span></span><span style="display:flex;"><span>  <span style="color:#1e90ff">year</span>=<span style="color:#a50">{2024}</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#1e90ff">volume</span>=<span style="color:#a50">{}</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#1e90ff">number</span>=<span style="color:#a50">{}</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#1e90ff">pages</span>=<span style="color:#a50">{12836-12840}</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#1e90ff">keywords</span>=<span style="color:#a50">{Three-dimensional displays;Simulation;Neural networks;Signal processing;Performance gain;High frequency;Reliability;Model-based machine learning;Implicit Neural Representations;Spectral bias;Channel estimation}</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#1e90ff">doi</span>=<span style="color:#a50">{10.1109/ICASSP48485.2024.10446774}</span>}
+</span></span></code></pre></div><hr>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

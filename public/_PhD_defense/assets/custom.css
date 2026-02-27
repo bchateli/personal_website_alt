@@ -1,0 +1,430 @@
+:root {
+  --mplforestgreen: #228B22;
+  --mpllimegreen: #32CD32;
+
+  --mplindianred: #CD5C5C;
+  --mplfirebrick: #B22222;
+
+  --mplsienna: #A0522D;
+  --mplsandybrown: #F4A460;
+
+  --mplsteelblue: #4682B4;
+  --mplskyblue: #87CEEB;
+
+  --mplgoldenrod: #DAA520;
+  --mplgold: #FFD700;
+}
+
+
+/* Increase author font size */
+#title-slide .author {
+  font-size: 3.5rem !important;  /* Instead of 60px */
+  line-height: 1.2;
+}
+
+/* Increase general text size */
+.reveal {
+  font-size: 2.5rem;
+}
+
+.reveal .slide-number {
+    font-size: 1.5rem !important; 
+}
+
+.reveal .footer {
+    font-size: 1.5rem !important;
+}
+
+/* .reveal .slide-number {
+    font-size: 1.5em !important; 
+}
+
+.reveal .footer {
+    font-size: 1.5em !important;
+} */
+
+/* All unordered lists */
+.reveal ul {
+  list-style-type: disc;  /* disc = round bullet, circle = hollow, square = square */
+  /* padding-left: 1.5em;   optional, ensures proper indentation */
+}
+
+.reveal ul ul {
+  padding-left: 1.2em;  /* indentation for sublists */
+  margin-top: -0.5em;             /* remove extra spacing above/below the sublist itself */
+  margin-bottom: 0;
+}
+
+.reveal li {
+  list-style-type: disc;
+}
+
+/* Adjust spacing between sublist elements */
+.reveal li:not(:last-child) {
+    margin-bottom:-0.3em !important;
+}
+
+.reveal .fragment li {
+  list-style-type: disc;
+}
+
+.reveal ul li::marker {
+  color: #b2b2b2; /* change to any color you want */
+  font-size: 0.7em; /* slightly smaller text and bullets */
+}
+
+.info-box {
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  border-left: 0.25em solid var(--mplsteelblue);
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  background-color: color-mix(in srgb, var(--mplskyblue) 20%, white);
+;
+}
+
+.info-box-red {
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  border-left: 0.25em solid var(--mplfirebrick);
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  background-color: color-mix(in srgb, var(--mplindianred) 20%, white);
+;
+}
+
+.info-box-green {
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  border-left: 0.25em solid var(--mplforestgreen);
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  background-color: color-mix(in srgb, var(--mpllimegreen) 20%, white);
+;
+}
+
+.info-box-sienna {
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  border-left: 0.25em solid var(--mplsienna);
+  padding-left: 1em;
+  padding-right: 0.5em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  background-color: color-mix(in srgb, var(--mplsandybrown) 20%, white);
+;
+}
+
+.theorem-box {
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  border-left: 0.25em solid var(--mplgoldenrod);
+  padding-left: 1em;
+  padding-right: 0.5em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  background-color: color-mix(in srgb, var(--mplgold) 20%, white);
+}
+
+.alg{
+  color: var(--mplforestgreen); /* green */
+  font-weight: 600;
+}
+
+.alr{
+  color: var(--mplfirebrick); /* red */
+  font-weight: 600;
+}
+
+.algold{
+  color: var(--mplgoldenrod); /* goldenrod */
+  font-weight: 600;
+}
+
+.mplfirebrick{
+  color: var(--mplfirebrick); /* red */
+  font-weight: 600;
+}
+
+.mplsienna{
+  color: var(--mplsienna); /* sienna */
+  font-weight: 600;
+}
+
+.mplforestgreen{
+  color: var(--mplforestgreen); /* mplforestgreen */
+  font-weight: 600;
+}
+
+.mplsteelblue{
+  color: var(--mplsteelblue); /* mplsteelblue */
+  font-weight: 600;
+}
+
+/* Full-slide overlay that works with fragments */
+.reveal section .overlay-fragment {
+  position: absolute;
+  inset: 0;                 /* top right bottom left = 0 */
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  pointer-events: none;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.15s ease,
+    visibility 0.05s ease;
+
+  will-change: opacity, visibility;
+}
+
+/* Centered message box */
+.overlay-box {
+  /* background: rgb(241, 241, 241); */
+  background: whitesmoke;
+  padding: 1.4em 1.6em;
+  border-radius: 0.3em;
+  box-shadow: 0 0.3em 1em rgba(0, 0, 0, 0.25);
+  font-size: 1.25em;
+  text-align: center;
+  max-width: 80%;
+}
+
+
+/* .reveal .fragment.overlay-fragment {
+  opacity: 0;
+}
+
+.reveal .fragment.overlay-fragment.visible {
+  opacity: 1;
+} */
+
+.algo-scroll {
+  /* max-height: calc(100vh); */
+  max-height: calc(70vh);
+  overflow-y: auto;
+  padding: 0.6em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.indent {
+  margin-left: 1.86em;
+}
+
+.thanks-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 5em;          /* scalable big text */
+}
+
+.questionbox {
+  --qbox-width: 80%;
+
+  position: relative;
+  width: var(--qbox-width);
+  margin: 1.2em auto;
+  padding: 1.1em 1.2em 1em;
+
+  background: color-mix(in srgb, var(--mplskyblue) 5%, white);
+  border: 0.15em solid color-mix(in srgb, var(--mplsteelblue) 75%, black);
+  border-radius: 0.5em;
+
+  /* font-family: sans-serif; */
+  font-size: 1.15em;
+
+  white-space: normal;
+}
+
+/* Attached title */
+.questionbox-title {
+  position: absolute;
+  top: -1.1em;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 0.05em 0.2em;
+  background: color-mix(in srgb, var(--mplsteelblue) 80%, black);
+  color: white;
+
+  font-size: 1.1em;
+  font-weight: 500;
+  border-radius: 0.3em;
+  border: 0.1em solid color-mix(in srgb, var(--mplsteelblue) 60%, black);
+
+  white-space: nowrap;
+}
+
+/* Avoid extra spacing */
+.questionbox > :last-child {
+  margin-bottom: 0;
+}
+
+.questionbox-red {
+  --qbox-width: 80%;
+
+  position: relative;
+  width: var(--qbox-width);
+  margin: 1.2em auto;
+  padding: 1.1em 1.2em 1em;
+
+  background: color-mix(in srgb, var(--mplindianred) 5%, white);
+  border: 0.15em solid color-mix(in srgb, var(--mplfirebrick) 75%, black);
+  border-radius: 0.5em;
+
+  /* font-family: sans-serif; */
+  font-size: 1.15em;
+
+  white-space: normal;
+
+}
+
+/* Attached title */
+.questionbox-red-title {
+  position: absolute;
+  top: -1.1em;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 0.05em 0.2em;
+  background: color-mix(in srgb, var(--mplfirebrick) 80%, black);
+  color: white;
+
+  font-size: 1.1em;
+  font-weight: 500;
+  border-radius: 0.3em;
+  border: 0.1em solid color-mix(in srgb, var(--mplfirebrick) 60%, black);
+
+  white-space: nowrap;
+}
+
+/* Avoid extra spacing */
+.questionbox-red > :last-child {
+  margin-bottom: 0;
+}
+
+
+.slide-footnote {
+  position: absolute;
+  bottom: 0.8em;
+  left: 1.2em;
+  right: 1.2em;
+
+  font-size: 0.55em;
+  line-height: 1.2;
+  color: #444;
+  opacity: 0.85;
+}
+
+.slide-footnote p {
+  margin: 0;
+}
+
+/* .slide-footnote {
+  margin-top: auto;
+  margin-bottom: 0;
+  padding: 0.8rem 1.2rem;
+  font-size: 0.55em;
+  line-height: 1.2;
+  color: #444;
+  opacity: 0.85;
+}
+
+.slide-footnote p {
+  margin: 0;
+} */
+
+
+.fn-ref {
+  font-size: 0.6em;
+  vertical-align: super;
+}
+
+.story {
+  background-color: black;
+  color: white;
+  font-size: .5em;
+  padding: .3em;
+  font-family: 'Roboto Condensed', sans-serif;
+  vertical-align: middle;
+}
+
+.centered-svg {
+  display: flex;
+  justify-content:center;
+}
+
+.svg-1200 svg {
+  width: 1200px;
+  height: auto;
+}
+
+/* More specific - only affects our custom fragments */
+.reveal .fragment.instant-replace {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  transition: none;
+  animation: none !important;
+}
+
+.reveal .fragment.instant-replace.visible:not(.current-fragment) {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.reveal .fragment.instant-replace.current-fragment {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
+/* Instant transition - no delay */
+.reveal .instant-replace-fade-in {
+  opacity: 0;
+  visibility: hidden;
+  transition: none !important;
+}
+
+.reveal .instant-replace-fade-in.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.reveal .fragment.instant-replace-overlay {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: none !important;
+}
+
+.reveal .fragment.instant-replace-overlay.visible:not(.current-fragment) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.reveal .fragment.instant-replace-overlay.current-fragment {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.justified {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto; /* For better word breaking */
+}
