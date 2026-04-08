@@ -1,6 +1,8 @@
 # News
 <div class="news-scroll" markdown="1">
 
+- *2026.04*: 📝 Our latest conference preprint [*"Unsupervised End-to-End Array Calibration for Multi-Target Integrated Sensing and Communication"*](https://arxiv.org/pdf/2604.00806) is now available! Thanks José for this nice collaboration! 
+
 - *2026.01*: 🎉 I successfully defended my PhD! My thesis [*Model-based learning for high-dimensional wireless systems*](../phd/) will soon be available. 
 
 - *2025.02*: 📝 Our journal paper [*"Model-based learning for multi-antenna multi-frequency location-to-channel mapping"*](https://arxiv.org/pdf/2407.07719) has been accepted to **IEEE JSTSP** (Authors: Baptiste Chatelier, Vincent Corlay, Matthieu Crussière, Luc Le Magoarou).  
