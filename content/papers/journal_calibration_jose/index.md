@@ -1,7 +1,7 @@
 ---
 title: "Unsupervised End-to-End Array Calibration for Multi-Target Integrated Sensing and Communication" 
-date: 2024-06-17
-lastmod: 2024-06-17
+date: 2026-04-01
+lastmod: 2026-04-01
 # tags: ["philology","oleic science","history of oil","Mediterranean world"]
 author: ["José Miguel MATEOS-RAMOS","Baptiste CHATELIER", "Luc LE MAGOAROU", "Nir SHLEZINGER", "Henk WYMEERSCH", "Christian HÄGER"]
 # description: "This paper reviews the impact of phase noise on the array factor. Published in IEEE WCNC 2023" 
