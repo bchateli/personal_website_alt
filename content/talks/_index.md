@@ -6,7 +6,7 @@ description: "Past presentations"
 
 # 2026
 
-- *Model-based learning for high-dimensional wireless systems*: [PhD defense](https://theses.fr/2026ISAR0002), @INSA Rennes, Rennes, France. [Slides](/static/_PhD_defense/slides.html)
+- *Model-based learning for high-dimensional wireless systems*: [PhD defense](https://theses.fr/2026ISAR0002), @INSA Rennes, Rennes, France. [Slides](/_PhD_defense/slides.html)
 
 
 # 2025
