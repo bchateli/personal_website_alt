@@ -4,6 +4,11 @@ description: "Past presentations"
 ---
 <div style="text-align: justify;">
 
+# 2026
+
+- *Model-based learning for high-dimensional wireless systems*: [PhD defense](https://theses.fr/2026ISAR0002), @INSA Rennes, Rennes, France. [Slides](/static/_PhD_defense/slides.html)
+
+
 # 2025
 
 - *Learning the location-to-channel mapping*: [GDR IASIS Représentations Neuronales Implicites: des NERF aux PINN](https://gdr-iasis.cnrs.fr/reunions/representations-neuronales-implicites-des-nerf-aux-pinn/), @Institut Henri Poincaré, Paris, France. [Slides](/others/slides_CHATELIER_GDR_INR.pdf)
