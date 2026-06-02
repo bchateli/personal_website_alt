@@ -1,6 +1,8 @@
 # News
 <div class="news-scroll" markdown="1">
 
+- *2026.06*: 🎉 I joined [_Henk Wymeersch's_](https://sites.google.com/site/hwymeers/) group at Chalmers University of Technology in Göteborg, Sweden as a Postdoctoral Fellow! Looking forward to the research and collaborations ahead!
+
 - *2026.04*: 📝 Our latest conference preprint [*"Unsupervised End-to-End Array Calibration for Multi-Target Integrated Sensing and Communication"*](https://arxiv.org/pdf/2604.00806) is now available! Thanks José for this nice collaboration! 
 
 - *2026.01*: 🎉 I successfully defended my PhD! My thesis [*Model-based learning for high-dimensional wireless systems*](../phd/) will soon be available. 

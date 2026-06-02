@@ -64,11 +64,11 @@ params:
           enabled: true
           title: Baptiste CHATELIER
           subtitle: |
-            I am currently a Postdoctoral Fellow at the National Institute of Applied Sciences in Rennes, France [(_INSA Rennes_)](https://www.insa-rennes.fr/graduate-school-of-engineering.html). 
+            I am currently a Postdoctoral Fellow at Chalmers University of Technology in Göteborg, Sweden at [_Chalmers University of Technology_](https://www.chalmers.se/) working with Prof. [_Henk Wymeersch_](https://sites.google.com/site/hwymeers/) on model-based machine learning for localization, sensing and communication.
             
             <br>
 
-            Prior to that , I obtained my PhD from INSA Rennes, with funding from Mitsubishi Electric R&D Centre Europe [(_MERCE_)](https://www.mitsubishielectric-rce.eu/), and supervision from [__Luc Le MAGOAROU__](https://luclemagoarou.netlify.app/), [__Vincent CORLAY__](https://www.linkedin.com/in/vincent-corlay-b48001108/) and [__Matthieu CRUSSIERE__](https://www.linkedin.com/in/matthieu-crussiere-06646933/). 
+            Prior to that, I was a Postdoctoral Fellow at [_INSA Rennes_](https://www.insa-rennes.fr/graduate-school-of-engineering.html), France, where I also obtained my PhD, with funding from Mitsubishi Electric R&D Centre Europe [(_MERCE_)](https://www.mitsubishielectric-rce.eu/), and supervision from [__Luc Le MAGOAROU__](https://luclemagoarou.netlify.app/), [__Vincent CORLAY__](https://www.linkedin.com/in/vincent-corlay-b48001108/) and [__Matthieu CRUSSIERE__](https://www.linkedin.com/in/matthieu-crussiere-06646933/). 
             
             <br>
             
@@ -76,7 +76,7 @@ params:
 
             <br>
 
-            Feel free to [reach out](mailto:baptiste.chatelier@insa-rennes.fr) if you want to discuss research or potential collaborations!
+            Feel free to [reach out](mailto:bapcha@chalmers.se) if you want to discuss research or potential collaborations!
 
           imageUrl: "avatar_new_cropped.png"
           imageWidth: 180
@@ -106,7 +106,7 @@ params:
               weight: 6
     socialIcons:
         - name: Email
-          url: mailto:baptiste.chatelier@insa-rennes.fr
+          url: mailto:bapcha@chalmers.se
         # - name: CV
         #   url: CV.pdf
         - name: Linkedin
