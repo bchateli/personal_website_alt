@@ -23,19 +23,19 @@ menu:
 
         - name: Talks
           url: /talks/
-          weights: 3
+          weight: 3
 
         - name: Alumni
           url: /alumni/
-          weights: 4
+          weight: 4
 
         - name: PhD
           url: /phd/
-          weights: 5
+          weight: 5
 
         # - name: Search
         #   url: /search/
-        #   weights: 10
+        #   weight: 10
 
 params:
     description: "Baptiste CHATELIER's personal website."
@@ -98,12 +98,14 @@ params:
             - name: Alumni
               url: alumni/
               weight: 4
+
             - name: PhD
               url: phd/
               weight: 5
-            - name: Search  
-              url: search/  
-              weight: 6
+
+            # - name: Search  
+            #   url: search/  
+            #   weight: 6
     socialIcons:
         - name: Email
           url: mailto:bapcha@chalmers.se
