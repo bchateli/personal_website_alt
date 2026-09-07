@@ -11,8 +11,8 @@ cover:
     alt: "proposed_method"
     relative: false
 editPost:
-    URL: "https://arxiv.org/pdf/2506.06387"
-    Text: "Preprint"
+    URL: "https://ieeexplore.ieee.org/document/11653570"
+    Text: "IEEE TWC"
 
 ---
 
