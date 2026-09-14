@@ -5,7 +5,7 @@ lastmod: 2025-06-05
 # tags: ["philology","oleic science","history of oil","Mediterranean world"]
 author: ["Baptiste CHATELIER","Vincent CORLAY","Musa FURKAN KESKIN","Matthieu CRUSSIERE","Henk WYMEERSCH","Luc LE MAGOAROU"]
 # description: "This paper reviews the impact of phase noise on the array factor. Published in IEEE WCNC 2023" 
-summary: "This paper combines a model-based neural architecture that learns the location-to-channel mapping with model-based optimization techniques to perform UE localization through MIMO systems, with sub-wavelegth precision. Preprint." 
+summary: "This paper combines a model-based neural architecture that learns the location-to-channel mapping with model-based optimization techniques to perform UE localization through MIMO systems, with sub-wavelegth precision. Accepted to IEEE TWC." 
 cover:
     image: "pub_loc2chan2loc.PNG"
     alt: "proposed_method"

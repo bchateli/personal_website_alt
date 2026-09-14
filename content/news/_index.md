@@ -1,6 +1,8 @@
 # News
 <div class="news-scroll" markdown="1">
 
+- *2026.09*: 📝 Our recent conference paper *"Online Array Calibration  via Bayesian Tracking"* has been accepted to **IEEE Conference on Integrated Sensing and Communications (ISAC)** (Authors: Sivan Grotas Mussan, José Miguel Mateos-Ramos, Baptiste Chatelier, Luc Le Magoarou, Christian Häger, Henk Wymeersch, Nir Shlezinger). Congrats Sivan for this nice paper!  
+
 - *2026.06*: 📝 Our journal paper [*"Model-based Implicit Neural Representation for sub-wavelength Radio Localization"*](https://arxiv.org/pdf/2506.06387) has been accepted to **IEEE Transactions on Wireless Communications** (Authors: Baptiste Chatelier, Vincent Corlay, Musa Furkan Keskin, Matthieu Crussière, Henk Wymeersch, Luc Le Magoarou).  
 
 - *2026.06*: 🎉 I joined [_Henk Wymeersch's_](https://sites.google.com/site/hwymeers/) group at Chalmers University of Technology in Göteborg, Sweden as a Postdoctoral Fellow! Looking forward to the research and collaborations ahead!
