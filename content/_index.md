@@ -1,6 +1,7 @@
 +++
 # Site-wide settings + home page. Your bio goes below the closing line.
 name = "Baptiste Chatelier"
+url = "https://baptistechatelier.com"   # used for link previews, sitemap.xml and robots.txt
 description = "Baptiste Chatelier — Postdoctoral Fellow at Chalmers University of Technology. Model-based machine learning for localization, sensing and communication."
 email = "bapcha@chalmers.se"
 headline = "Baptiste Chatelier, Postdoctoral Fellow at Chalmers University of Technology"
@@ -17,6 +18,10 @@ url = "mailto:bapcha@chalmers.se"
 [[social]]
 name = "Google Scholar"
 url = "https://scholar.google.com/citations?hl=fr&user=HIUZ-UkAAAAJ"
+
+[[social]]
+name = "ORCID"
+url = "https://orcid.org/0009-0004-6076-6507"
 
 [[social]]
 name = "LinkedIn"

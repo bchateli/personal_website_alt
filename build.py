@@ -186,6 +186,21 @@ def page(site, nav, current, title, body, page_class=""):
         ga = (f'<script async src="https://www.googletagmanager.com/gtag/js?id={gid}"></script>\n'
               f'<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}'
               f'gtag("js",new Date());gtag("config","{gid}");</script>\n')
+    # link previews (LinkedIn, Slack, email...) and canonical URL; needs `url` in content/_index.md
+    og = ""
+    if base := site.get("url", "").rstrip("/"):
+        page_url = base + current if current else ""
+        og = "\n".join(filter(None, [
+            f'<link rel="canonical" href="{esc(page_url)}">' if page_url else "",
+            '<meta property="og:type" content="website">',
+            f'<meta property="og:site_name" content="{esc(site["name"])}">',
+            f'<meta property="og:title" content="{esc(full_title)}">',
+            f'<meta property="og:description" content="{esc(site["description"])}">',
+            f'<meta property="og:url" content="{esc(page_url)}">' if page_url else "",
+            f'<meta property="og:image" content="{esc(base + resolve(site["photo"], "/"))}">',
+            f'<meta property="og:image:alt" content="Portrait of {esc(site["name"])}">',
+            '<meta name="twitter:card" content="summary">',
+        ])) + "\n"
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -194,7 +209,7 @@ def page(site, nav, current, title, body, page_class=""):
 <title>{esc(full_title)}</title>
 <meta name="description" content="{esc(site['description'])}">
 <meta name="author" content="{esc(site['name'])}">
-<link rel="icon" href="/favicon.ico" sizes="32x32">
+{og}<link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -255,6 +270,7 @@ ICONS = {
     "Google Scholar": '<path d="M12 3 1 10l11 7 9-5.7V17h2v-7z" fill="currentColor"/><path d="M6 14.2V18c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.8l-6 3.8z" fill="currentColor"/>',
     "LinkedIn": '<path d="M4 9h4v11H4zM6 3.5a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4zM10 9h3.8v1.6c.6-1 1.9-1.9 3.8-1.9 4 0 4.4 2.5 4.4 5.8V20h-4v-4.8c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V20H10z" fill="currentColor"/>',
     "Chalmers": '<path d="M12 2 2 7v2h20V7z" fill="currentColor"/><path d="M5 11h2v7H5zM11 11h2v7h-2zM17 11h2v7h-2z" fill="currentColor"/><path d="M2 20h20v2H2z" fill="currentColor"/>',
+    "ORCID": '<path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM7.4 6.3a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM6.5 9.6h1.8v8.1H6.5zm3.8 0h4.3c3 0 4.5 2.1 4.5 4.1 0 2.2-1.7 4.1-4.5 4.1h-4.3zm1.8 1.6v4.9h2.3c2.3 0 2.9-1.6 2.9-2.4 0-1.3-.8-2.5-2.9-2.5z"/>',
     "GitHub": '<path fill="currentColor" d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.4-2.2-.2-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/>',
 }
 
@@ -512,6 +528,12 @@ def build():
                          f'<div class="prose">\n{md_block(body, f"/{section}/")}\n</div>', f"page-{section}")
         write(f"{section}/index.html", html_)
     write("search.json", search_index(bio, pages))
+    if base := site.get("url", "").rstrip("/"):
+        urls = ["/"] + [f"/{section}/" for section, _, _ in pages]
+        write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n'
+              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+              + "".join(f"  <url><loc>{esc(base + u)}</loc></url>\n" for u in urls) + "</urlset>\n")
+        write("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {base}/sitemap.xml\n")
     write("404.html", page(site, nav, "", "Page not found", '<p>Sorry, this page does not exist. <a href="/">Back home</a>.</p>'))
     print(f"Built _site/ in {(time.perf_counter() - t0) * 1000:.0f} ms")
 
