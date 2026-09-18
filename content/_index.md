@@ -25,6 +25,10 @@ url = "https://www.linkedin.com/in/baptiste-chatelier/"
 [[social]]
 name = "GitHub"
 url = "https://github.com/bchateli"
+
+[[social]]
+name = "Chalmers"
+url = "https://www.chalmers.se/en/persons/bapcha/"
 +++
 
 I am a Postdoctoral Fellow at [Chalmers University of Technology](https://www.chalmers.se/) in Göteborg, Sweden working with Prof. [Henk Wymeersch](https://sites.google.com/site/hwymeers/) on model-based machine learning for localization, sensing and communication.

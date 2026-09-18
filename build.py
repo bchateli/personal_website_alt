@@ -16,6 +16,7 @@ import argparse
 import hashlib
 import html
 import http.server
+import json
 import os
 import random
 import re
@@ -193,8 +194,8 @@ def page(site, nav, current, title, body, page_class=""):
 <title>{esc(full_title)}</title>
 <meta name="description" content="{esc(site['description'])}">
 <meta name="author" content="{esc(site['name'])}">
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -215,6 +216,9 @@ def page(site, nav, current, title, body, page_class=""):
       <ul id="menu">
 {items}
       </ul>
+      <button class="search-toggle" aria-label="Search the site" title="Search (/)">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg>
+      </button>
       <button class="theme-toggle" aria-label="Toggle dark theme" title="Toggle light/dark theme">
         <svg class="sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
@@ -226,6 +230,14 @@ def page(site, nav, current, title, body, page_class=""):
 {heading}
 {body}
 </main>
+<dialog class="search-box" aria-label="Search">
+  <div class="search-field">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg>
+    <input type="search" placeholder="Search publications, talks, news…" aria-label="Search the site" autocomplete="off" spellcheck="false">
+    <kbd>Esc</kbd>
+  </div>
+  <ul class="search-results" role="listbox"></ul>
+</dialog>
 <footer class="site-footer">
   <div class="wrap">
     <span>Copyright © {date.today().year} {esc(site['name'])}.</span>
@@ -242,6 +254,7 @@ ICONS = {
     "Email": '<path d="M3 5h18v14H3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 6 9 7 9-7" fill="none" stroke="currentColor" stroke-width="2"/>',
     "Google Scholar": '<path d="M12 3 1 10l11 7 9-5.7V17h2v-7z" fill="currentColor"/><path d="M6 14.2V18c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.8l-6 3.8z" fill="currentColor"/>',
     "LinkedIn": '<path d="M4 9h4v11H4zM6 3.5a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4zM10 9h3.8v1.6c.6-1 1.9-1.9 3.8-1.9 4 0 4.4 2.5 4.4 5.8V20h-4v-4.8c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V20H10z" fill="currentColor"/>',
+    "Chalmers": '<path d="M12 2 2 7v2h20V7z" fill="currentColor"/><path d="M5 11h2v7H5zM11 11h2v7h-2zM17 11h2v7h-2z" fill="currentColor"/><path d="M2 20h20v2H2z" fill="currentColor"/>',
     "GitHub": '<path fill="currentColor" d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.4-2.2-.2-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/>',
 }
 
@@ -413,6 +426,43 @@ def pub_card(p, me):
 </article>"""
 
 
+# ---------------------------------------------------------------- search
+
+def plain(text):
+    """Markdown to plain text for the search index."""
+    text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", md_inline(text)))).strip()
+
+
+def search_index(bio, pages):
+    """One entry per paper, news item, list item (talk, student, ...) and page."""
+    entries = [{"t": "Home", "u": "/", "s": "Page", "x": plain(bio)}]
+    for p in load_publications():
+        entries.append({"t": p["title"], "u": f"/publications/#{p['id']}", "s": TYPE_LABELS[p["type"]],
+                        "m": f"{p['venue_short']} · {', '.join(p['authors'])}",
+                        "x": plain(f"{p.get('summary', '')} {p['venue']} {p['abstract']}")})
+    _, news_md = read_md(CONTENT / "news.md")
+    for line in md_items(news_md):
+        d = re.match(r"\*\*([^*]+)\*\*\s*(.*)", line, re.S)
+        when, text = (d.group(1), d.group(2)) if d else ("", line)
+        entries.append({"t": plain(text), "u": "/", "s": "News", "m": when, "x": ""})
+    for section, meta, body in pages:
+        if section == "publications":
+            continue
+        name, url = strip_md(meta.get("title", section.title())), f"/{section}/"
+        entries.append({"t": name, "u": url, "s": "Page", "x": plain(re.sub(r"^\s*([-*+]|#).*$", "", body, flags=re.M))})
+        year = ""
+        for line in body.split("\n"):
+            if h := re.match(r"^##\s+(.*)", line):
+                year = plain(h.group(1))
+            elif m := LIST_RE.match(line):
+                head = re.match(r"\*\*(.+?)\*\*\s*(.*)", m.group(2))
+                title, rest = (plain(head.group(1)), plain(head.group(2))) if head else (plain(m.group(2)), "")
+                entries.append({"t": title, "u": url, "s": name.rstrip("s") if name.endswith("s") else name,
+                                "m": year, "x": rest})
+    return json.dumps(entries, ensure_ascii=False, separators=(",", ":"))
+
+
 # ---------------------------------------------------------------- build
 
 def sync(src_root, dst_root, skip=lambda p: False):
@@ -458,6 +508,7 @@ def build():
             html_ = page(site, nav, f"/{section}/", meta.get("title", section.title()),
                          f'<div class="prose">\n{md_block(body, f"/{section}/")}\n</div>', f"page-{section}")
         write(f"{section}/index.html", html_)
+    write("search.json", search_index(bio, pages))
     write("404.html", page(site, nav, "", "Page not found", '<p>Sorry, this page does not exist. <a href="/">Back home</a>.</p>'))
     print(f"Built _site/ in {(time.perf_counter() - t0) * 1000:.0f} ms")
 
