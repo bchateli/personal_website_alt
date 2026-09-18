@@ -7,7 +7,7 @@ type = "journal"  # journal | conference | preprint
 venue = "IEEE Transactions on Wireless Communications"
 venue_short = "TWC"
 summary = "This paper combines a model-based neural architecture that learns the location-to-channel mapping with model-based optimization techniques to perform UE localization through MIMO systems, with sub-wavelength precision."
-image = "cover.jpg"
+image = "cover.png"
 
 [links]  # paper, publisher, slides, code, video
 paper = "https://arxiv.org/pdf/2506.06387"

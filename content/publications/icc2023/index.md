@@ -7,7 +7,7 @@ type = "conference"  # journal | conference | preprint
 venue = "IEEE International Conference on Communications"
 venue_short = "ICC 2023"
 summary = "This paper presents an improved unfolded MP algorithm for SISO-OFDM channel estimation."
-image = "cover.jpg"
+image = "cover.png"
 
 [links]  # paper, publisher, slides, code, video
 paper = "https://arxiv.org/pdf/2210.06588"

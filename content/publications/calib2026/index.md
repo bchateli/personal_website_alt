@@ -7,7 +7,7 @@ type = "preprint"  # journal | conference | preprint
 venue = "arXiv preprint"
 venue_short = "arXiv"
 summary = "This paper studies a hardware impairment calibration problem in an ISAC system."
-image = "cover.jpg"
+image = "cover.png"
 
 [links]  # paper, publisher, slides, code, video
 paper = "https://arxiv.org/pdf/2604.00806"

@@ -329,6 +329,9 @@ def load_publications():
         meta, body = read_md(f)
         meta["id"] = f.parent.name
         meta["base"] = f"/publications/{f.parent.name}/"
+        img = meta.get("image")
+        if img and not re.match(r"^([a-z]+:|/)", img) and not (f.parent / img).exists():
+            raise SystemExit(f"{f.relative_to(ROOT)}: image {img!r} not found in {f.parent.relative_to(ROOT)}/")
         bib = re.search(r"```bib(?:tex)?\s*\n(.*?)```", body, re.S | re.I)
         meta["bibtex"] = bib.group(1).strip() if bib else ""
         meta["abstract"] = (body[:bib.start()] + body[bib.end():] if bib else body).strip()
