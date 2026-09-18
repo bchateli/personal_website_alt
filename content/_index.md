@@ -36,7 +36,7 @@ name = "Chalmers"
 url = "https://www.chalmers.se/en/persons/bapcha/"
 +++
 
-I am a Postdoctoral Fellow at [Chalmers University of Technology](https://www.chalmers.se/) in Göteborg, Sweden working with Prof. [Henk Wymeersch](https://sites.google.com/site/hwymeers/) on model-based machine learning for localization, sensing and communication.
+I am a Postdoctoral Fellow at [Chalmers University of Technology](https://www.chalmers.se/) in Göteborg, Sweden working with Prof. [Henk Wymeersch](https://sites.google.com/site/hwymeers/) on model-based machine learning for wireless localization and sensing.
 
 Prior to that, I was a Postdoctoral Fellow at [INSA Rennes](https://www.insa-rennes.fr/graduate-school-of-engineering.html), France, where I also obtained my PhD, funded by Mitsubishi Electric R&D Centre Europe ([MERCE](https://www.mitsubishielectric-rce.eu/)), and supervised by [Luc Le Magoarou](https://luclemagoarou.netlify.app/), [Vincent Corlay](https://www.linkedin.com/in/vincent-corlay-b48001108/) and [Matthieu Crussière](https://www.linkedin.com/in/matthieu-crussiere-06646933/).
 
