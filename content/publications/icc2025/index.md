@@ -11,6 +11,7 @@ image = "cover.jpg"
 
 [links]  # paper, publisher, slides, code, video
 paper = "https://arxiv.org/pdf/2411.15144"
+publisher = "https://ieeexplore.ieee.org/document/11161736"
 slides = "slides.pdf"
 +++
 
