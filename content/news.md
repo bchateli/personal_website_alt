@@ -1,5 +1,6 @@
 <!-- News shown on the home page, newest first. Format: - **YYYY.MM** text -->
 
+- **2026.11** 📢 Our recent preprint [*"Model-based learning for DoA estimation and array calibration via continuous sparse recovery"*](https://arxiv.org/pdf/2611.09263) is now available on ArXiv! (Authors: Baptiste Chatelier, José Miguel Mateos-Ramos, Vincent Corlay, Matthieu Crussière, Christian Häger, Henk Wymeersch, Nir Shlezinger, Luc Le Magoarou).
 - **2026.09** 📝 Our recent conference paper *"Online Array Calibration  via Bayesian Tracking"* has been accepted to **IEEE Conference on Integrated Sensing and Communications (ISAC)** (Authors: Sivan Grotas Mussan, José Miguel Mateos-Ramos, Baptiste Chatelier, Luc Le Magoarou, Christian Häger, Henk Wymeersch, Nir Shlezinger). Congrats Sivan for this nice paper!
 - **2026.08** 🎉 I have been awarded a 1 year compute grant to the *National Academic Infrastructure for Supercomputing in Sweden* Arrhenius GPU cluster!
 - **2026.06** 📝 Our journal paper [*"Model-based Implicit Neural Representation for sub-wavelength Radio Localization"*](https://arxiv.org/pdf/2506.06387) has been accepted to **IEEE Transactions on Wireless Communications** (Authors: Baptiste Chatelier, Vincent Corlay, Musa Furkan Keskin, Matthieu Crussière, Henk Wymeersch, Luc Le Magoarou).
